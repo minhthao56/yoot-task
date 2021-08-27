@@ -1,19 +1,12 @@
-import React from "react";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
-// import { Home } from "../containers";
-// import { PrivateRouter } from "./PrivateRouter";
-// import { PublicRouter } from "./PublicRouter";
-
-import { Header, Footer } from "../components";
+import { Switch } from "react-router-dom";
+import { PrivateRouter } from "./PrivateRouter";
+import { HomePage } from "../pages";
+import { BlankLayout } from "../layouts";
 
 export const Routers = () => {
-  // const buildysURL = process.env.REACT_APP_LINK_BUILDYS;
-
   return (
-    <Router>
-      <Switch>
-        
-      </Switch>
-    </Router>
+    <Switch>
+      <PrivateRouter exact component={HomePage} layout={BlankLayout} path="/" />
+    </Switch>
   );
 };
