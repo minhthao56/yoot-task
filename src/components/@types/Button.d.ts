@@ -1,0 +1,3 @@
+interface IButton {
+  color?: string;
+}
