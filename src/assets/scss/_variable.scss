@@ -3,8 +3,11 @@ $screen-width: 414px;
 $screen-dark-width: 414px;
 
 $primary-color: #202749;
-
-$color-background: #202749;
+$text-color: #5e72e4;
+$blue-color: #00f;
+$gray-color: #8898aa;
+$ligher-color: #e9ecef;
+$color-background: #5e72e4;
 $comment-color: rgba(72, 96, 181, 0.31);
 
 @mixin box-show {

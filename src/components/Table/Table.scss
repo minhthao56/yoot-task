@@ -1,0 +1,17 @@
+.table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  .table-head {
+    th {
+      background-color: #dddddd;
+      text-transform: capitalize;
+    }
+  }
+}
+td,
+th {
+  border-top: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
