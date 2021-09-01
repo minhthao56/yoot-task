@@ -1,10 +1,11 @@
-import { Button } from "../../components";
+// import { Sidebar } from "../../components";
+
 import "./HomePage.scss";
 
 export const HomePage = () => {
-  return (
-    <div>
-      <Button>BTN</Button>
-    </div>
-  );
+    return (
+        <div className="home-page">
+		
+        </div>
+    );
 };

@@ -1,16 +1,7 @@
-$color-primary: #ff5b5a;
-$screen-width: 414px;
-$screen-dark-width: 414px;
-
-$primary-color: #202749;
-
-$color-background: #202749;
-$comment-color: rgba(72, 96, 181, 0.31);
-
-@mixin box-show {
-  -webkit-box-shadow: 0px 0px 16px -13px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 0px 0px 16px -13px rgba(0, 0, 0, 0.4);
-  box-shadow: 0px 0px 16px -13px rgba(0, 0, 0, 0.4);
-}
-
-$size: 39px;
+$color-purple:#5e72e4;
+$color-second-purple:#825ee4;
+$color-dark:#152746;
+$color-white:#ffffff;
+$color-red:#f5365c;
+$color-txt:#8898aa;
+$main-bg:#f8f9fe;
