@@ -1,11 +1,9 @@
-@import '../../assets/scss/variable';
+@import "../../assets/scss/variable";
 .beadcrumb {
   display: flex;
   align-items: center;
-  margin: 10px;
-  padding: 10px;
   &__title {
-    text-transform:capitalize;
+    text-transform: capitalize;
     font-size: 20px;
     color: #fff;
   }
@@ -37,8 +35,8 @@
       margin-left: -10px;
     }
     &__item {
-      text-transform:capitalize;
-      font-size: 17px;
+      text-transform: capitalize;
+      font-size: 18px;
       color: $color-txt;
     }
   }
