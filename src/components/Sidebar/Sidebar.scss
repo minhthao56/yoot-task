@@ -13,10 +13,10 @@
     max-width: 100%;
     width: 249px;
     overflow-y: scroll;
-    .sidebar-header {
+    &-header {
         height: 78px;
     }
-    .sidebar-body {
+    &-body {
         padding: 0px 1.5rem;
         .sidebar-nav {
             list-style: none;
@@ -24,12 +24,12 @@
             margin: 0;
         }
     }
-    .sidebar-body::before {
+    &-body::before {
         content: "";
         margin: 1rem;
         display: block;
     }
-    .sidebar__logo {
+    &__logo {
         display: flex;
         height: 72px;
         align-items: center;
@@ -39,7 +39,7 @@
             object-fit: cover;
         }
     }
-    .sidebar-heading {
+    &-heading {
         margin: 0;
         margin-bottom: 8px;
         text-transform: uppercase;
@@ -47,17 +47,17 @@
         font-size: 12px;
         font-weight: 600;
     }
-    .sidebar__item {
+    &__item {
         margin-top: 2px;
-        .sidebar__item-inner {
+        &-inner {
             padding: 0.856rem 0rem;
             display: flex;
             align-items: center;
             transition: color 0.3s ease 0s;
             font-weight: 400;
             line-height: 21px;
-            i {
-                font-size: 1.078rem;
+            &-icon {
+                font-size: 1rem;
                 margin-right: 10px;
                 color: $color-red;
                 min-width: 1.5rem;
@@ -74,7 +74,6 @@
         #icon-purple {
             color: $color-purple;
             line-height: 21px;
-            font-size: 0.9375rem;
         }
     }
     .lines {
