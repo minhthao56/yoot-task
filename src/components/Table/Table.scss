@@ -1,0 +1,29 @@
+@import "../../assets/scss/variable";
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #525f7f;
+  .table-head {
+    th {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 10px;
+      letter-spacing: 1px;
+      text-align: inherit;
+      background: #f6f9fc;
+      text-transform: uppercase;
+      border-top: 2px solid $color-ligher;
+      white-space: nowrap;
+      color: $color-txt;
+    }
+  }
+  .table-body {
+    td {
+      border-top: 1px solid $color-ligher;;
+      text-align: inherit;
+      padding: 10px;
+      white-space: nowrap;
+    }
+  }
+}
