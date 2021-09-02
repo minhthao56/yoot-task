@@ -15,7 +15,7 @@
     justify-content: flex-start;
     list-style-type: none;
     background-color: $color-ligher;
-    padding: 12px;
+    padding: 10px;
     margin: 20px;
     border-radius: 7px;
     &__home {
@@ -39,7 +39,7 @@
     &__item {
       text-transform:capitalize;
       font-size: 18px;
-      color: $color-purple;
+      color: $color-txt;
     }
   }
 }
