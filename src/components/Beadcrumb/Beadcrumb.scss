@@ -4,7 +4,6 @@
   align-items: center;
   margin: 10px;
   padding: 10px;
-  background-color: $text-color;
   &__title {
     text-transform:capitalize;
     font-size: 20px;
@@ -15,7 +14,7 @@
     align-items: center;
     justify-content: flex-start;
     list-style-type: none;
-    background-color: $ligher-color;
+    background-color: $color-ligher;
     padding: 12px;
     margin: 20px;
     border-radius: 7px;
@@ -25,10 +24,10 @@
       &--icon {
         font-size: 17px;
         font-weight: 900;
-        color: $text-color;
+        color: $color-purple;
       }
       &--icon:hover {
-        color: $blue-color;
+        color: $color-blue;
       }
     }
     &__item::before {
@@ -40,7 +39,7 @@
     &__item {
       text-transform:capitalize;
       font-size: 18px;
-      color: $gray-color;
+      color: $color-purple;
     }
   }
 }

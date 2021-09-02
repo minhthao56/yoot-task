@@ -13,14 +13,14 @@
       text-align: inherit;
       background: #f6f9fc;
       text-transform: uppercase;
-      border-top: 2px solid $ligher-color;
+      border-top: 2px solid $color-ligher;
       white-space: nowrap;
       color: $gray-color;
     }
   }
   .table-body {
     td {
-      border-top: 1px solid $ligher-color;
+      border-top: 2px solid $ligher-color;
       text-align: inherit;
       padding: 10px;
       white-space: nowrap;
