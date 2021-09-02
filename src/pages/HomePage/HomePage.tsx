@@ -1,8 +1,9 @@
+import { Button } from "../../components";
 import "./HomePage.scss";
-
 export const HomePage = () => {
   return (
-    <div>   HomePage
+    <div>
+        <Button>BTN</Button>
     </div>
   );
 };
