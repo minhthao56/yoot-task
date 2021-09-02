@@ -1,5 +1,12 @@
 
-
+interface infoCreated{
+    username: string;
+    dateCreated: string;
+}
+interface infoEdit{
+    username: string;
+    dateEdit: string;
+}
 
 interface ITable{ 
     thead: Array<string>;
@@ -7,7 +14,10 @@ interface ITable{
         name?: string,
         device?: string,
         state?: string,
-        infoCreated?: string,
-        infoEdit?: string,
+        username?: string,
+        infoCreated: infoCreated,
+        infoEdit: infoEdit,
+
+        [key: string]: any;
     }>;
 }

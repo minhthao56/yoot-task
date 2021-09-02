@@ -1,17 +1,29 @@
+@import "../../assets/scss/variable";
+
 .table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
   width: 100%;
+  border-collapse: collapse;
+  color: #525f7f;
   .table-head {
     th {
-      background-color: #dddddd;
-      text-transform: capitalize;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 10px;
+      letter-spacing: 1px;
+      text-align: inherit;
+      background: #f6f9fc;
+      text-transform: uppercase;
+      border-top: 2px solid $ligher-color;
+      white-space: nowrap;
+      color: $gray-color;
     }
   }
-}
-td,
-th {
-  border-top: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+  .table-body {
+    td {
+      border-top: 1px solid $ligher-color;
+      text-align: inherit;
+      padding: 10px;
+      white-space: nowrap;
+    }
+  }
 }

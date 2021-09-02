@@ -19,10 +19,18 @@ export const Table: FC<ITable> = ({ children, thead, tbody }) => {
               <td>{info.name}</td>
               <td>{info.device}</td>
               <td>{info.state}</td>
-              <td>{info.infoCreated}</td>
-              <td>{info.infoEdit}</td>
-            </tr>)
-          )}
+              <td>
+                {info.infoCreated.username}
+                <br />
+                {info.infoCreated.dateCreated}
+              </td>
+              <td>
+                {info.infoEdit.username}
+                <br />
+                {info.infoEdit.dateEdit}
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </>
