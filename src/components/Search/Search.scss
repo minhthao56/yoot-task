@@ -1,0 +1,33 @@
+.Search{
+    background-color: white;
+    margin-top: 5px;
+    height: 40px;
+    width: 230px;
+    border: solid 1px gray;
+    border-radius: 100px;
+
+    input{
+        height: 35px;
+        width: 180px;
+        border: hidden 1px;
+        background: transparent;
+    }
+
+}
+.Search:focus-within{
+    margin-top: 5px;
+    height: 40px;
+    width: 300px;
+    border: solid 1px gray;
+    border-radius: 100px;
+    transition:0.3s ease-in-out;
+
+    input{
+    }
+}
+img{
+    margin-bottom: -6px;
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+}
