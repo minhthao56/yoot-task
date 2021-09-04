@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { apiLogin } from "../../services";
+import { apiLogin} from "../../services";
 import "./HomePage.scss";
 export const HomePage = () => {
   useEffect(() => {
