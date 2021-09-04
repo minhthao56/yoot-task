@@ -1,16 +1,16 @@
 import axiosClient from "./axiosClient";
 import queryString from "query-string";
 
-const bashUrl = "Prioriry/";
+const bashUrl = "Priority/";
 
 export const apiPriority = {
-    getListPrioritys: (params: IParamsGetListPriorities) => {
-      const url = bashUrl + "GetListPrioritys";
+    getListPriorities: (params: IParamsGetListPriorities) => {
+      const url = bashUrl + "GetListPriorities";
       return axiosClient.post(url, params );
     },
   
     getDetailPriority: (params: IParamsPriorityId) => {
-      const url = bashUrl + "GetDetailPriority" + queryString.stringify(params);
+      const url = bashUrl + "GetDetailPriority?" + queryString.stringify(params);
       return axiosClient.get(url);
     },
   
@@ -25,7 +25,7 @@ export const apiPriority = {
     },
   
     deletePriority: (params: IParamsPriorityId) => {
-      const url = bashUrl + "DeletePriority" + queryString.stringify(params);
+      const url = bashUrl + "DeletePriority?" + queryString.stringify(params);
       return axiosClient.delete(url);
     },
   };

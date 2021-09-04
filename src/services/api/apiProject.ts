@@ -10,7 +10,7 @@ export const apiProject = {
   },
 
   getDetailProject: (params: IParamsProjectId) => {
-    const url = bashUrl + "GetDetailProject" + queryString.stringify(params);
+    const url = bashUrl + "GetDetailProject?" + queryString.stringify(params);
     return axiosClient.get(url);
   },
 
@@ -25,7 +25,7 @@ export const apiProject = {
   },
 
   deleteProject: (params: IParamsProjectId) => {
-    const url = bashUrl + "DeleteProject" + queryString.stringify(params);
+    const url = bashUrl + "DeleteProject?" + queryString.stringify(params);
     return axiosClient.delete(url);
   },
 };

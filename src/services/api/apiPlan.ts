@@ -10,7 +10,7 @@ export const apiPlan = {
   },
 
   getDetailPlan: (params: IParamsPlanId) => {
-    const url = bashUrl + "GetDetailPlan" + queryString.stringify(params);
+    const url = bashUrl + "GetDetailPlan?" + queryString.stringify(params);
     return axiosClient.get(url);
   },
 
@@ -25,7 +25,7 @@ export const apiPlan = {
   },
 
   deletePlan: (params: IParamsPlanId) => {
-    const url = bashUrl + "DeletePlan" + queryString.stringify(params);
+    const url = bashUrl + "DeletePlan?" + queryString.stringify(params);
     return axiosClient.delete(url);
   },
 };
