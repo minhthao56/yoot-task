@@ -11,5 +11,9 @@ export const HomePage = () => {
       });
   }, []);
 
-  return <div className="home-page">HomePage</div>;
+  return (
+    <div className="home-page">
+      <h1>TEST AUTO DEPLOY</h1>
+    </div>
+  );
 };
