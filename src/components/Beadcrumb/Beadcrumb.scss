@@ -1,0 +1,43 @@
+@import "../../assets/scss/variable";
+.beadcrumb {
+  display: flex;
+  align-items: center;
+  &__title {
+    text-transform: capitalize;
+    font-size: 20px;
+    color: #fff;
+  }
+  .links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    list-style-type: none;
+    background-color: $color-ligher;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 7px;
+    &__home {
+      position: relative;
+      margin: auto 15px;
+      &--icon {
+        font-size: 17px;
+        font-weight: 900;
+        color: $color-purple;
+      }
+      &--icon:hover {
+        color: $color-blue;
+      }
+    }
+    &__item::before {
+      position: absolute;
+      content: "/";
+      font-size: 16px;
+      margin-left: -10px;
+    }
+    &__item {
+      text-transform: capitalize;
+      font-size: 18px;
+      color: $color-txt;
+    }
+  }
+}
