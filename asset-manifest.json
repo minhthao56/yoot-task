@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/yoot-task/static/css/main.f1423613.chunk.css",
-    "main.js": "/yoot-task/static/js/main.84ab5368.chunk.js",
-    "main.js.map": "/yoot-task/static/js/main.84ab5368.chunk.js.map",
+    "main.js": "/yoot-task/static/js/main.b6fe952e.chunk.js",
+    "main.js.map": "/yoot-task/static/js/main.b6fe952e.chunk.js.map",
     "runtime-main.js": "/yoot-task/static/js/runtime-main.518c1b38.js",
     "runtime-main.js.map": "/yoot-task/static/js/runtime-main.518c1b38.js.map",
-    "static/js/2.6ad7c441.chunk.js": "/yoot-task/static/js/2.6ad7c441.chunk.js",
-    "static/js/2.6ad7c441.chunk.js.map": "/yoot-task/static/js/2.6ad7c441.chunk.js.map",
+    "static/js/2.a98f6730.chunk.js": "/yoot-task/static/js/2.a98f6730.chunk.js",
+    "static/js/2.a98f6730.chunk.js.map": "/yoot-task/static/js/2.a98f6730.chunk.js.map",
     "index.html": "/yoot-task/index.html",
     "static/css/main.f1423613.chunk.css.map": "/yoot-task/static/css/main.f1423613.chunk.css.map",
-    "static/js/2.6ad7c441.chunk.js.LICENSE.txt": "/yoot-task/static/js/2.6ad7c441.chunk.js.LICENSE.txt",
+    "static/js/2.a98f6730.chunk.js.LICENSE.txt": "/yoot-task/static/js/2.a98f6730.chunk.js.LICENSE.txt",
     "static/media/logoYoot.441d2bdd.png": "/yoot-task/static/media/logoYoot.441d2bdd.png"
   },
   "entrypoints": [
     "static/js/runtime-main.518c1b38.js",
-    "static/js/2.6ad7c441.chunk.js",
+    "static/js/2.a98f6730.chunk.js",
     "static/css/main.f1423613.chunk.css",
-    "static/js/main.84ab5368.chunk.js"
+    "static/js/main.b6fe952e.chunk.js"
   ]
 }
