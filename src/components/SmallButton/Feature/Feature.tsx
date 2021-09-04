@@ -1,8 +1,7 @@
-
 import { FC } from "react";
 import "./Feature.scss";
 
-export const Feature: FC<IButton> = ({ }) => {
+export const Feature: FC<IButton> = () => {
   return (
     <div className="bt">
       <div className="bt_feature">
@@ -11,8 +10,6 @@ export const Feature: FC<IButton> = ({ }) => {
       <div className="bt_feature">
         <button className="bt_feature-retype">Nhập lại</button>
       </div>
-      
     </div>
-
   );
 };
