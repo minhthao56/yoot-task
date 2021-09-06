@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { apiLogin } from "../../services";
+import { apiAccount, apiLogin } from "../../services";
 import "./HomePage.scss";
 export const HomePage = () => {
   useEffect(() => {
@@ -10,7 +10,6 @@ export const HomePage = () => {
         localStorage.setItem("token", data.Content.Token);
       });
   }, []);
-
   return (
     <div className="home-page">
       <h1>TEST AUTO DEPLOY</h1>
