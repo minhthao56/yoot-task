@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-import { apiAccount, apiLogin } from "../../services";
+import { apiLogin} from "../../services";
 import "./HomePage.scss";
+
 export const HomePage = () => {
   useEffect(() => {
     apiLogin
