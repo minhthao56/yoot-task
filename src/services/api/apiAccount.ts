@@ -13,6 +13,21 @@ export const apiAccount = {
   //getDetailAccount
   getDetailAccount: (params: IParamsGetDetailAccount) => {
     const url = bashUrl + "GetDetailAccount?" + queryString.stringify(params);
-    return axiosClient.get(url);
+    return axiosClient.get(url)
   },
+  //createAccount
+  createAccount: (params:IParamsCreateAccount) => {
+    const url = bashUrl + "CreateAccount";
+    return axiosClient.post(url, params);
+  },
+  //updateAccount
+  updateAccount: (params: IParamsUpdateAccount) => {
+    const url = bashUrl + "UpdateAccount";
+    return axiosClient.put(url, params);
+  },
+  //deleteAccount
+  deleteAccount: (params: IParamsAccountId) => {
+    const url = bashUrl + "DeletetAccount?" + queryString.stringify(params);
+    return axiosClient.delete(url);
+  }
 };
