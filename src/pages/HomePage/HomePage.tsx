@@ -1,19 +1,39 @@
-import { useEffect } from "react";
-import { apiLogin} from "../../services";
+import { unwrapResult } from "@reduxjs/toolkit";
+import { useEffect, useState } from "react";
+import { doGetListAccounts, useAppDispatch, useAppSelector } from "../../redux";
+
 import "./HomePage.scss";
 
 export const HomePage = () => {
+  const dispatch = useAppDispatch();
+  const { error, listAccounts, isLoading } = useAppSelector(
+    (state) => state.account
+  );
+  const [accs, setAccs] = useState<Array<ResAccount>>([]);
+
   useEffect(() => {
-    apiLogin
-      .login({ Email: "thao.nguyen@yoot.vn", Password: "123456789" })
-      .then((res) => {
-        const data: IResLogin = res.data;
-        localStorage.setItem("token", data.Content.Token);
+    dispatch(doGetListAccounts({}))
+      .then(unwrapResult)
+      .then((res: IResGetListAccount) => {
+        setAccs(res.Content.Accounts);
+      })
+      .catch((err) => {
+        alert("Đã có lỗi");
       });
   }, []);
+  console.log("accs", accs);
+
+  if (error === 0) {
+    alert("Đã có lỗi");
+  }
+
   return (
     <div className="home-page">
-      <h1>TEST AUTO DEPLOY</h1>
+      <p>
+        {listAccounts.map((item, i) => {
+          return <p key={i}>{item.Name}</p>;
+        })}
+      </p>
     </div>
   );
 };

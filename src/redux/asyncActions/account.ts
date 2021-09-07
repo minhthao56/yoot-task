@@ -5,6 +5,7 @@ export const doGetListAccounts = createAsyncThunk(
   "account@doGetListAccounts",
   async (params: IParamsGetListAccount) => {
     const result = await apiAccount.getListAccounts(params);
+
     return result.data;
   }
 );
