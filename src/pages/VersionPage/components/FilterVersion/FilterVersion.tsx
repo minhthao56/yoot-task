@@ -1,5 +1,5 @@
 import React from "react";
-import "./FilterTasks.scss";
+import "./FilterVersion.scss";
 
 export const FilterVersion = () => {
   return <div>FilterTasks</div>;

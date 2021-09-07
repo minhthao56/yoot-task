@@ -1,0 +1,18 @@
+@import "../../assets/scss/variable";
+.version-page {
+  margin: 30px;
+  .form-version {
+    height: 300px;
+  }
+  .list-version {
+    border-radius: 10px;
+    background: $color-white;
+    &__header {
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 30px;
+    }
+  }
+}
