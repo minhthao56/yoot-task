@@ -19,6 +19,9 @@
   input:focus {
     border-color: #5e77e4;
   }
+  input::placeholder{
+      color: #c7cace;
+  }
   .Err{
     color: red;
     font-size: 13px;
