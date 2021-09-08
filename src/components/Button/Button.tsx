@@ -9,6 +9,7 @@ export const Button: FC<IButton> = ({
   isUpdate,
   className,
   type,
+  handleOnClick
 }) => {
   const checkClassName = () => {
     let name = "btn";
@@ -35,7 +36,7 @@ export const Button: FC<IButton> = ({
     return name;
   };
   return (
-    <button className={`${checkClassName()} ${className}`} type={type}>
+    <button className={`${checkClassName()} ${className}`} type={type} onClick={handleOnClick}>
       {children}
     </button>
   );
