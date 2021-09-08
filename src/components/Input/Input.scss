@@ -1,15 +1,27 @@
-.Label{
-    color: rgb(31, 30, 30);
-    font-size: 15px;
-}
-.Input{
-    margin-top: 5px;
-    height: 40px;
-    width: 200px;
-    border: solid 1px gray;
+.input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #32325d;
+
+  label {
+    margin: 5px 0;
+  }
+  input {
+    width: 100%;
+    height: 45px;
+    outline: none;
     border-radius: 5px;
-}
-.Err{
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    font-size: 14px;
+  }
+  input:focus {
+    border-color: #5e77e4;
+  }
+  .Err{
     color: red;
     font-size: 13px;
+  }
+
 }

@@ -1,6 +1,23 @@
-.SelectBox{
-    width: 200px;
-    height: 40px;
-    
+.select-box{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    color: #32325d;
+
+    label{
+        margin: 5px 0;
+    }
+ select{
+    width: 100%;
+    height: 45px;
+    outline: none;
     border-radius: 5px;
+    border-color: #dee2e6;
+    padding: 10px;
+    font-size: 14px;
+ }
+ select:focus{
+     border-color: #5e77e4;
+ }
+ 
 }

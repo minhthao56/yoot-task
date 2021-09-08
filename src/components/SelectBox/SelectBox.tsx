@@ -9,23 +9,25 @@ interface ISelectBox {
     id?: string,
     name?: string,
     error?: string
+    options: Array<string>
 }
-export const SelectBox: FC<ISelectBox> = ({ label, placeholder, value, id, name, error }) => {
+export const SelectBox: FC<ISelectBox> = ({ label, placeholder, value, id, name, error, options }) => {
     return (
-        <div>
-            <label className="Label" htmlFor={id}>{label}</label><br></br>
+        <div className="select-box">
+            <label htmlFor={id}>{label}</label>
             <select
-            className="SelectBox"
             placeholder={placeholder}
             value={value}
             //onChange={onChange}
             id={id}
             name={name}
             >
-                <option value="">Grapefruit</option>
-                <option value="">Lime</option>
+                {options.map((option)=>(
+                <option value={option}>{option}</option>
+                ))}
+                {/* <option value="">Lime</option>
                 <option value="">Coconut</option>
-                <option value="mngo">Mango</option>
+                <option value="mngo">Mango</option> */}
             </select>
             <div className="Err" style={{ opacity: error ? 1 : 0 }}>
                 {error}
