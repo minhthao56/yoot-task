@@ -1,3 +1,3 @@
-export * from "./FilterVersion/FilterVersion";
-export * from "./TableVersion/TableVersion";
+export * from "./FilterVersions/FilterVersions";
+export * from "./TableVersions/TableVersions";
 

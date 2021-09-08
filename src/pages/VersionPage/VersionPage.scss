@@ -1,18 +1,21 @@
 @import "../../assets/scss/variable";
 .version-page {
-  margin: 30px;
+    margin: 30px;
+    margin-top: 200px;
   .form-version {
-    height: 300px;
+    border-radius: 10px;
+    background-color:white;
+    margin: 30px auto;
   }
   .list-version {
     border-radius: 10px;
     background: $color-white;
-    &__header {
+    &__header{
       height: 50px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 30px;
+      padding:40px;
     }
   }
 }
