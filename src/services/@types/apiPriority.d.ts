@@ -1,7 +1,7 @@
 interface IParamsGetListPriorities {
-  Title: string;
-  Status: number;
-  Page: number;
+  Title?: string;
+  Status?: number;
+  Page?: number;
 }
 interface IParamsCreatePriority {
   Title: string;
