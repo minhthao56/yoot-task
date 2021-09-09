@@ -29,7 +29,7 @@ export const FilterVersions: FC<IFilterVersion> = ({ handleSubmit }) => {
   };
 
   return (
-    <form className="form-filter" onSubmit={formik.handleSubmit}>
+    <form className="form-version" onSubmit={formik.handleSubmit}>
       <div className="form-header">
         <h3>Tìm kiếm</h3>
         <Feature handleOnClick={handleRetype} />
