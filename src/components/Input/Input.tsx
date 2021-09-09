@@ -22,11 +22,11 @@ export const Input: FC<IInput> = ({
   type,
 }) => {
   return (
-    <div>
+    <>
       <label className="Label" htmlFor={id}>
         {label}
       </label>
-      <br></br>
+      {/* <br></br> dong nay khong can thiet*/} 
       <input
         className="Input"
         placeholder={placeholder}
@@ -39,6 +39,6 @@ export const Input: FC<IInput> = ({
       <div className="Err" style={{ opacity: error ? 1 : 0 }}>
         {error}
       </div>
-    </div>
+    </>
   );
 };

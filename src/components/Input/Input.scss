@@ -1,15 +1,25 @@
-.Label{
+.Label {
     color: rgb(31, 30, 30);
     font-size: 15px;
+    font-weight: 600;
 }
-.Input{
+
+.Input {
     margin-top: 5px;
     height: 40px;
     width: 200px;
-    border: solid 1px gray;
+    border: solid 1px #d9dbdd;
     border-radius: 5px;
+    display: block;
+    width: 100%;
 }
-.Err{
+
+.Input:focus {
+    outline: none;
+    border-color: #5e72e4;
+}
+
+.Err {
     color: red;
     font-size: 13px;
 }

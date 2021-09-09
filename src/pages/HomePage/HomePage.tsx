@@ -29,7 +29,7 @@ export const HomePage = () => {
 
   return (
     <div className="home-page">
-      <p>
+      <p className="margin-top">
         {listAccounts.map((item, i) => {
           return <p key={i}>{item.Name}</p>;
         })}

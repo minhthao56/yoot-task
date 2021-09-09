@@ -1,0 +1,13 @@
+.header {
+    &-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ccc;
+        border-color: rgba(255, 255, 255, .08) !important;
+        padding: 16px 0px;
+    }
+    &-beadcrumb {
+        margin-bottom: 35px;
+    }
+}

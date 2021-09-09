@@ -5,31 +5,41 @@ interface ISelectBox {
     label?: string,
     placeholder?: string,
     value?: string,
-    //onChange?: React.ChangeEventHandler<HTMLInputElement>
+    onChange?: React.ChangeEventHandler<HTMLInputElement | HTMLSelectElement>
     id?: string,
     name?: string,
-    error?: string
+    error?: string,
+    option?:ISelectOption[]
 }
-export const SelectBox: FC<ISelectBox> = ({ label, placeholder, value, id, name, error }) => {
+interface ISelectOption{    
+    value: string,
+    label: string,
+}
+export const SelectBox: FC<ISelectBox> = ({option, label, placeholder, value, id, name,onChange, error }) => {
     return (
-        <div>
+        <>
             <label className="Label" htmlFor={id}>{label}</label><br></br>
             <select
             className="SelectBox"
             placeholder={placeholder}
             value={value}
-            //onChange={onChange}
+            onChange={onChange}
             id={id}
             name={name}
             >
-                <option value="">Grapefruit</option>
+                {
+                    option?.map(({value,label},index) => (
+                        <option key={index} value={value}>{label}</option>
+                    ))
+                }
+                {/* <option value="">all</option>
                 <option value="">Lime</option>
                 <option value="">Coconut</option>
-                <option value="mngo">Mango</option>
+                <option value="mngo">Mango</option> */}
             </select>
             <div className="Err" style={{ opacity: error ? 1 : 0 }}>
                 {error}
             </div>
-        </div>
+        </>
     )
 }

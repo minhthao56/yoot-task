@@ -1,11 +1,19 @@
-import React from "react";
-import { FilterTasks } from "./components";
+import { FilterTasks, TableTasks } from "./components";
 import "./TasksPage.scss";
 
 export const TasksPage = () => {
-  const handleSubimit = () => {
-    //distch
-  };
+	const handleSubimit = () => {
+		//distch
+	};
 
-  return <div>{/* <FilterTasks handleSubimit={handleSubimit} /> */}</div>;
+    return(
+        <div className="task-page">
+			<div className="task-page__header">
+				<FilterTasks />
+			</div>
+			<div className="task-page__body">
+				<TableTasks />
+			</div>
+        </div>
+    ) 
 };
