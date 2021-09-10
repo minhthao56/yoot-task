@@ -21,7 +21,7 @@ export const FilterTasks = () => {
 			<div className="filter-tasks__header">
 				<h3 className="filter-tasks__header-title">Tìm kiếm</h3>
 				<div className="filter-tasks__header-right">
-					<Feature />
+					<Feature handleOnClick={() => {}} />
 				</div>
 			</div>
 			<div className="filter-tasks__body">

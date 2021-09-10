@@ -1,6 +1,7 @@
 @import "../../../assets/scss/variable";
 .bt{
     display: flex;
+    justify-content: flex-end;
     &_style{
             margin-left: 15px;
             &-info{

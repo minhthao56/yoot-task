@@ -6,4 +6,5 @@ interface IButton {
   isLogin?: boolean;
   className?: className;
   type?: "button" | "submit" | "reset";
+  handleOnClick?: () => void; 
 }

@@ -1,12 +1,19 @@
+import console from 'console';
 import { Fragment } from 'react';
 import { ImScissors } from "react-icons/im";
-import { Actions, Button, SelectBox, Table } from '../../../../components';
+import {  Button, SelectBox, Table } from '../../../../components';
 import './PersonJoin.scss';
 
 
 const numberTr =['1','2','3','4'];
 
 export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
+    // const handleDeleteRow = (id:any)=>{
+    //     numberTr.filter((row,index)=>{
+           
+    //         return index !== id
+    //     })
+    // }
     
     return (
         <div className={tab ? "person-join show":"person-join"}>
@@ -31,7 +38,7 @@ export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
                                     </td>
                                     <td>
                                         <div className="bt_style">
-                                            <button className="bt_style-delete" onClick={()=>{console.log(`xoa 1 dong ${number}`)}}>
+                                            <button className="bt_style-delete" onClick={()=>{}}>
                                             <ImScissors />
                                             </button>
                                         </div>

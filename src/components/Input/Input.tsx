@@ -4,7 +4,7 @@ import "./Input.scss";
 interface IInput {
   label?: string;
   placeholder?: string;
-  value?: string;
+  value?: string | number;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   id?: string;
   name?: string;
@@ -22,11 +22,14 @@ export const Input: FC<IInput> = ({
   type,
 }) => {
   return (
+    
+
     <>
       <label className="Label" htmlFor={id}>
         {label}
       </label>
       {/* <br></br> dong nay khong can thiet*/} 
+
       <input
         className="Input"
         placeholder={placeholder}

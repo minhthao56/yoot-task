@@ -1,7 +1,8 @@
-import { FC } from "react"
-import "./SelectBox.scss"
+import { FC } from "react";
+import "./SelectBox.scss";
 
 interface ISelectBox {
+
     label?: string,
     placeholder?: string,
     value?: string,
@@ -43,3 +44,4 @@ export const SelectBox: FC<ISelectBox> = ({option, label, placeholder, value, id
         </>
     )
 }
+

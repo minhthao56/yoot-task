@@ -10,6 +10,7 @@ export const Button: FC<IButton> = ({
   isLogin,
   className,
   type,
+  handleOnClick
 }) => {
 const checkClassName = () => {
 		let name = "btn";
@@ -45,4 +46,5 @@ const checkClassName = () => {
 			{children}
 		</button>
 	);
+
 };
