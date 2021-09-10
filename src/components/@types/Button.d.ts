@@ -5,4 +5,5 @@ interface IButton {
   isUpdate?: boolean;
   className?: className;
   type?: "button" | "submit" | "reset";
+  handleOnClick?: () => void; 
 }

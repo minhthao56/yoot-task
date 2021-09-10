@@ -51,7 +51,7 @@ const sidebarItemNav = [
   },
   {
     display_name: "mức độ",
-    route: "/plan",
+    route: "/priority",
     icon: FiActivity,
   },
   {

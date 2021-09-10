@@ -4,7 +4,7 @@ import "./TasksPage.scss";
 
 export const TasksPage = () => {
   const handleSubimit = () => {
-    //distch
+    //distch 
   };
 
   return <div>{/* <FilterTasks handleSubimit={handleSubimit} /> */}</div>;
