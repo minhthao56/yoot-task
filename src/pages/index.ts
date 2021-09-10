@@ -5,3 +5,4 @@ export * from "./VersionPage/VersionPage";
 export * from "./CreateVersionPage/CreateVersionPage";
 export * from "./PriorityPage/PriorityPage";
 export * from "./CreatePriorityPage/CreatePriorityPage";
+export * from "./EnvPage/EnvPage";
