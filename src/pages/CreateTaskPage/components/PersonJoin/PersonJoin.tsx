@@ -1,4 +1,3 @@
-import console from 'console';
 import { Fragment } from 'react';
 import { ImScissors } from "react-icons/im";
 import {  Button, SelectBox, Table } from '../../../../components';
@@ -8,12 +7,9 @@ import './PersonJoin.scss';
 const numberTr =['1','2','3','4'];
 
 export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
-    // const handleDeleteRow = (id:any)=>{
-    //     numberTr.filter((row,index)=>{
-           
-    //         return index !== id
-    //     })
-    // }
+    const handleDeleteRow = (number:any)=>{
+        console.log('hihi',number);
+    }
     
     return (
         <div className={tab ? "person-join show":"person-join"}>
@@ -38,7 +34,7 @@ export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
                                     </td>
                                     <td>
                                         <div className="bt_style">
-                                            <button className="bt_style-delete" onClick={()=>{}}>
+                                            <button className="bt_style-delete" onClick={()=>{handleDeleteRow(number)}}>
                                             <ImScissors />
                                             </button>
                                         </div>
