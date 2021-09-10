@@ -1,7 +1,7 @@
 interface IProject{
-    Name: string;
-    TypeDevice: number;
-    Status: number;
+    Name?: string;
+    TypeDevice?: number;
+    Status?: number;
 }
 interface IProjectUser {
     Id: number | string;
@@ -9,14 +9,14 @@ interface IProjectUser {
   }
 
 interface IParamsGetListProjects extends IProject {
-  Page: number;
+  Page?: number;
 }
 interface IParamsCreateProject extends IProject {
-  ProjectUsers: IProjectUser;
+  ProjectUsers?: IProjectUser;
 }
 interface IParamsUpdataProject extends IParamsCreateProject{
-    Id: number | string;
+    Id?: number | string;
 }
 interface IParamsProjectId {
-  Id: number | string;
+  Id?: number | string;
 }

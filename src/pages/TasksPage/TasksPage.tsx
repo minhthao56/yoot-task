@@ -2,9 +2,9 @@ import { FilterTasks, TableTasks } from "./components";
 import "./TasksPage.scss";
 
 export const TasksPage = () => {
-	const handleSubimit = () => {
-		//distch
-	};
+	// const handleSubimit = () => {
+	// 	//distch
+	// };
 
     return(
         <div className="task-page">

@@ -7,6 +7,8 @@ const axiosAuth = axios.create({
   baseURL: baseURL + "api/",
   headers: {
     "content-type": "application/json",
+    "Access-Control-Allow-Origin":"*",
+    "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE",
     Authorization: token,
   },
 });

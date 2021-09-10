@@ -3,9 +3,9 @@ import axiosClient from "./axiosClient";
 const bashUrl = "Task/";
 
 export const apiTask = {
-    getListTasks:(params:IParamsGetListTask) =>{
+    getListTasks: (params : IParamsGetListTask) =>{
         const url = bashUrl + "GetListTasks";
-        return axiosClient.post(url,params);
+        return axiosClient.post(url , params);
     },
     getDetailTask:(params:IParamsTaskId)=>{
         const url = bashUrl + "GetDetailTask?"+ queryString.stringify(params);
