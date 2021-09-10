@@ -1,14 +1,21 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { ImScissors } from "react-icons/im";
 import {  Button, SelectBox, Table } from '../../../../components';
 import './PersonJoin.scss';
 
 
-const numberTr =['1','2','3','4'];
+const numberTr =[1,2,3,4];
 
 export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
+    const [listRow,setListRow] = useState(numberTr);
+
+    const handleAddRow = () => {
+        
+        setListRow((listRow) => [...listRow,listRow[listRow.length - 1] + 1]);
+    }
     const handleDeleteRow = (number:any)=>{
-        console.log('hihi',number);
+        const row = Number(number);
+        setListRow(listRow.filter(item => item !== row));
     }
     
     return (
@@ -16,7 +23,7 @@ export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
             <h4 className="person-join__title">Các thành viên</h4>
             <div className="person-join__wrapper">
                 <div className="person-join__wrapper-header">
-                    <Button className="btn-addRow">Thêm hàng</Button>
+                    <Button className="btn-addRow" handleOnClick={()=> {handleAddRow()}}>Thêm hàng</Button>
                 </div>  
                 <div className="person-join__wrapper-body">
                     <Table 
@@ -24,7 +31,7 @@ export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
                     tbody={
                         <Fragment>
                         {
-                            numberTr.map((number)=> (
+                            listRow.map((number)=> (
                                 <tr key={number}>
                                     <td>
                                         <SelectBox />

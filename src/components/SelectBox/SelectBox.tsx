@@ -10,6 +10,7 @@ interface ISelectBox {
     id?: string,
     name?: string,
     error?: string,
+    // options: Array<Array<number | string>>,
     option?:ISelectOption[]
 }
 interface ISelectOption{    
@@ -32,6 +33,7 @@ export const SelectBox: FC<ISelectBox> = ({option, label, placeholder, value, id
                     option?.map(({value,label},index) => (
                         <option key={index} value={value}>{label}</option>
                     ))
+                    
                 }
                 {/* <option value="">all</option>
                 <option value="">Lime</option>

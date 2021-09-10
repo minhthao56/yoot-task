@@ -41,7 +41,7 @@ const sidebarItemNav = [
   },
   {
     display_name: "tiêu chí",
-    route: "/plan",
+    route: "/criteria",
     icon: FaTelegramPlane,
   },
   {

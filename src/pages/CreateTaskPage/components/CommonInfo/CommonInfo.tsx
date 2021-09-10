@@ -27,7 +27,7 @@ export const CommonInfo: React.FC<IPropsTab> = ({tab}) => {
                     <Input label="Hạn chót" type="datetime-local" placeholder=""/>
                 </div>
                 <div className="common-info__form-input">
-                    <SelectBox label="Ưu tiên"/>
+                    <SelectBox label="Ưu tiên" />
                 </div>
                 <div className="common-info__form-input">
                     <SelectBox label="Môi Trường"/>

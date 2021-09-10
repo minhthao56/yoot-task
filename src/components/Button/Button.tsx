@@ -42,7 +42,7 @@ const checkClassName = () => {
 		return name;
 	};
 	return (
-		<button className={`${checkClassName()} ${className}`} type={type}>
+		<button className={`${checkClassName()} ${className}`} type={type} onClick={handleOnClick}>
 			{children}
 		</button>
 	);
