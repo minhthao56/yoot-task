@@ -1,10 +1,13 @@
 .avatar {
+    position: relative;
+
     &-box {
         display: flex;
         align-items: center;
         justify-content: flex-start;
         cursor: pointer;
     }
+
     &__img {
         border-radius: 50%;
         width: 36px;
@@ -12,14 +15,20 @@
         object-fit: cover;
         margin-right: 8px;
     }
+
     &__name {
         color: #fff;
     }
+
     .show {
         transform: scale(1);
         transition: transform 0.5s linear;
     }
+
     &-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
         width: 200px;
         min-height: 130px;
         background: #fefeff;
@@ -27,28 +36,34 @@
         padding: 10px;
         transform: scale(0);
         transition: transform 0.3s linear;
+
         &__header {
             margin: 0;
             padding: 0px 10px;
+
             span {
                 font-size: 14px;
             }
         }
+
         &__body {
             list-style: none;
             padding-left: 0;
         }
+
         &__item {
             display: flex;
             align-items: center;
             border-bottom: 1px solid #ccc;
             padding: 10px;
             cursor: pointer;
+
             .icon {
                 margin-right: 10px;
                 font-size: 1rem;
             }
         }
+
         &__item:last-child {
             border-bottom: 0;
         }
