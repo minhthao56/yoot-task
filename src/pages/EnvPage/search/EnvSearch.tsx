@@ -2,23 +2,20 @@ import React, { useState } from 'react'
 import { Button, Input, SelectBox } from '../../../components'
 import './EnvSearch.scss'
 const EnvSearch: React.FC<IEnvSearch> = ({ handleSearch }) => {
-    const options = [
-        { value: 0, label: 'Tất cả' },
-        { value: 1, label: 'Hoạt động' },
-        { value: 2, label: 'Ngưng hoạt động' },
-    ];
+    const options = [[0, "Tất cả"], [1, "Hoạt Động"],
+    [2, "Ngưng Hoạt Động"]];
     const [keyword, setKeyword] = useState('');
     const [status, setStatus] = useState(0);
     const handleChangeKeyword: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         setKeyword(e.target.value)
     }
-    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleClick = () => {
         handleSearch(keyword, status)
     }
-    const handleChangeStatus: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
-        setStatus(Number(e.target.value));
+    const handleChangeStatus = (valueSelect: number) => {
+        setStatus(valueSelect);
     }
-    const handleReset = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleReset = () => {
         setKeyword('');
         setStatus(0);
         handleSearch('', 0);
@@ -29,8 +26,8 @@ const EnvSearch: React.FC<IEnvSearch> = ({ handleSearch }) => {
                 <div className="envSearch__title">
                     <h4>Tìm kiếm</h4>
                     <div className="envSearch__title__services">
-                        <Button onClick={handleClick} isSearch={true} />
-                        <Button onClick={handleReset} isReset={true} />
+                        <Button handleOnClick={handleClick} isSearch={true} />
+                        <Button handleOnClick={handleReset} isReset={true} />
                     </div>
                 </div>
                 <div className="envSearch__content">
@@ -44,7 +41,7 @@ const EnvSearch: React.FC<IEnvSearch> = ({ handleSearch }) => {
                             </label>
                             <Select className="envSearch-select" />
                         </div> */}
-                        <SelectBox label="Trạng thái" onChange={handleChangeStatus} options={options} />
+                        <SelectBox label="Trạng thái" handleOnChange={handleChangeStatus} options={options} />
                     </div>
                 </div>
             </div>
