@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { Button, Input, SelectBox } from "../../components";
 import { apiDevice } from "../../services/api/apiDevice";
-import "./CreateVersionPage.scss";
+import "./CreateDevicePage.scss";
 
-export const CreateVersionPage = () => {
+export const CreateDevicePage = () => {
   const formik = useFormik({
     initialValues: {
       Title: "",
@@ -31,7 +31,7 @@ export const CreateVersionPage = () => {
           })
           .then((device) => {
             alert("Thêm Thành Công ");
-            window.location.replace("/version");
+            window.location.replace("/device");
           });
       } catch (error) {
         console.log(error);
@@ -42,17 +42,18 @@ export const CreateVersionPage = () => {
     formik.values.Status = valueSelect;
   };
   return (
-    <form className="create-version" onSubmit={formik.handleSubmit}>
+    <form className="create-device" onSubmit={formik.handleSubmit}>
       <div className="form-header">
-        <h3>Tạo mới version</h3>
+        <h3>Tạo loại thiết bị mới</h3>
         <div className="form-header__control">
           <Button isSave type="submit" />
-          <Link to="/version">
+          <Link to="/device">
             <Button isCancel type="button" />
           </Link>
         </div>
       </div>
       <div className="form-body">
+        <h3>THÔNG TIN CHUNG</h3>
         <div className="form-body__row">
           <Input
             label="Tiêu đề"

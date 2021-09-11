@@ -1,4 +1,4 @@
-.create-version {
+.create-device {
   background: white;
   margin: 0px auto;
   border-radius: 10px;
@@ -22,6 +22,10 @@
     &__row{
         display: flex;
         height: 120px;
+    }
+    h3{
+      color: gray;
+      font-size: 15px;
     }
   }
 }

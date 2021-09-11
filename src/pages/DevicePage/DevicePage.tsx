@@ -13,7 +13,7 @@ export const DevicePage = () => {
         .getListDevices({})
         .then((res) => res.data)
         .then((data: IResGetListDevices) => {
-          const listDevice = data.Content.Devices;
+          const listDevice = data.Content.TypeDevices;
           setDataDevices(listDevice);
         });
     } catch (error) {
@@ -30,7 +30,7 @@ export const DevicePage = () => {
         .then((res) => res.data)
         .then((data: IResGetListDevices) => {
           //const listDevice = data.Content.Devices;
-          setDataDevices(data.Content.Devices);
+          setDataDevices(data.Content.TypeDevices);
         });
     } catch (error) {
       console.log(error);

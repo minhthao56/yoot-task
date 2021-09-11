@@ -1,7 +1,7 @@
 import axiosClient from "./axiosClient";
 import queryString from "query-string";
 
-const bashUrl = "Device/";
+const bashUrl = "TypeDevice/";
   
 export const apiDevice = {
     getListDevices: (params: IParamsGetListDevices) => {
