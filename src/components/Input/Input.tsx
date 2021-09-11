@@ -4,7 +4,7 @@ import "./Input.scss";
 interface IInput {
   label?: string;
   placeholder?: string;
-  value?: string;
+  value?: string | number;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   id?: string;
   name?: string;
@@ -22,13 +22,12 @@ export const Input: FC<IInput> = ({
   type,
 }) => {
   return (
-    <div>
-      <label className="Label" htmlFor={id}>
+    <div className="input-group">
+      <label htmlFor={id}>
         {label}
       </label>
-      <br></br>
+
       <input
-        className="Input"
         placeholder={placeholder}
         value={value}
         onChange={onChange}

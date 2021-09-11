@@ -31,7 +31,7 @@ export const HomePage = () => {
     <div className="home-page">
       <p>
         {listAccounts.map((item, i) => {
-          return <p key={i}>{item.Name}</p>;
+          return <p key={i}>{item.UpdateUserName}</p>;
         })}
       </p>
     </div>

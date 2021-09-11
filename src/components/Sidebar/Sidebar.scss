@@ -11,6 +11,8 @@
   width: 249px;
   overflow-y: scroll;
   z-index: 1;
+  position: sticky;
+  top: 0;
   &-header {
     height: 78px;
   }
