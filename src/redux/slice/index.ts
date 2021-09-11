@@ -3,4 +3,3 @@ export * from "./appSlice/demoSlice";
 
 /* API */
 export * from "./apiSlice/accountSlice";
-export * from "./apiSlice/environmentSlice";

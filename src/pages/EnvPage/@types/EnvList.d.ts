@@ -1,3 +1,0 @@
-interface IEnvList {
-    tableProps: ITable
-}

@@ -7,8 +7,6 @@ export const Button: FC<IButton> = ({
   isCancel,
   isSave,
   isUpdate,
-  isSearch,
-  isReset,
   className,
   type,
   handleOnClick
@@ -34,16 +32,6 @@ export const Button: FC<IButton> = ({
     if (isUpdate) {
       name = name + " btn--black";
       children = "Cập nhật ảnh";
-    }
-
-    if (isSearch) {
-      name = name + " btn--outline--blue";
-      children = "Tìm kiếm";
-    }
-
-    if (isReset) {
-      name = name + " btn--outline--black";
-      children = "Nhập lại";
     }
     return name;
   };
