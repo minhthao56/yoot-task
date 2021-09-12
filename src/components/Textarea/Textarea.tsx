@@ -8,18 +8,18 @@ interface ITextarea {
     onChange?: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
     id?: string,
     name?: string,
-    error?: string;
+    error?: string | boolean;
 
 
 }
-export const Textarea: FC<ITextarea> = ({ label, placeholder, value, id, name, error }) => {
+export const Textarea: FC<ITextarea> = ({ label, placeholder, value, id, name, error,onChange }) => {
     return (
         <div>
             <label className="Label" htmlFor={id}>{label}</label><br></br>
             <textarea className="Text"
                 placeholder={placeholder}
                 value={value}
-                // onChange={onChange}
+                onChange={onChange}
                 id={id}
                 name={name}
             />

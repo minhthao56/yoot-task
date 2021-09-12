@@ -22,9 +22,9 @@ export const HomePage = () => {
 				alert("Đã có lỗi");
 			});
 	}, []);
-	useEffect(() =>{
-		dispatch(doGetListStatusTask({}));
-	},[]);
+	// useEffect(() =>{
+	// 	dispatch(doGetListStatusTask({}));
+	// },[]);
 	useEffect(() =>{
 		dispatch(doGetListTasks({}));
 	},[]);

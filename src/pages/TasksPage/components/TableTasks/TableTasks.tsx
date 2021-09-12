@@ -9,41 +9,12 @@ const theadTask = [
 	"thông tin","trạng thái",
 	"thông tin tạo","thông tin sửa",""
 ]
-const tbody = [
-	{
-		code:"110022",
-		title:"Khi nhập giờ hẹn lịch phỏng vấn thì click vào vị trí ngày để xoá sẽ k ảnh hưởng đến tháng và năm (UV và NTD)",
-		personJoin:"nam quoc",
-		statusWork:"to do",
-		info:"Dự án: Việc làm NTD (Web)",
-		status:"hoat dong",
-		infoCreated:"nam quoc 20/20/2021",
-		infoUpdate:"nam quoc 20/20/2021 2:12 pm",
-	},
-	{
-		code:"110056",
-		title:"Đang bị lỗi k nhập tiêu đề là k lưu lại, cần có dòng đỏ dưới mỗi tiêu đề",
-		personJoin:"nam quoc",
-		statusWork:"to do",
-		info:"Dự án: Việc làm NTD (Web)",
-		status:"hoat dong",
-		infoCreated:"nam quoc 20/20/2021",
-		infoUpdate:"nam quoc 20/20/2021 2:12 pm",
-	},
-	{
-		code:"110067",
-		title:"NTD chưa nhận được thông báo ở chuông nên k biết được có ng mới ứng tuyển",
-		personJoin:"nam quoc",
-		statusWork:"to do",
-		info:"Dự án: Việc làm NTD (Web)",
-		status:"hoat dong",
-		infoCreated:"nam quoc 20/20/2021",
-		infoUpdate:"nam quoc 20/20/2021 2:12 pm",
-	},
-]
-	
 
-export const TableTasks = () => {
+interface IPropsData{
+	dataTask:any
+}
+
+export const TableTasks: React.FC<IPropsData> = ({dataTask}) => {
   	// Khong call api tai day chi truyen data props
 
 	return (
@@ -59,7 +30,7 @@ export const TableTasks = () => {
 					tbody={
 						<Fragment>
 							{
-								tbody.map((task,index) =>(
+								dataTask.map((task:any,index:number) =>(
 									<tr key={index} className="">
 										<td>
 											<b>
@@ -92,8 +63,8 @@ export const TableTasks = () => {
 											{task.infoUpdate}
 										</td>
 										<td>
-											<Link to={`/tasks/update/${task.code}`} className="bt_style" target="_blank">
-												<button className="bt_style-edit" onClick={() =>{console.log(task.code)}}>
+											<Link to={`/tasks/update/${task.Id}`} className="bt_style" target="_blank">
+												<button className="bt_style-edit" onClick={() =>{console.log(task.Id)}}>
 													<RiPencilRulerFill />
 												</button>
 											</Link>											

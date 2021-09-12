@@ -48,7 +48,19 @@ export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
         const row = Number(number);
         setListRow(listRow.filter(item => item !== row));
     }
-    
+    // use for with select option
+    const formik = useFormik({
+		initialValues: {
+			Status: 0,
+			OptionUser: optionUser,
+			OptionTypeTask: optionTypeTask,
+		},
+		onSubmit: (values) => {
+		},
+	});
+	const handleOnChange = (valueSelect: number) => {
+		formik.values.Status = valueSelect;
+	};
     return (
         <div className={tab ? "person-join show":"person-join"}>
             <h4 className="person-join__title">Các thành viên</h4>
@@ -65,12 +77,12 @@ export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
                             listRow.map((number)=> (
                                 <tr key={number}>
                                     <td>
-                                        <SelectBox id ="" name="" value=""
-                                        options={optionUser} handleOnChange={handleChangeStatus}/>
+                                        <SelectBox id ="userJoin" name="userJoin"
+                                        options={optionUser} handleOnChange={handleOnChange}/>
                                     </td>
                                     <td>
-                                        <SelectBox id ="" name="" value="" 
-                                        options={optionTypeTask} handleOnChange={handleChangeStatus}/>
+                                        <SelectBox id ="typeTaskUser" name="typeTaskuser" 
+                                        options={optionTypeTask} handleOnChange={handleOnChange}/>
                                     </td>
                                     <td>
                                         <div className="bt_style">

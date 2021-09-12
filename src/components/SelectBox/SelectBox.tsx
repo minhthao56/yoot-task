@@ -10,7 +10,7 @@ interface ISelectBox {
     id?: string,
     name?: string,
     error?: string,
-    options: Array<Array<number | string>>;
+    options?: Array<Array<number | string> | any>;
     handleOnChange: (valueSelect: number) => void;
 }
 export const SelectBox: FC<ISelectBox> = ({options, label, placeholder, value, id, name,handleOnChange, error }) => {
@@ -28,7 +28,7 @@ export const SelectBox: FC<ISelectBox> = ({options, label, placeholder, value, i
             id={id}
             name={name}
             >
-                {options.map((option, idx) => (
+                {options?.map((option, idx) => (
                     <option key={idx} value={option[0]}>
                         {option[1]}
                     </option>

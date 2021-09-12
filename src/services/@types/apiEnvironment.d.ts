@@ -1,9 +1,9 @@
 interface IEnvironment {
-    Title: string;
-    Status: number|string;
+    Title?: string;
+    Status?: number|string;
 }
 interface IParamsGetListEnvironment extends IEnvironment{
-    Page:number|string;
+    Page?:number|string;
 }
 interface IParamsGetDetailEnvironment {
     Id:number | string;

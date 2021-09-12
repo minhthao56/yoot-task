@@ -1,11 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '../../components';
+import { apiEnvironment, apiPriority, apiProject, apiStatusTask } from '../../services';
+import { apiTypeDevice } from '../../services/api/apiTypeDevice';
+import { apiVersion } from '../../services/api/apiVersion';
 import { CommonInfo, PersonJoin } from './components';
 import './CreateTaskPage.scss';
 
 export const CreateTaskPage = () => {
 	const [showPersonJoin,setShowPersonJoin] = useState(true);
 	const [showCommonInfo,setShowCommonInfo] = useState(false);
+	const [statusTask, setStatusTask] = useState([]);
+	const [version, setVersion] = useState([]);
+	const [priority, setPPriority] = useState([]);
+	const [typeDevices,setTypeDevices] = useState([]);
+	const [env,setEnv] = useState([]);
+	const [project,setProject] = useState([]);
 	// function handler tab
 	const handleShowTabPerson = ()=>{
 		if(showPersonJoin === false){
@@ -22,6 +31,58 @@ export const CreateTaskPage = () => {
 			setShowCommonInfo(true);
 		}
 	}
+	// lay api 
+	useEffect(() => {
+		try {
+			apiStatusTask
+				.getListStatusTasks({})
+				.then((res)=>res.data)
+				.then((data) => {
+					const listStatusTask = data.Content.StatusTasks;
+					setStatusTask(listStatusTask);
+				})
+			apiVersion
+				.getListVersions({})
+				.then((res)=>res.data)
+				.then((data) => {
+					const listVersion = data.Content.Versions;
+					setVersion(listVersion);
+				})
+			apiPriority
+				.getListPriorities({})
+				.then((res)=>res.data)
+				.then((data) => {
+					const listPriority = data.Content.Priorities;
+					setPPriority(listPriority);
+				})
+			apiTypeDevice
+				.getListTypeDevices({})
+				.then((res)=>res.data)
+				.then((data) => {
+					const listTypeDevices = data.Content.TypeDevices;
+					setTypeDevices(listTypeDevices);
+				})
+			apiEnvironment
+				.getListEnvironment({})
+				.then((res)=>res.data)
+				.then((data) => {
+					const listEnv = data.Content.Environments;
+					setEnv(listEnv);
+				})
+			apiProject
+				.getListProjects({})
+				.then((res)=>res.data)
+				.then((data) => {
+					const listProject = data.Content.Projects;
+					setProject(listProject);
+				})
+
+
+				
+		} catch (error) {
+			console.log(error);
+		}
+	},[])
     return (
         <div className="create-task">
 			<div className="create-task__header">
@@ -39,8 +100,17 @@ export const CreateTaskPage = () => {
 						<span  className={showCommonInfo === true ? 'active':''} onClick={() =>{handleShowTabJoin()}}>Người tham gia</span>
 					</div>
 					<div className="nav-tab__content">
-						<CommonInfo tab={showPersonJoin}/>
-						<PersonJoin tab={showCommonInfo}/>
+						<CommonInfo tab={showPersonJoin}
+						listStatusTask={statusTask}
+						listVersion={version}
+						ListPriority={priority}
+						listTypeDevices={typeDevices}
+						listEnv={env}
+						listProject={project}
+						/>
+						<PersonJoin tab={showCommonInfo}
+
+						/>
 
 					</div>
 				</div>
