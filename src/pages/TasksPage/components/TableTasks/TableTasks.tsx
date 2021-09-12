@@ -50,7 +50,7 @@ export const TableTasks = () => {
 		<div className="table-tasks">
 			<div className="table-tasks__header">
 				<h3 className="table-tasks__header-title">Danh sách công việc</h3>
-				<Link to="/task/create" className="table-tasks__header-right">
+				<Link to={`/tasks/create`} className="table-tasks__header-right">
 					<Button type="submit" isCreate className="btn-search">Tao moi</Button>
 				</Link>
 			</div>
@@ -92,11 +92,11 @@ export const TableTasks = () => {
 											{task.infoUpdate}
 										</td>
 										<td>
-											<div className="bt_style">
-												<button className="bt_style-edit">
+											<Link to={`/tasks/update/${task.code}`} className="bt_style" target="_blank">
+												<button className="bt_style-edit" onClick={() =>{console.log(task.code)}}>
 													<RiPencilRulerFill />
 												</button>
-											</div>											
+											</Link>											
 										</td>
 									</tr>
 								))

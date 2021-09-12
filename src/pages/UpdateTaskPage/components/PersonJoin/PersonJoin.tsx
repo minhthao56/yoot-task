@@ -50,7 +50,7 @@ export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
     }
     
     return (
-        <div className={tab ? "person-join show":"person-join"}>
+        <div className="person-join show">
             <h4 className="person-join__title">Các thành viên</h4>
             <div className="person-join__wrapper">
                 <div className="person-join__wrapper-header">

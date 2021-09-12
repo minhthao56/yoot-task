@@ -4,7 +4,7 @@ import './CommonInfo.scss';
 export const CommonInfo: React.FC<IPropsTab> = ({tab}) => {
     console.log(tab);
     return (
-        <div className={tab ? "common-info show":"common-info"}>
+        <div className="common-info show">
             <h4 className="common-info__title">Thông tin chung </h4>
             <form action="" className="common-info__form">
                 <div className="common-info__form-row">

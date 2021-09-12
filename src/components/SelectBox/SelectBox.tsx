@@ -10,14 +10,10 @@ interface ISelectBox {
     id?: string,
     name?: string,
     error?: string,
-    // options: Array<Array<number | string>>,
-    option?:ISelectOption[]
+    options: Array<Array<number | string>>;
+    handleOnChange: (valueSelect: number) => void;
 }
-interface ISelectOption{    
-    value: string,
-    label: string,
-}
-export const SelectBox: FC<ISelectBox> = ({option, label, placeholder, value, id, name,onChange, error }) => {
+export const SelectBox: FC<ISelectBox> = ({options, label, placeholder, value, id, name,handleOnChange, error }) => {
     return (
         <>
             <label className="Label" htmlFor={id}>{label}</label><br></br>
@@ -25,20 +21,19 @@ export const SelectBox: FC<ISelectBox> = ({option, label, placeholder, value, id
             className="SelectBox"
             placeholder={placeholder}
             value={value}
-            onChange={onChange}
+            onChange={(e) => {
+                const valueSelect = +e.target.value;
+                handleOnChange(valueSelect);
+              }}
             id={id}
             name={name}
             >
-                {
-                    option?.map(({value,label},index) => (
-                        <option key={index} value={value}>{label}</option>
-                    ))
-                    
-                }
-                {/* <option value="">all</option>
-                <option value="">Lime</option>
-                <option value="">Coconut</option>
-                <option value="mngo">Mango</option> */}
+                {options.map((option, idx) => (
+                    <option key={idx} value={option[0]}>
+                        {option[1]}
+                    </option>
+                ))}
+                
             </select>
             <div className="Err" style={{ opacity: error ? 1 : 0 }}>
                 {error}
