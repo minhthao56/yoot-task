@@ -9,6 +9,7 @@ export const Table: FC<ITable> = ({ thead, tbody }) => {
           {thead.map((th, idx) => (
             <th key={idx}>{th}</th>
           ))}
+          <th></th>
           
         </tr>
       </thead>
