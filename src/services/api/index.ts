@@ -15,5 +15,7 @@ export * from "./apiProject";
 export * from "./apiDevice";
 export * from "./apiStatusTask"
 
+export * from "./apiPriority"
+
 
 

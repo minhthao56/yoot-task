@@ -16,4 +16,8 @@ export * from "./StatusTaskPage/StatusTaskPage"
 export * from "./ProjectPage/ProjectPage"
 export * from "./CreateProjectPage/CreateProjectPage"
 export * from "./CreateStatusPage/CreateStatusPage"
+export * from "./CreatePriorityPage/CreatePiorityPage"
+export * from "./PriorityPage/PriorityPage"
+export * from "./CreateVersionPage/CreateVersionPage"
+export * from "./VersionPage/VersionPage"
 
