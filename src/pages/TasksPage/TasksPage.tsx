@@ -44,7 +44,7 @@ const dataTask = [
 	},
 ]
 export const TasksPage = () => {
-  const dispatch = useAppDispatch();
+  	const dispatch = useAppDispatch();
 	const { error, listAccounts, isLoading } = useAppSelector(
 		(state) => state.account
 	);
@@ -110,10 +110,7 @@ export const TasksPage = () => {
 				.then((data) => {
 					const listProject = data.Content.Projects;
 					setProject(listProject);
-				})
-
-
-				
+				})				
 		} catch (error) {
 			console.log(error);
 		}
