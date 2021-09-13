@@ -1,0 +1,30 @@
+.create-priority {
+    background: white;
+    margin: 0px auto;
+    border-radius: 10px;
+    margin-top: 180px;
+    max-width: 70%;
+    .form-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 30px 20px;
+      &__control {
+        min-width: 20%;
+        display: flex;
+        justify-content: space-around;
+      }
+    }
+    .form-body {
+      width: 100%;
+      padding: 30px;
+      &__row{
+        display: flex;
+        height: 120px;
+      }
+      &__row:last-child{
+          width: 50%;
+      }
+    }
+  }
