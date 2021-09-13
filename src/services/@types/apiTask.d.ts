@@ -1,19 +1,21 @@
 interface ITask{
-    Code:string;
-    Title:string;
-    Deadline:Date;
-    Environment:number;
-    TypeDevice:number;
-    FixedVersion:number;
-    OpenedVersion:number;
-    Status: number;
+    Code?:string;
+    Title?:string;
+    Deadline?:Date | string;
+    Environment?:number;
+    TypeDevice?:number;
+    FixedVersion?:number;
+    OpenedVersion?:number;
+    Status?: number;
 }
+
+
 interface ILoginSuccess{
-    Id:number | string;
-    Name:string;
-    Email:string;
-    Password:string;
-    RoleId: number | string;
+    Id?:number | string;
+    Name?:string;
+    Email?:string;
+    Password?:string;
+    RoleId?: number | string;
 }
 
 interface ITaskUser{
@@ -35,13 +37,35 @@ interface ITaskComment{
     Message:string;
 }
 interface IParamsGetListTask extends ITask{
-    Project:number;
-    Priority:number;
-    StatusTask:number;
-    Page:number;
-    LoginSuccess:ILoginSuccess;
-    User:number;
+    Project?:number;
+    Priority?:number;
+    StatusTask?:number;
+    Page?:number;
+    LoginSuccess?:ILoginSuccess;
+    User?:number;
 }
+// interface IParamsGetListTask {
+//     Code?: string,
+//     Title?: string,
+//     Project?: number,
+//     Deadline?:string,
+//     Environment?: number,
+//     TypeDevice?: number,
+//     Priority?: number,
+//     OpenedVersion?: number,
+//     FixedVersion?: number,
+//     StatusTask?: number,
+//     Status?: number,
+//     Page?: number,
+//     LoginSuccess?: {
+//       Id?: number,
+//       Name?: string,
+//       Email?: string,
+//       Password?: string,
+//       RoleId?: number
+//     },
+//     User?: number
+// }
 interface IParamsTaskId{
     Id:number | string;
 }

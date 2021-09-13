@@ -25,6 +25,7 @@ const slice = createSlice({
     builder.addCase(
       doGetListAccounts.fulfilled,
       (state, action: PayloadAction<IResGetListAccount>) => {
+        // console.log(action.payload);
         if (action.payload.Result) {
           state.listAccounts = action.payload.Content.Accounts;
         } else {

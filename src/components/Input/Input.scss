@@ -1,30 +1,25 @@
-.input-group {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  color: #32325d;
+.Label {
+    color: rgb(31, 30, 30);
+    font-size: 15px;
+    font-weight: 600;
+}
 
-  label {
-    margin: 5px 0;
-  }
-  input {
-    width: 90%;
-    height: 45px;
-    outline: none;
+.Input {
+    margin-top: 5px;
+    height: 40px;
+    width: 200px;
+    border: solid 1px #d9dbdd;
     border-radius: 5px;
-    border: 1px solid #dee2e6;
-    padding: 10px;
-    font-size: 14px;
-  }
-  input:focus {
-    border-color: #5e77e4;
-  }
-  input::placeholder{
-      color: #c7cace;
-  }
-  .Err{
+    display: block;
+    width: 100%;
+}
+
+.Input:focus {
+    outline: none;
+    border-color: #5e72e4;
+}
+
+.Err {
     color: red;
     font-size: 13px;
-  }
-
 }

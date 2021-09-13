@@ -1,82 +1,83 @@
 @import "../../assets/scss/variable";
 .sidebar::-webkit-scrollbar {
-  width: 3px;
-  background-color: #f5f5f5;
+    width: 3px;
+    background-color: #f5f5f5;
 }
 
 .sidebar {
-  height: 100vh;
-  background-color: $color-white;
-  max-width: 100%;
-  width: 249px;
-  overflow-y: scroll;
-  z-index: 1;
-  position: sticky;
-  top: 0;
-  &-header {
-    height: 78px;
-  }
-  &-body {
-    padding: 0px 1.5rem;
-    .sidebar-nav {
-      list-style: none;
-      padding-left: 0px;
-      margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: $color-white;
+    max-width: 100%;
+    width: 249px;
+    overflow-y: scroll;
+    z-index: 100;
+    &-header {
+        height: 78px;
     }
-  }
-  &-body::before {
-    content: "";
-    margin: 1rem;
-    display: block;
-  }
-  &__logo {
-    display: flex;
-    height: 72px;
-    align-items: center;
-    justify-content: center;
-    .logo-img {
-      height: 40px;
-      object-fit: cover;
+    &-body {
+        padding: 0px 1.5rem;
+        .sidebar-nav {
+            list-style: none;
+            padding-left: 0px;
+            margin: 0;
+        }
     }
-  }
-  &-heading {
-    margin: 0;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    color: $color-txt;
-    font-size: 12px;
-    font-weight: 600;
-  }
-  &__item {
-    margin-top: 2px;
-    &-inner {
-      padding: 0.856rem 0rem;
-      display: flex;
-      align-items: center;
-      transition: color 0.3s ease 0s;
-      font-weight: 400;
-      line-height: 21px;
-      &-icon {
-        font-size: 1rem;
-        margin-right: 10px;
-        color: $color-red;
-        min-width: 1.5rem;
-      }
-      span {
-        font-family: "Open Sans", sans-serif;
-        text-transform: capitalize;
-        color: #555555;
-        font-size: 14px;
-        line-height: 21px;
-        font-weight: 400;
-      }
+    &-body::before {
+        content: "";
+        margin: 1rem;
+        display: block;
     }
-    #icon-purple {
-      color: $color-purple;
-      line-height: 21px;
+    &__logo {
+        display: flex;
+        height: 72px;
+        align-items: center;
+        justify-content: center;
+        .logo-img {
+            height: 40px;
+            object-fit: cover;
+        }
     }
-  }
-  .lines {
-    margin: 16px 0px;
-  }
+    &-heading {
+        margin: 0;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        color: $color-txt;
+        font-size: 12px;
+        font-weight: 600;
+    }
+    &__item {
+        margin-top: 2px;
+        &-inner {
+            padding: 0.856rem 0rem;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease 0s;
+            font-weight: 400;
+            line-height: 21px;
+            &-icon {
+                font-size: 1rem;
+                margin-right: 10px;
+                color: $color-red;
+                min-width: 1.5rem;
+            }
+            span {
+                font-family: "Open Sans", sans-serif;
+                text-transform: capitalize;
+                color: #555555;
+                font-size: 14px;
+                line-height: 21px;
+                font-weight: 400;
+            }
+        }
+        #icon-purple {
+            color: $color-purple;
+            line-height: 21px;
+        }
+    }
+    .lines {
+        margin: 16px 0px;
+    }
 }

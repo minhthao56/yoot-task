@@ -1,23 +1,17 @@
-.select-box{
-    width:100%;
-    display:flex;
-    flex-direction: column;
-    color: #32325d;
-
-    label{
-        margin: 5px 0;
-    }
- select{
-    width: 90%;
-    height: 45px;
-    outline: none;
+.SelectBox {
+    width: 200px;
+    height: 40px;
     border-radius: 5px;
-    border-color: #dee2e6;
-    padding: 10px;
-    font-size: 14px;
- }
- select:focus{
-     border-color: #5e77e4;
- }
- 
+    display: block;
+    border: solid 1px #d9dbdd;
+}
+
+.SelectBox:focus {
+    outline: none;
+    border-color: #5e72e4;
+}
+
+.Label {
+    font-size: 0.875rem;
+    font-weight: 600;
 }

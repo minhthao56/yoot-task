@@ -26,7 +26,7 @@ export const apiEnvironment = {
     },
     //deleteEnvironment
     deleteEnvironment: (params: IParamsEnvironmentId) => {
-        const url = bashUrl + "DeletetEnvironment?" + queryString.stringify(params);
+        const url = bashUrl + "DeleteEnvironment?" + queryString.stringify(params);
         return axiosClient.delete(url);
     }
 };
