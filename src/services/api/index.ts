@@ -7,5 +7,6 @@ export * from "./apiPlan";
 export * from "./apiProfile";
 export * from "./apiProject";
 export * from "./apiDevice";
+export * from "./apiStatusTask"
 
 
