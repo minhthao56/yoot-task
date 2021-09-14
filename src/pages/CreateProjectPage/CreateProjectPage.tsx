@@ -35,18 +35,28 @@ export const CreateProjectPage = () => {
                 [10, "Hoạt Động"],
                 [90, "Ngưng Hoạt Động"],
             ],
+            Typedeviceid: 0,
+            Devices: [
+                //[value-option, content-option]
+                [0, "Tất cả"],
+                [1, "Tất cả thiết bị (Laptop, Mobile)"],
+                [2, "Tất cả Mobile"],
+                [3, "Web Safari"],
+                [4, "Web Mobile"],
+                [5, "Web Laptop"],
+                [6, "Web"],
+                [7, "Tất cả Laptop"],
+                [8, "Android APP"],
+            ],
         },
-        validationSchema: yup.object({
-            Name: yup.string().required("Vui lòng điền tiêu đề cho rủi ro."),
-        }),
         onSubmit: (values) => {
             const Name = values.Name;
             const Status = values.Status;
-            // const Typedeviceid = values.Typedeviceid
+            const Typedeviceid = values.Typedeviceid
             try {
                 apiProject
                     .createProject({
-                        Name, Status
+                        Name, Status,Typedeviceid
                     })
                     .then((projects) => {
                         alert("Thêm Thành Công ");
@@ -61,7 +71,7 @@ export const CreateProjectPage = () => {
     return (
         <form className="create-project" onSubmit={formik.handleSubmit}>
             <div className="form-header">
-                <h3>Tạo mới trạng thái task</h3>
+                <h3>Tạo mới dự án</h3>
                 <div className="form-header__control">
                     <Button isSave type="submit" />
                     <Link to="/projects">
