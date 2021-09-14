@@ -1,9 +1,8 @@
 .create-status {
   background: white;
   margin: 0px auto;
-  border-radius: 10px;
-  margin-top: 150px;
-  max-width: 60%;
+  width: 70%;
+  border-radius: 5px;
   .form-header {
     display: flex;
     justify-content: space-between;
@@ -25,13 +24,13 @@
   .form-body {
     width: 100%;
     padding: 20px;
-    padding-left: 70px;
+    
     &__row{
       display: flex;
-      height: 120px;
+      height: 100px;
     }
     &__row:last-child{
-        width: 50%;
+        width: 45%;
     }
   }
 }

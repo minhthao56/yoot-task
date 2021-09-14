@@ -1,12 +1,31 @@
 import { useFormik } from "formik";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { CommonInfo, PersonJoin } from './components';
 import * as yup from "yup";
-import { Button, Input, SelectBox } from "../../components";
+import { Button } from "../../components";
 import { apiProject } from "../../services";
 import "./CreateProjectPage.scss";
 
 export const CreateProjectPage = () => {
+    const [showPersonJoin,setShowPersonJoin] = useState(true);
+	const [showCommonInfo,setShowCommonInfo] = useState(false);
+    const handleShowTabPerson = ()=>{
+        if(showPersonJoin === false){
+            setShowCommonInfo(false);
+            setShowPersonJoin(true);
+        }
+        if(showCommonInfo === true){
+            setShowCommonInfo(false);
+        }
+    }
+    const handleShowTabJoin = ()=>{
+        if(showPersonJoin === true){
+            setShowPersonJoin(false);
+            setShowCommonInfo(true);
+        }
+    }
     const formik = useFormik({
         initialValues: {
             Name: "",
@@ -27,7 +46,7 @@ export const CreateProjectPage = () => {
             try {
                 apiProject
                     .createProject({
-                        Name,Status
+                        Name, Status
                     })
                     .then((projects) => {
                         alert("Thêm Thành Công ");
@@ -38,9 +57,6 @@ export const CreateProjectPage = () => {
             }
         },
     });
-    const handleOnChange = (valueSelect: number) => {
-        formik.values.Status = valueSelect;
-    };
 
     return (
         <form className="create-project" onSubmit={formik.handleSubmit}>
@@ -53,32 +69,17 @@ export const CreateProjectPage = () => {
                     </Link>
                 </div>
             </div>
-            <div className="form-title">
-                <h5>THÔNG TIN CHUNG</h5>
-            </div>
             <div className="form-body">
-                <div className="form-body__row">
-                    <Input
-                        label="Tiêu đề"
-                        placeholder="Nhập tiêu đề"
-                        type="text"
-                        id="Title"
-                        name="Title"
-                        value={formik.values.Name}
-                        onChange={formik.handleChange}
-                        error={formik.touched.Name && formik.errors.Name}
-                    />
+                <div className="form-body_nav">
+                <span className={showPersonJoin === true ? 'active' : ''} onClick={() => { handleShowTabPerson() }}>Thông tin chung</span>
+                <span className={showCommonInfo === true ? 'active' : ''} onClick={() => { handleShowTabJoin() }}>Người tham gia</span>
                 </div>
-                <div className="form-body__row">
-                    <SelectBox
-                        label="Trạng thái"
-                        id="status"
-                        name="status"
-                        options={formik.values.Options}
-                        handleOnChange={handleOnChange}
-                    />
-                </div>
+                <div className="nav-tab__content">
+						<CommonInfo tab={showPersonJoin}/>
+						<PersonJoin tab={showCommonInfo}/>
+					</div>
             </div>
+
         </form>
     );
 };
