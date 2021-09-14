@@ -21,3 +21,8 @@ export * from "./PriorityPage/PriorityPage"
 export * from "./CreateVersionPage/CreateVersionPage"
 export * from "./VersionPage/VersionPage"
 
+export * from "./EnvPage/EnvPage"
+export * from "./CreateEnvPage/CreateEnvPage"
+export * from "./ProfilePage/ProfilePage"
+
+

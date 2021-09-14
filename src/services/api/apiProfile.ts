@@ -3,8 +3,12 @@ import axiosAuth from "./axiosAuth";
 const bashUrl = "Profile/";
 
 export const apiProflie = {
-    updateProfile: (params: IParamsUpdateProfile) => {
+  updateProfile: (params: IParamsUpdateProfile) => {
     const url = bashUrl + "UpdateProfile";
-    return axiosAuth.post(url, params);
+    return axiosAuth.put(url, params);
   },
+  getProfile: () => {
+    const url = bashUrl + "GetProfile";
+    return axiosAuth.get(url)
+  }
 };

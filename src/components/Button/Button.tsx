@@ -2,17 +2,19 @@ import { FC } from "react";
 import "./Button.scss";
 
 export const Button: FC<IButton> = ({
-  children,
-  isCreate,
-  isCancel,
-  isSave,
-  isUpdate,
-  isLogin,
-  className,
-  type,
-  handleOnClick
+	children,
+	isCreate,
+	isCancel,
+	isSave,
+	isUpdate,
+	isLogin,
+	isReset,
+	isSearch,
+	className,
+	type,
+	handleOnClick
 }) => {
-const checkClassName = () => {
+	const checkClassName = () => {
 		let name = "btn";
 		// nút Tạo mới isCreate
 		if (isCreate) {
@@ -39,6 +41,17 @@ const checkClassName = () => {
 			name = name + " btn--paleblue";
 			children = "Đăng nhập";
 		}
+
+		if (isSearch) {
+			name = name + " btn--outline--blue";
+			children = "Tìm kiếm";
+		}
+
+		if (isReset) {
+			name = name + " btn--outline--black";
+			children = "Nhập lại";
+		}
+
 		return name;
 	};
 	return (
