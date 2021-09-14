@@ -36,6 +36,16 @@ export const VersionPage = () => {
     }
   };
   const handleCreate = () => {};
+  const handleUpdate = () => {};
+  const handleDelete = (id: number) => {
+      alert("Id"+id);
+      apiVersion.updateVersion({
+          Id: id,
+          Title: "Delete",
+          Status: 100,
+      }).then(() => {alert("Success")})
+  };
+
 
   return (
     <div className="version-page">
@@ -49,7 +59,7 @@ export const VersionPage = () => {
             <Button isCreate type="submit" handleOnClick={handleCreate} />
           </Link>
         </div>
-        <TableVersions dataVersions={dataVersions} />
+        <TableVersions dataVersions={dataVersions} handleDelete = {handleDelete} handleUpdate = {handleUpdate} />
       </div>
     </div>
   );

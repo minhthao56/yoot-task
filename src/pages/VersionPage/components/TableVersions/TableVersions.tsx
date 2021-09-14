@@ -1,7 +1,7 @@
 import React, { FC, Fragment } from "react";
 import { Actions, Table } from "../../../../components";
 
-export const TableVersions: FC<ITableVersion> = ({ dataVersions }) => {
+export const TableVersions: FC<ITableVersion> = ({ dataVersions, handleUpdate, handleDelete }) => {
   return (
     <Table
       thead={["Tiêu đề", "Trạng thái", "Thông tin tạo", "Thông tin sửa"]}
@@ -26,7 +26,7 @@ export const TableVersions: FC<ITableVersion> = ({ dataVersions }) => {
                 {info.UpdateDate}
               </td>
               <td>
-                <Actions />
+                <Actions onUpdate = {()=>handleUpdate()} onDelete = {()=>handleDelete(info.Id)}/>
               </td>
             </tr>
           ))}
