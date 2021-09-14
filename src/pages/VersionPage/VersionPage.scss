@@ -1,13 +1,13 @@
 @import "../../assets/scss/variable";
-.device-page {
+.version-page {
     // margin: 30px;
     // margin-top: 200px;
-    .filter-device {
+    .filter-version {
         border-radius: 10px;
         background-color: white;
         margin: 30px auto;
     }
-    .list-device {
+    .list-version {
         border-radius: 10px;
         background: $color-white;
         &__header {

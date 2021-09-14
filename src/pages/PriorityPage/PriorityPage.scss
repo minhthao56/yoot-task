@@ -1,13 +1,11 @@
 @import "../../assets/scss/variable";
-.device-page {
-    // margin: 30px;
-    // margin-top: 200px;
-    .filter-device {
+.priority-page {
+    .filter-priority {
         border-radius: 10px;
         background-color: white;
         margin: 30px auto;
     }
-    .list-device {
+    .list-priority {
         border-radius: 10px;
         background: $color-white;
         &__header {
