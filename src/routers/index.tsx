@@ -9,8 +9,8 @@ import { MainLayout } from "../layouts";
 
 
 
-import {DevicePage ,ProjectPage,StatusTaskPage,CreateStatusPage,CreateProjectPage,  CreateTaskPage, HomePage, LoginPage, TasksPage, UpdateTaskPage, CreatePriorityPage, PriorityPage, VersionPage, CreateVersionPage } from "../pages";
-import {BlankLayout } from "../layouts";
+import { DevicePage, ProjectPage, StatusTaskPage, CreateStatusPage, CreateProjectPage, CreateTaskPage, HomePage, LoginPage, TasksPage, UpdateTaskPage, CreatePriorityPage, PriorityPage, VersionPage, CreateVersionPage, EnvPage, CreateEnvPage, ProfilePage } from "../pages";
+import { BlankLayout } from "../layouts";
 
 import { CreateDevicePage } from "../pages/CreateDevicePage/CreateDevicePage";
 
@@ -32,6 +32,10 @@ export const Routers = () => {
       <PrivateRouter exact component={PriorityPage} layout={MainLayout} path="/priority" />
       <PrivateRouter exact component={VersionPage} layout={MainLayout} path="/version" />
       <PrivateRouter exact component={CreateVersionPage} layout={MainLayout} path="/version/create" />
+
+      <PrivateRouter exact component={EnvPage} layout={MainLayout} path="/env" />
+      <PrivateRouter exact component={CreateEnvPage} layout={MainLayout} path="/env/create" />
+      <PrivateRouter exact component={ProfilePage} layout={MainLayout} path="/profile" />
 
 
 

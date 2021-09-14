@@ -4,7 +4,9 @@ interface IButton {
   isSave?: boolean;
   isUpdate?: boolean;
   isLogin?: boolean;
+  isSearch?: boolean;
+  isReset?: boolean;
   className?: className;
   type?: "button" | "submit" | "reset";
-  handleOnClick?: () => void; 
+  handleOnClick?: () => void;
 }

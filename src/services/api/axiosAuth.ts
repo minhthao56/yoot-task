@@ -1,13 +1,12 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 
 const baseURL = process.env.REACT_APP_URL_TASK;
-const token = process.env.REACT_APP_TOKEN_LOGIN;
-
+const token = localStorage.getItem("token") || process.env.REACT_APP_TOKEN_LOGIN;
 const axiosAuth = axios.create({
   baseURL: baseURL + "api/",
   headers: {
     "content-type": "application/json",
-    "Access-Control-Allow-Origin":"*",
+    "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE",
     Authorization: token,
   },
