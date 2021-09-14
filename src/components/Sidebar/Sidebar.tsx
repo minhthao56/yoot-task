@@ -61,7 +61,7 @@ const sidebarItemNav = [
   },
   {
     display_name: "thiết bị",
-    route: "/devices",
+    route: "/device",
     icon: RiBriefcase4Fill,
   },
 ];

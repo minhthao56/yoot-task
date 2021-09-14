@@ -10,8 +10,10 @@ export * from './apiProject'
 export * from "./apiAlbum";
 export * from "./apiEnvironment";
 export * from "./apiPlan";
-export * from "./apiPriority";
 export * from "./apiProfile";
 export * from "./apiProject";
+export * from "./apiDevice";
+export * from "./apiStatusTask"
+
 
 

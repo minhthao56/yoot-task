@@ -34,6 +34,7 @@ export const HomePage = () => {
 		alert("Đã có lỗi");
 	}
 
+
 	return (
 		<div className="home-page">
 		<p>
@@ -43,4 +44,7 @@ export const HomePage = () => {
 		</p>
 		</div>
 	);
+
+
+
 };
