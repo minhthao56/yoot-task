@@ -9,8 +9,8 @@ import { MainLayout, BlankLayout } from "../layouts";
 
 
 
-import { HomePage, LoginPage, DevicePage ,ProjectPage,StatusTaskPage,CreateStatusPage,CreateProjectPage,  CreateTaskPage, HomePage, LoginPage, TasksPage, UpdateTaskPage } from "../pages";
-import { MainLayout, BlankLayout } from "../layouts";
+import {  DevicePage ,ProjectPage,StatusTaskPage,CreateStatusPage,CreateProjectPage,  CreateTaskPage, HomePage, LoginPage, TasksPage, UpdateTaskPage } from "../pages";
+
 
 import { CreateDevicePage } from "../pages/CreateDevicePage/CreateDevicePage";
 
