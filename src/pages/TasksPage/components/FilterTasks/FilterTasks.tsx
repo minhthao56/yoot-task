@@ -67,7 +67,6 @@ export const FilterTasks:React.FC<IPropsOptions & IFilterTask> = (
 	];
 	// console.log(concatProject);
 	const formik = useFormik({
-
 		initialValues: {
 			Code: "",
 			Title:"",

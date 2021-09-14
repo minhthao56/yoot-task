@@ -26,6 +26,7 @@ export const HomePage = () => {
 	// 	dispatch(doGetListStatusTask({}));
 	// },[]);
 	useEffect(() =>{
+		
 		dispatch(doGetListTasks({}));
 	},[]);
 	

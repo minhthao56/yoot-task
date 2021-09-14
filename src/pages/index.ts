@@ -20,4 +20,6 @@ export * from "./CreatePriorityPage/CreatePiorityPage"
 export * from "./PriorityPage/PriorityPage"
 export * from "./CreateVersionPage/CreateVersionPage"
 export * from "./VersionPage/VersionPage"
+export * from "./PlanPage/PlanPage"
+export * from "./CriteriaPage/CriteriaPage";
 
