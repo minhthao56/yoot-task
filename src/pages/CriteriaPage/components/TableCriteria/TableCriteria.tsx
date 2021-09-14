@@ -16,7 +16,7 @@ export const TableCriteria: React.FC = () => {
 	return (
 		<div className="table-tasks">
 			<div className="table-tasks__header">
-				<h3 className="table-tasks__header-title">Danh sách công việc</h3>
+				<h3 className="table-tasks__header-title">Danh sách tiêu chí</h3>
 				<Link to={`/tasks/create`} className="table-tasks__header-right">
 					<Button type="submit" isCreate className="btn-search">Tao moi</Button>
 				</Link>
