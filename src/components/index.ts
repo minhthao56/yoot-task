@@ -13,3 +13,4 @@ export * from "./SelectBox/SelectBox";
 export * from "./Textarea/Textarea";
 export * from "./Avatar/Avatar";
 export * from "./Menu/Menu";
+export * from "./Loader/Loader"

@@ -38,7 +38,7 @@ export const StatusTaskPage = () => {
   };
   const handleCreate = () => {};
   return (
-    <div className="priority-page">
+    <div className="status-page">
       <div className="filter-priority">
         <FilterStatusTasks handleSubmit={handleSearch} />
       </div>
