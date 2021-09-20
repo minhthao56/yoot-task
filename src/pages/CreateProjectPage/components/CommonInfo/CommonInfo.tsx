@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import { Input, SelectBox, Textarea } from '../../../../components';
+import { Input, SelectBox} from '../../../../components';
 import './CommonInfo.scss';
 interface IPropsOptions{
 }

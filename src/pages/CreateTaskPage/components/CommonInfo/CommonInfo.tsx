@@ -15,11 +15,7 @@ interface IPropsOptions{
     // props:any
 
 }
-interface Iitem{
-    Id:number;
-    Title:string;
-    Name: string;
-}
+
 export const CommonInfo: React.FC<IPropsTab & IPropsOptions> = ({
     tab,
     listProject,
@@ -72,11 +68,7 @@ export const CommonInfo: React.FC<IPropsTab & IPropsOptions> = ({
           }),
           
         onSubmit: values => {
-            console.log('luu vao task nao', values.Code);
-            const Code = values.Code;
-            const Title = values.Title;
-            const TaskComments = values.Description;
-            onSubmit(values.Code)
+
            
             // try {
             //     apiTask
@@ -113,7 +105,6 @@ export const CommonInfo: React.FC<IPropsTab & IPropsOptions> = ({
 						error={formik.touched.Code && formik.errors.Code}
                         />
                     </div>
-                    {formik.values.Code}
                     <div className="common-info__form-input">
                         <SelectBox label="Dự án" id ="" name=""  options={optionProject}
                          handleOnChange={handleOnChange}

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { RiPencilRulerFill } from "react-icons/ri";
-import { Actions, Button, Table } from "../../../../components";
+import { Button, Table } from "../../../../components";
 import './TableTasks.scss';
 const theadTask = [
 	"mã code","tiêu đề",
@@ -11,7 +11,7 @@ const theadTask = [
 ]
 
 interface IPropsData{
-	dataTask:any
+	dataTask:Array<ResTask>
 }
 
 export const TableTasks: React.FC<IPropsData> = ({dataTask}) => {
@@ -41,26 +41,38 @@ export const TableTasks: React.FC<IPropsData> = ({dataTask}) => {
 											{task.Title}
 										</td>
 										<td>
-											{task.PersonJoin}
+											{task.JoinUserNames}
 										</td>
 										<td>
 											<b>
-												{task.StatusWork}
+												{task.StatusTaskText}
 											</b>
 										</td>
 										<td>
-											<span>Du an <b>{task.Info}</b> </span>
-											<br />
-											<span>Du an <b>{task.Info}</b> </span>
+											<p>Dự án: <b>{task.ProjectText}</b> </p>
+											<p>Hạn chót: <b>{task.Deadline}</b> </p>
+											<p>Môi trường: <b>{task.EnvironmentText}</b> </p>
+											<p>Thiết bị: <b>{task.TypeDeviceText}</b> </p>
+											<p>Ưu tiên :<b>{task.PriorityText}</b> </p>
 										</td>
 										<td>
-											{task.Status}
+											{task.StatusText}
 										</td>
 										<td>
-											{task.InfoCreated}
+											<p>
+												{task.CreateUserName}
+											</p>
+											<p>
+												{task.CreateDate}
+											</p>
 										</td>
 										<td>
-											{task.InfoUpdate}
+											<p>
+												{task.UpdateUserName}
+											</p>
+											<p>
+												{task.UpdateDate}
+											</p>
 										</td>
 										<td>
 											<Link to={`/tasks/update/${task.Id}`} className="bt_style" target="_blank">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../../components";
-import { apiDevice, apiProject } from "../../services";
+import { apiProject } from "../../services";
 import { FilterProjects, TableProject } from "./components";
 import "./ProjectPage.scss";
 

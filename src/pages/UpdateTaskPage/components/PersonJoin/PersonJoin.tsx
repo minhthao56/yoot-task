@@ -1,5 +1,4 @@
 import { Fragment, useState } from 'react';
-import { useFormik } from "formik";
 import { ImScissors } from "react-icons/im";
 import {  Button, SelectBox, Table } from '../../../../components';
 import './PersonJoin.scss';

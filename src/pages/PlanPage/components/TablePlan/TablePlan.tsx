@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { RiPencilRulerFill } from "react-icons/ri";
-import { Actions, Button, Table } from "../../../../components";
+import { Button, Table } from "../../../../components";
 import './TablePlan.scss';
 const theadTask = [
 	"từ ngày","đến ngày","tiêu đề",

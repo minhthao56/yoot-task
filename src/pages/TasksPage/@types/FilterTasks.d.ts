@@ -1,3 +1,8 @@
 interface IFilterTask {
-    handleSubmit: (searchCode: string, searchTitle: string)=> void;
+    handleSubmit: (
+        searchCode: string, 
+        searchTitle: string,
+        searchDeadline:string,
+        searchStatus: number
+        )=> void;
 }

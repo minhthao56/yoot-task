@@ -21,17 +21,13 @@ export const FilterPlan:React.FC = () => {
 			OptionStatus: status,
 		},
 		onSubmit: (values) => {
-		  const searchCode = values.Code;
-		  const searchTitle = values.Code;
-		  const searchStatus = values.Status;
+
 		},
 	});
 	const handleOnChange = (valueSelect: number) => {
 		formik.values.Status = valueSelect;
 	};
-	const handleRetype = () => {
-		window.location.replace("/tasks");
-	};
+
 	
 	return (
 		<div className="filter-tasks">
