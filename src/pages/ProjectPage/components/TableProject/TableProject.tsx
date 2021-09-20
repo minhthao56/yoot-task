@@ -18,7 +18,7 @@ export const TableProject: FC<ITableProject> = ({ dataProject }) => {
               <td>
                 <b>{info.Name}</b>
               </td>
-              <td>{info.TypeDevice}</td>
+              <td>{info.TypeDeviceText}</td>
               <td>{info.StatusText}</td>
               <td>
                 {info.CreateUserName}

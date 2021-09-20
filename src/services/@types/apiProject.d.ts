@@ -1,6 +1,5 @@
 interface IProject{
     Name?: string;
-    TypeDevice?: number;
     Status?: number;
 }
 interface IProjectUser {
@@ -10,9 +9,11 @@ interface IProjectUser {
 
 interface IParamsGetListProjects extends IProject {
   Page?: number;
+  TypeDevice?: number;
 }
 interface IParamsCreateProject extends IProject {
   ProjectUsers?: IProjectUser;
+  Typedeviceid?:number|string;
 }
 interface IParamsUpdataProject extends IParamsCreateProject{
     Id?: number | string;
