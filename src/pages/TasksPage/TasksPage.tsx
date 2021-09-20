@@ -10,37 +10,37 @@ import "./TasksPage.scss";
 // data mau dung thu
 const dataTask = [
 	{
-		Id:1,
-		code:"110022",
-		title:"Khi nhập giờ hẹn lịch phỏng vấn thì click vào vị trí ngày để xoá sẽ k ảnh hưởng đến tháng và năm (UV và NTD)",
-		personJoin:"nam quoc",
-		statusWork:"to do",
-		info:"Dự án: Việc làm NTD (Web)",
-		status:"hoat dong",
-		infoCreated:"nam quoc 20/20/2021",
-		infoUpdate:"nam quoc 20/20/2021 2:12 pm",
+		Id:79,
+		Code:"110022",
+		Title:"Khi nhập giờ hẹn lịch phỏng vấn thì click vào vị trí ngày để xoá sẽ k ảnh hưởng đến tháng và năm (UV và NTD)",
+		PersonJoin:"nam quoc",
+		StatusWork:"to do",
+		Info:"Dự án: Việc làm NTD (Web)",
+		Status:"hoat dong",
+		InfoCreated:"nam quoc 20/20/2021",
+		InfoUpdate:"nam quoc 20/20/2021 2:12 pm",
 	},
 	{
-		Id:2,
-		code:"110056",
-		title:"Đang bị lỗi k nhập tiêu đề là k lưu lại, cần có dòng đỏ dưới mỗi tiêu đề",
-		personJoin:"nam quoc",
-		statusWork:"to do",
-		info:"Dự án: Việc làm NTD (Web)",
-		status:"hoat dong",
-		infoCreated:"nam quoc 20/20/2021",
-		infoUpdate:"nam quoc 20/20/2021 2:12 pm",
+		Id:77,
+		Code:"110056",
+		Title:"Đang bị lỗi k nhập tiêu đề là k lưu lại, cần có dòng đỏ dưới mỗi tiêu đề",
+		PersonJoin:"nam quoc",
+		StatusWork:"to do",
+		Info:"Dự án: Việc làm NTD (Web)",
+		Status:"hoat dong",
+		InfoCreated:"nam quoc 20/20/2021",
+		InfoUpdate:"nam quoc 20/20/2021 2:12 pm",
 	},
 	{
-		Id:3,
-		code:"110089",
-		title:"NTD chưa nhận được thông báo ở chuông nên k biết được có ng mới ứng tuyển",
-		personJoin:"nam quoc",
-		statusWork:"to do",
-		info:"Dự án: Việc làm NTD (Web)",
-		status:"hoat dong",
-		infoCreated:"nam quoc 20/20/2021",
-		infoUpdate:"nam quoc 20/20/2021 2:12 pm",
+		Id:75,
+		Code:"110089",
+		Title:"NTD chưa nhận được thông báo ở chuông nên k biết được có ng mới ứng tuyển",
+		PersonJoin:"nam quoc",
+		StatusWork:"to do",
+		Info:"Dự án: Việc làm NTD (Web)",
+		Status:"hoat dong",
+		InfoCreated:"nam quoc 20/20/2021",
+		InfoUpdate:"nam quoc 20/20/2021 2:12 pm",
 	},
 ]
 export const TasksPage = () => {
@@ -55,6 +55,7 @@ export const TasksPage = () => {
 	const [typeDevices,setTypeDevices] = useState([]);
 	const [env,setEnv] = useState([]);
 	const [project,setProject] = useState([]);
+	const [listTask,setListTask] = useState<Array<IResTask>>([]);
 
 	useEffect(() => {
 		dispatch(doGetListAccounts({}))
@@ -116,8 +117,14 @@ export const TasksPage = () => {
 		}
 	},[])
 	// console.log("bala",project);
-	const handleSubmit = () => {
+	const handleSearch = () => {
 		//distch 
+		try {
+			const data = dataTask
+			setListTask(data);
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
     return(
@@ -131,11 +138,11 @@ export const TasksPage = () => {
 				listTypeDevices={typeDevices}
 				listEnv={env}
 				listProject={project}
-				handleSubmit={handleSubmit}
+				handleSubmit={handleSearch}
 				/>
 			</div>
 			<div className="task-page__body">
-				<TableTasks dataTask={dataTask}/>
+				<TableTasks dataTask={listTask}/>
 			</div>
         </div>
     ) 

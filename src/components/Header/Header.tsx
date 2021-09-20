@@ -64,9 +64,7 @@ export const Header = () => {
                         >
                             <Beadcrumb title={title.title}/>
                         </Route>
-
                     ))
-                    
                 }
             </div>
         </div>

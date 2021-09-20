@@ -34,33 +34,33 @@ export const TableTasks: React.FC<IPropsData> = ({dataTask}) => {
 									<tr key={index} className="">
 										<td>
 											<b>
-												{task.code}
+												{task.Code}
 											</b>
 										</td>
 										<td>
-											{task.title}
+											{task.Title}
 										</td>
 										<td>
-											{task.personJoin}
+											{task.PersonJoin}
 										</td>
 										<td>
 											<b>
-												{task.statusWork}
+												{task.StatusWork}
 											</b>
 										</td>
 										<td>
-											<span>Du an <b>{task.info}</b> </span>
+											<span>Du an <b>{task.Info}</b> </span>
 											<br />
-											<span>Du an <b>{task.info}</b> </span>
+											<span>Du an <b>{task.Info}</b> </span>
 										</td>
 										<td>
-											{task.status}
+											{task.Status}
 										</td>
 										<td>
-											{task.infoCreated}
+											{task.InfoCreated}
 										</td>
 										<td>
-											{task.infoUpdate}
+											{task.InfoUpdate}
 										</td>
 										<td>
 											<Link to={`/tasks/update/${task.Id}`} className="bt_style" target="_blank">

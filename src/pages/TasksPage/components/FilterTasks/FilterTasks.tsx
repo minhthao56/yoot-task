@@ -77,9 +77,9 @@ export const FilterTasks:React.FC<IPropsOptions & IFilterTask> = (
 		},
 		onSubmit: (values) => {
 		  const searchCode = values.Code;
-		  const searchTitle = values.Code;
-		  const searchStatus = values.Status;
-		  handleSubmit(searchCode, searchTitle,searchStatus);
+		  const searchTitle = values.Title;
+		//   const searchStatus = values.Status;
+		  handleSubmit(searchCode, searchTitle);
 		},
 	});
 	const handleOnChange = (valueSelect: number) => {
@@ -90,15 +90,15 @@ export const FilterTasks:React.FC<IPropsOptions & IFilterTask> = (
 	};
 	
 	return (
-		<div className="filter-tasks">
+		<form className="filter-tasks" onSubmit={formik.handleSubmit}>
 			<div className="filter-tasks__header">
 				<h3 className="filter-tasks__header-title">Tìm kiếm</h3>
 				<div className="filter-tasks__header-right">
-					<Feature handleOnClick={() => {}} />
+					<Feature handleOnClick={handleRetype} />
 				</div>
 			</div>
 			<div className="filter-tasks__body">
-				<form action="" className="filter-tasks__body-form" onSubmit={formik.handleSubmit}>
+				<div  className="filter-tasks__body-form">
 					<div className="input-group-task">
 						<Input label="Mã code" 
 						type="text" placeholder="Nhập mã code" 
@@ -165,9 +165,9 @@ export const FilterTasks:React.FC<IPropsOptions & IFilterTask> = (
 						<SelectBox label="Người tham gia" id ="user" name="user" 
 						 options={optionUser} handleOnChange={handleOnChange}/>
 					</div>
-				</form>
+				</div>
 			</div>
 
-		</div>
+		</form>
 	)
 };

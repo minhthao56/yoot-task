@@ -19,22 +19,22 @@ interface ILoginSuccess{
 }
 
 interface ITaskUser{
-    Id: number | string;
-    UserId:number | string;
-    TypeTaskUserId:number | string;
+    Id?: number | string;
+    UserId?:number | string;
+    TypeTaskUserId?:number | string;
 }
 interface ILogTaskChangeStatus{
-    Id:number | string;
-    StatusOldText:string;
-    StatusNewText:string;
-    CreateUserName:string;
-    CreateDate:Date;
+    Id?:number | string;
+    StatusOldText?:string;
+    StatusNewText?:string;
+    CreateUserName?:string;
+    CreateDate?:Date;
 }
 interface ITaskComment{
-    Id:number | string;
-    CreateUserName:string;
-    CreateDate:Date;
-    Message:string;
+    Id?:number | string;
+    CreateUserName?:string;
+    CreateDate?:Date;
+    Message?:string;
 }
 interface IParamsGetListTask extends ITask{
     Project?:number;
@@ -67,18 +67,18 @@ interface IParamsGetListTask extends ITask{
 //     User?: number
 // }
 interface IParamsTaskId{
-    Id:number | string;
+    Id?:number | string;
 }
 interface IParamsCreateTask extends ITask{
-    ProjectId:number | string;
-    PriorityId:number;
-    StatusTaskId:number | string;
-    TaskUsers:ITaskUser;
-    LogTaskChangeStatuses:ILogTaskChangeStatus;
-    TaskComments:ITaskComment;
+    ProjectId?:number | string;
+    PriorityId?:number;
+    StatusTaskId?:number | string;
+    TaskUsers?:ITaskUser;
+    LogTaskChangeStatuses?:ILogTaskChangeStatus;
+    TaskComments?:ITaskComment;
 }
-interface IParamsUpdateTask extends IParamsCreateTask {
-    Id : number | string;
+interface IParamsUpdateTask extends IParamsCreateTask<ITask> {
+    Id?: number | string;
 }
 interface IParamsMessageTask{
     TaskId:number | string;

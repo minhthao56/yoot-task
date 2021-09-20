@@ -26,9 +26,10 @@ export const HomePage = () => {
 	// 	dispatch(doGetListStatusTask({}));
 	// },[]);
 	useEffect(() =>{
-		
+		dispatch(doGetDetailTask({Id:75}));
 		dispatch(doGetListTasks({}));
 	},[]);
+	console.log("dádfsdfsdsd",accs);
 	
 
 	if (error === 0) {

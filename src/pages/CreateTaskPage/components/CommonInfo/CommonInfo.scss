@@ -13,6 +13,7 @@ textarea {
         color: #949cb0;
     }
     &__form {
+        margin: 20px 0px;
         padding-left: 24px;
         &-row {
             display: flex;
@@ -43,6 +44,7 @@ textarea {
         }
     }
     &__form-additional {
+        margin: 20px 0px;
         padding-left: 24px;
         display: flex;
         justify-content: space-between;

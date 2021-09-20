@@ -1,6 +1,8 @@
 import { useFormik } from 'formik';
-import { Input, SelectBox, Textarea } from '../../../../components';
+import {Input, SelectBox, Textarea } from '../../../../components';
+import * as Yup from 'yup';
 import './CommonInfo.scss';
+
 interface IPropsOptions{
 	listStatusTask:any,
 	listVersion:any,
@@ -8,6 +10,15 @@ interface IPropsOptions{
 	listTypeDevices:any,
 	listEnv:any,
 	listProject:any,
+    formSubmit:boolean,
+    onSubmit:any;
+    // props:any
+
+}
+interface Iitem{
+    Id:number;
+    Title:string;
+    Name: string;
 }
 export const CommonInfo: React.FC<IPropsTab & IPropsOptions> = ({
     tab,
@@ -17,8 +28,11 @@ export const CommonInfo: React.FC<IPropsTab & IPropsOptions> = ({
     ListPriority,
     listVersion,
     listStatusTask,
+    formSubmit,
+    onSubmit,
+    // props
 }) => {
-    console.log(tab);
+    console.log('props qua',formSubmit);
     const optionProject = listProject.map((item:any)=>{
 		return [item.Id, item.Name]
 	})
@@ -40,36 +54,66 @@ export const CommonInfo: React.FC<IPropsTab & IPropsOptions> = ({
     const formik = useFormik({
 
 		initialValues: {
-			code: "",
-			text:"",
-            description:"",
+			Code: '',
+			Title:"",
+            Description:"",
 			Status: 0,
 			OptionStatus: [
                 //[value-option, content-option]
                 [10, "Hoạt Động"],
                 [90, "Ngưng Hoạt Động"],
             ],
+            OptionProject:optionProject,
 		},
-		onSubmit: (values) => {
-		},
+        validationSchema: Yup.object({
+            Code: Yup.string().required('vui lòng điền mã code'),
+            Text: Yup.string().required('vui lòng điền tiêu đề'),
+            Description: Yup.string().required('vui lòng điền mô tả'),
+          }),
+          
+        onSubmit: values => {
+            console.log('luu vao task nao', values.Code);
+            const Code = values.Code;
+            const Title = values.Title;
+            const TaskComments = values.Description;
+            onSubmit(values.Code)
+           
+            // try {
+            //     apiTask
+            //         .createTask({
+            //             Code,
+            //             Title,
+            //             TaskComments:{}
+                        
+            //         })
+            // } catch (error) {
+            //     console.log('loi nay',error);
+            // }
+            
+            // alert(JSON.stringify(values, null, 2));
+        },
 	});
 	const handleOnChange = (valueSelect: number) => {
 		formik.values.Status = valueSelect;
 	};
     return (
-        <div className={tab ? "common-info show":"common-info"}>
+        
+      
+        <form className={tab ? "common-info show":"common-info"} onSubmit={formSubmit === true ? formik.handleSubmit : undefined }>
+            
             <h4 className="common-info__title">Thông tin chung </h4>
-            <form action="" className="common-info__form">
+            <div className="common-info__form">
                 <div className="common-info__form-row">
                     <div className="common-info__form-input">
                         <Input label="Mã code" type="text" 
                         placeholder="Nhập mã code" 
-                        id ="code" name="code" 
+                        id ="code" name="Code" 
                         onChange={formik.handleChange}
-						value={formik.values.code}
-						error={formik.touched.code && formik.errors.code}
+						value={formik.values.Code}
+						error={formik.touched.Code && formik.errors.Code}
                         />
                     </div>
+                    {formik.values.Code}
                     <div className="common-info__form-input">
                         <SelectBox label="Dự án" id ="" name=""  options={optionProject}
                          handleOnChange={handleOnChange}
@@ -82,22 +126,22 @@ export const CommonInfo: React.FC<IPropsTab & IPropsOptions> = ({
                          />
                     </div>
                 </div>
-                <Input label="Tiêu đề" type="text" name="text" 
-                placeholder="Nhập tiêu đề" 
-                onChange={formik.handleChange}
-                value={formik.values.text}
-                error={formik.touched.text && formik.errors.text}
+                    <Input label="Tiêu đề" type="text" name="Title" 
+                        placeholder="Nhập tiêu đề" 
+                        onChange={formik.handleChange}
+                        value={formik.values.Title}
+                        error={formik.touched.Title && formik.errors.Title}
+                    />
+                    <Textarea label="Mô tả" placeholder="Nhập mô tả" 
+                        id="textarea"
+                        name="Description"
+                        onChange={formik.handleChange}
+                        value={formik.values.Description}
+                        error={formik.touched.Description && formik.errors.Description}
                 />
-                <Textarea label="Mô tả" placeholder="Nhập mô tả" 
-                id="textarea"
-                name="description"
-                onChange={formik.handleChange}
-                value={formik.values.description}
-                error={formik.touched.description && formik.errors.description}
-                />
-            </form>
+            </div>
             <h4 className="common-info__title">Thông tin bổ sung</h4>
-            <form action="" className="common-info__form-additional">
+            <div className="common-info__form-additional">
                 <div className="common-info__form-input">
                     <Input label="Hạn chót" type="datetime-local" placeholder=""
                     name="deadline"
@@ -130,7 +174,7 @@ export const CommonInfo: React.FC<IPropsTab & IPropsOptions> = ({
                     <SelectBox label="Trạng thái" id ="status" name="status"  
                     options={formik.values.OptionStatus} handleOnChange={handleOnChange}/>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     )
 }
