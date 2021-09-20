@@ -5,7 +5,7 @@ interface IResProject {
   CreateDate: string;
   CreateUserName: string;
   Name: string;
-  Typedevice:string;
+  TypeDeviceText:string;
   StatusText: string;
   UpdateDate: string;
   UpdateUserName: string;
