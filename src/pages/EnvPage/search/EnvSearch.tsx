@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Button, Input, SelectBox } from '../../../components'
 import './EnvSearch.scss'
 const EnvSearch: React.FC<IEnvSearch> = ({ handleSearch }) => {
-    const options = [[0, "Tất cả"], [1, "Hoạt Động"],
-    [2, "Ngưng Hoạt Động"]];
+    const options = [[0, "Tất cả"], [10, "Hoạt Động"],
+    [90, "Ngưng Hoạt Động"]];
     const [keyword, setKeyword] = useState('');
     const [status, setStatus] = useState(0);
     const handleChangeKeyword: React.ChangeEventHandler<HTMLInputElement> = (e) => {
