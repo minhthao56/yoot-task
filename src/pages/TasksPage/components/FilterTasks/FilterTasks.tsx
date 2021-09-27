@@ -22,7 +22,8 @@ export const FilterTasks:React.FC<IPropsOptions & IFilterTask> = (
 		listVersion,
 		listAccounts,
 		listStatusTask,
-		handleSubmit}
+		handleSubmit
+	}
 ) => {
 	const all = [{Id:0,Name:"Tất cả"}]
 	const title = [{Id:0,Title:"Tất cả"}]
@@ -67,10 +68,10 @@ export const FilterTasks:React.FC<IPropsOptions & IFilterTask> = (
 	];
 	// console.log(concatProject);
 	const formik = useFormik({
-
 		initialValues: {
 			Code: "",
-			Title:"",
+			Title: "",
+			Deadline:"",
 			Status: 0,
 			OptionStatus: status,
 			OptionProject:optionProject,
@@ -78,9 +79,10 @@ export const FilterTasks:React.FC<IPropsOptions & IFilterTask> = (
 		},
 		onSubmit: (values) => {
 		  const searchCode = values.Code;
-		  const searchTitle = values.Code;
+		  const searchTitle = values.Title;
+		  const searchDeadline = values.Deadline;
 		  const searchStatus = values.Status;
-		  handleSubmit(searchCode, searchTitle,searchStatus);
+		  handleSubmit(searchCode, searchTitle, searchDeadline,searchStatus);
 		},
 	});
 	const handleOnChange = (valueSelect: number) => {
@@ -91,15 +93,15 @@ export const FilterTasks:React.FC<IPropsOptions & IFilterTask> = (
 	};
 	
 	return (
-		<div className="filter-tasks">
+		<form className="filter-tasks" onSubmit={formik.handleSubmit}>
 			<div className="filter-tasks__header">
 				<h3 className="filter-tasks__header-title">Tìm kiếm</h3>
 				<div className="filter-tasks__header-right">
-					<Feature handleOnClick={() => {}} />
+					<Feature handleOnClick={handleRetype} />
 				</div>
 			</div>
 			<div className="filter-tasks__body">
-				<form action="" className="filter-tasks__body-form" onSubmit={formik.handleSubmit}>
+				<div  className="filter-tasks__body-form">
 					<div className="input-group-task">
 						<Input label="Mã code" 
 						type="text" placeholder="Nhập mã code" 
@@ -119,13 +121,14 @@ export const FilterTasks:React.FC<IPropsOptions & IFilterTask> = (
 					</div>
 					<div className="input-group-task">
 						<SelectBox label="Dự án" 
-						id ="project" name="project" 
+						id ="project" name="project"
 						options={optionProject} handleOnChange={handleOnChange}
 						/>
 					</div>
 					<div className="input-group-task">
 						<Input  label="Hạn chót"  type="date" 
-						placeholder="Nhap ma code" name="deadline" id="deadline" onChange={formik.handleChange}
+						value={formik.values.Deadline}
+						placeholder="Nhap ma code" name="Deadline" id="deadline" onChange={formik.handleChange}
 						/>
 					</div>
 					<div className="input-group-task">
@@ -154,21 +157,21 @@ export const FilterTasks:React.FC<IPropsOptions & IFilterTask> = (
 						/>
 					</div>
 					<div className="input-group-task">
-						<SelectBox label="Trạng thái công việc" id ="statusTask" name="statusTask" 
+						<SelectBox label="Trạng thái công việc" id ="statusTaskText" name="statusTaskText" 
 						 options={optionStatusTask} handleOnChange={handleOnChange}/>
 					</div>
 					<div className="input-group-task">
 						<SelectBox label="Trạng thái" id ="status" name="status"
 						 options={formik.values.OptionStatus} handleOnChange={handleOnChange}/>
 					</div>
-					{handleOnChange}
+
 					<div className="input-group-task">
 						<SelectBox label="Người tham gia" id ="user" name="user" 
 						 options={optionUser} handleOnChange={handleOnChange}/>
 					</div>
-				</form>
+				</div>
 			</div>
 
-		</div>
+		</form>
 	)
 };

@@ -68,7 +68,7 @@ export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
                 <div className="person-join__wrapper-header">
                     <Button className="btn-addRow" handleOnClick={()=> {handleAddRow()}}>Thêm hàng</Button>
                 </div>  
-                <form className="person-join__wrapper-body">
+                <div className="person-join__wrapper-body">
                     <Table 
                     thead={["Người tham gia","Loại người tham gia","Tác vụ"]}
                     tbody={
@@ -99,7 +99,7 @@ export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
                     }
                     />
                     
-                </form>
+                </div>
             </div>
         </div>
     )
