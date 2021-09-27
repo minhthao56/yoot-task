@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../../components";
-import { apiDevice, apiProject } from "../../services";
+import { apiProject } from "../../services";
 import { FilterProjects, TableProject } from "./components";
 import "./ProjectPage.scss";
 
@@ -37,7 +37,6 @@ export const ProjectPage = () => {
       console.log(error);
     }
   };
-  const handleCreate = () => {};
   return (
     <div className="project-page">
       <div className="filter_project">
@@ -47,10 +46,10 @@ export const ProjectPage = () => {
         <div className="list_project-header">
           <h3>Danh sách dự án</h3>
           <Link to={"/projects/create"}>
-            <Button isCreate type="submit" handleOnClick={handleCreate} />
+            <Button isCreate type="submit" />
           </Link>
         </div>
-        <TableProject dataProject={dataProjects} />
+        <TableProject dataProject={dataProjects}/>
       </div>
     </div>
   );

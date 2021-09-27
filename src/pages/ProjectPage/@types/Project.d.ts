@@ -9,6 +9,7 @@ interface IResProject {
   StatusText: string;
   UpdateDate: string;
   UpdateUserName: string;
+  Id:number;
 }
 
 interface IResConntentProjects {

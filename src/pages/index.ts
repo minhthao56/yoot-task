@@ -10,12 +10,16 @@ export * from "./UpdateTaskPage/UpdateTaskPage";
 
 
 
-export * from "./DevicePage/DevicePage";
-export * from "./CreateDevicePage/CreateDevicePage";
+export * from "./DevicePage/DevicePage"
+export * from "./CreateDevicePage/CreateDevicePage"
 export * from "./StatusTaskPage/StatusTaskPage"
 export * from "./ProjectPage/ProjectPage"
 export * from "./CreateProjectPage/CreateProjectPage"
+export * from "./UpdateProjectPage/UpdateProjectPage"
+export * from "./NewProjectPage/NewProjectPage"
 export * from "./CreateStatusPage/CreateStatusPage"
+export * from "./NewStatusPage/NewStatusPage"
+export * from "./UpdateStatusPage/UpdateStatusPage"
 export * from "./CreatePriorityPage/CreatePiorityPage"
 export * from "./PriorityPage/PriorityPage"
 export * from "./CreateVersionPage/CreateVersionPage"
