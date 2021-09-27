@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 export const Menu = (props: any) => {
 	const { showMenu } = props;
 	// console.log(showMenu);
+	const logoutOnClick = ()=>{
+		localStorage.clear();
+	}
 	return (
 		<div className={showMenu ? "avatar-menu show" : "avatar-menu"}>
 		<h6 className="avatar-menu__header">
@@ -21,7 +24,7 @@ export const Menu = (props: any) => {
 				</Link>
 			</li>
 			<li className="avatar-menu__item">
-				<Link to={`/login`}>
+				<Link to={`/login`} onClick={logoutOnClick}>
 					<span className="icon">
 					<BiRun />
 					</span>

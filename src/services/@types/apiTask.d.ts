@@ -28,12 +28,12 @@ interface ILogTaskChangeStatus{
     StatusOldText?:string;
     StatusNewText?:string;
     CreateUserName?:string;
-    CreateDate?:Date;
+    CreateDate?:DateTime|string;
 }
 interface ITaskComment{
     Id?:number | string;
     CreateUserName?:string;
-    CreateDate?:Date;
+    CreateDate?:DateTime|string;
     Message?:string;
 }
 interface IParamsGetListTask extends ITask{
@@ -69,13 +69,23 @@ interface IParamsGetListTask extends ITask{
 interface IParamsTaskId{
     Id?:number | string;
 }
-interface IParamsCreateTask extends ITask{
-    ProjectId?:number | string;
-    PriorityId?:number;
+interface IParamsCreateTask{
+    Code?: string,
+    Title?: string,
+    Deadline?:string,
+    Environment?: number,
+    Typedevice?: number,
+    Openedversion?: number,
+    Fixedversion?: number,
+    Statustaskid?: number,
+    Status?: number,
+    Projectid?:number | string;
+    Priorityid?:number;
+    Description?:string;
     StatusTaskId?:number | string;
-    TaskUsers?:ITaskUser;
-    LogTaskChangeStatuses?:ILogTaskChangeStatus;
-    TaskComments?:ITaskComment;
+    TaskUsers?:Array<ITaskUser>;
+    LogTaskChangeStatuses?:Array<ILogTaskChangeStatus>;
+    TaskComments?:Array<ITaskComment>;
 }
 interface IParamsUpdateTask extends IParamsCreateTask<ITask> {
     Id?: number | string;

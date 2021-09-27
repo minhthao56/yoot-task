@@ -121,7 +121,7 @@ export const FilterTasks:React.FC<IPropsOptions & IFilterTask> = (
 					</div>
 					<div className="input-group-task">
 						<SelectBox label="Dự án" 
-						id ="project" name="project" 
+						id ="project" name="project"
 						options={optionProject} handleOnChange={handleOnChange}
 						/>
 					</div>

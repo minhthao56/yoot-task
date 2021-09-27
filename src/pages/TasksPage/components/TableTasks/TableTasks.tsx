@@ -75,7 +75,7 @@ export const TableTasks: React.FC<IPropsData> = ({dataTask}) => {
 											</p>
 										</td>
 										<td>
-											<Link to={`/tasks/update/${task.Id}`} className="bt_style" target="_blank">
+											<Link to={`/tasks/update/${task.Id}`} className="bt_style" >
 												<button className="bt_style-edit" onClick={() =>{console.log(task.Id)}}>
 													<RiPencilRulerFill />
 												</button>

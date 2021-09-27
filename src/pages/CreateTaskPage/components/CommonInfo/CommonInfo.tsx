@@ -1,22 +1,22 @@
 import { useFormik } from 'formik';
-import {Input, SelectBox, Textarea } from '../../../../components';
+import {Button, Input, SelectBox, Textarea } from '../../../../components';
 import * as Yup from 'yup';
 import './CommonInfo.scss';
+import { apiTask } from '../../../../services';
 
 interface IPropsOptions{
-	listStatusTask:any,
-	listVersion:any,
-	ListPriority:any,
-	listTypeDevices:any,
-	listEnv:any,
-	listProject:any,
-    formSubmit:boolean,
-    onSubmit:any;
-    // props:any
-
+	listStatusTask:Array<number | string>,
+	listVersion:Array<number | string>,
+	ListPriority:Array<number | string>,
+	listTypeDevices:Array<number | string>,
+	listEnv:Array<number | string>,
+	listProject:Array<number | string>,
+}
+interface IPropsSubmit {
+    onSubmitForm: (Code:string,Title:string,Deadline:string,Description:string, Status: number)=> void;
 }
 
-export const CommonInfo: React.FC<IPropsTab & IPropsOptions> = ({
+export const CommonInfo: React.FC<IPropsTab & IPropsOptions & IPropsSubmit> = ({
     tab,
     listProject,
     listEnv,
@@ -24,27 +24,26 @@ export const CommonInfo: React.FC<IPropsTab & IPropsOptions> = ({
     ListPriority,
     listVersion,
     listStatusTask,
-    formSubmit,
-    onSubmit,
+    onSubmitForm
     // props
 }) => {
-    console.log('props qua',formSubmit);
-    const optionProject = listProject.map((item:any)=>{
+
+    const optionProject:Array<string|number>[] = listProject.map((item:any)=>{
 		return [item.Id, item.Name]
 	})
-	const optionStatusTask = listStatusTask.map((item:any)=>{
+	const optionStatusTask:Array<string|number>[] = listStatusTask.map((item:any)=>{
 		return [item.Id, item.Title]
 	})
-	const optionVersion = listVersion.map((item:any)=>{
+	const optionVersion:Array<string|number>[] = listVersion.map((item:any)=>{
 		return [item.Id, item.Title]
 	})
-	const optionPriority = ListPriority.map((item:any)=>{
+	const optionPriority:Array<string|number>[] = ListPriority.map((item:any)=>{
 		return [item.Id, item.Title]
 	})
-	const optionTypeDevices = listTypeDevices.map((item:any)=>{
+	const optionTypeDevices:Array<string|number>[] = listTypeDevices.map((item:any)=>{
 		return [item.Id, item.Title]
 	})
-	const optionEnv = listEnv.map((item:any)=>{
+	const optionEnv:Array<string|number>[] = listEnv.map((item:any)=>{
 		return [item.Id, item.Title]
 	})
     const formik = useFormik({
@@ -52,14 +51,24 @@ export const CommonInfo: React.FC<IPropsTab & IPropsOptions> = ({
 		initialValues: {
 			Code: '',
 			Title:"",
+            Deadline:"",
             Description:"",
-			Status: 0,
+            Environment:0,
+            TypeDevice:0,
+            FixedVersion:0,
+            OpenedVersion:0,
+			Status: 10,
 			OptionStatus: [
                 //[value-option, content-option]
                 [10, "Hoạt Động"],
                 [90, "Ngưng Hoạt Động"],
             ],
             OptionProject:optionProject,
+            OptionStatusTask:optionStatusTask,
+            OptionVersion:optionVersion,
+            OptionPriority:optionPriority,
+            OptionTypeDevices:optionTypeDevices,
+            OptionEnv:optionEnv,
 		},
         validationSchema: Yup.object({
             Code: Yup.string().required('vui lòng điền mã code'),
@@ -67,22 +76,34 @@ export const CommonInfo: React.FC<IPropsTab & IPropsOptions> = ({
             Description: Yup.string().required('vui lòng điền mô tả'),
           }),
           
-        onSubmit: values => {
-
-           
-            // try {
-            //     apiTask
-            //         .createTask({
-            //             Code,
-            //             Title,
-            //             TaskComments:{}
-                        
-            //         })
-            // } catch (error) {
-            //     console.log('loi nay',error);
-            // }
-            
-            // alert(JSON.stringify(values, null, 2));
+        onSubmit: (values) => {
+            const Code = values.Code;
+            const Title = values.Title;
+            const Deadline = values.Deadline;
+            const Description = values.Description;
+            const Environment = values.Environment;
+            const TypeDevice = values.TypeDevice;
+            const FixedVersion = values.FixedVersion;
+            const OpenedVersion = values.OpenedVersion;
+            const Status = values.Status;
+            try {
+                apiTask
+                    .createTask({
+                        Code:Code,
+                        Title:Title,
+                        Deadline:Deadline,
+                        Description: Description,
+                        Status: Status,
+                    })
+                    .then((tasks) => {
+                        alert("Thêm Thành Công ");
+                        window.location.replace("/tasks");
+                    });
+                
+            } catch (error) {
+                console.log("error here",error);
+            }
+            // onSubmitForm(Code,Title,Deadline,Description,Status);
         },
 	});
 	const handleOnChange = (valueSelect: number) => {
@@ -91,8 +112,8 @@ export const CommonInfo: React.FC<IPropsTab & IPropsOptions> = ({
     return (
         
       
-        <form className={tab ? "common-info show":"common-info"} onSubmit={formSubmit === true ? formik.handleSubmit : undefined }>
-            
+        <form action="" className={tab ? "common-info show":"common-info"} onSubmit={formik.handleSubmit}>
+            <Button type="submit" isSave className="">Lưu</Button>
             <h4 className="common-info__title">Thông tin chung </h4>
             <div className="common-info__form">
                 <div className="common-info__form-row">
@@ -105,13 +126,14 @@ export const CommonInfo: React.FC<IPropsTab & IPropsOptions> = ({
 						error={formik.touched.Code && formik.errors.Code}
                         />
                     </div>
+                    {formik.values.Code}
                     <div className="common-info__form-input">
-                        <SelectBox label="Dự án" id ="" name=""  options={optionProject}
+                        <SelectBox label="Dự án" id ="project" name="project"  options={optionProject}
                          handleOnChange={handleOnChange}
                          />
                     </div>
                     <div className="common-info__form-input">
-                        <SelectBox label="Trạng thái công việc" id ="" name="" 
+                        <SelectBox label="Trạng thái công việc" id ="statusTask" name="statusTask" 
                          options={optionStatusTask} 
                          handleOnChange={handleOnChange}
                          />
@@ -135,8 +157,9 @@ export const CommonInfo: React.FC<IPropsTab & IPropsOptions> = ({
             <div className="common-info__form-additional">
                 <div className="common-info__form-input">
                     <Input label="Hạn chót" type="datetime-local" placeholder=""
-                    name="deadline"
-                    id="deadline"
+                    name="Deadline"
+                    id="Deadline"
+                    value={formik.values.Deadline}
                     onChange={formik.handleChange}
                     />
                 </div>

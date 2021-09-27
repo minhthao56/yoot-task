@@ -6,24 +6,8 @@ import './PersonJoin.scss';
 
 const numberTr =[1,2,3,4];
 
-export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
-    const optionUser = [
-        [0,""],
-        [16,"Duy Thanh"],
-        [5,"Gia Huy"],
-        [14,"Hữu"],
-        [15,"Hữu Ý"],
-        [17,"Huỳnh Trọng Nghĩa"],
-        [10,"Kiên Phạm"],
-        [7,"Minh Thảo"],
-        [4,"Nam Quốc"],
-        [18,"Nguyễn Hoài Nam"],
-        [13,"Nguyễn Tấn Đạt"],
-        [9,"San Nguyễn"],
-        [6,"Sơn Lê"],
-        [12,"Trần Anh Kiệt"],
-        [8,"Vũ Lê"],
-    ]
+export const PersonJoin: React.FC<IPropDataDetailTask & IPropUserTask> = ({dataDetailTask,listAccounts}) => {
+    
     const optionTypeTask = [
         [0,""],
         [10,"Requirer"],
@@ -31,21 +15,34 @@ export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
         [90,"Assignee"],
         
     ]
-    const [listRow,setListRow] = useState(numberTr);
-    const [statusTypeTask,setStatusTypeTask] = useState(10);
-    const [statusUser, setStatusUser] = useState(7);
+    const [listRow,setListRow] = useState<any>(dataDetailTask.TaskUsers);
+    
+	console.log('so hang',listRow);
+	// get api for select option
+    const all = [{Id:0,Name:""}]
+	const concatUser =  [...all,...listAccounts];
+    const optionUser = concatUser.map((item:any)=>{
+		return [item.Id, item.Name]
+	})
+    
    
     const handleChangeStatus = (valueSelect: number) => {
-        setStatusUser(valueSelect);
-        setStatusTypeTask(valueSelect);
+
     }   
     // handler add row
     const handleAddRow = () => {
-        setListRow((listRow) => [...listRow,listRow[listRow.length - 1] + 1]);
+        setListRow((listRow:any) => [...listRow,listRow[listRow.length - 1] + 1]);
     }
     const handleDeleteRow = (number:any)=>{
         const row = Number(number);
-        setListRow(listRow.filter(item => item !== row));
+        // // const rowNew = listRow.slice(row, listRow.length - 1) 
+        // listRow.forEach(function(index:any, number:any){
+        //     if(listRow[index] === number){
+        //         listRow.splice(index, 1);
+        //     }
+        //  });
+        setListRow(listRow.filter((item:any) => item !== row));
+        // setListRow(listRow);
     }
     
     return (
@@ -61,24 +58,27 @@ export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
                     tbody={
                         <Fragment>
                         {
-                            listRow.map((number)=> (
-                                <tr key={number}>
-                                    <td>
-                                        <SelectBox id ="" name="" value=""
-                                        options={optionUser} handleOnChange={handleChangeStatus}/>
-                                    </td>
-                                    <td>
-                                        <SelectBox id ="" name="" value="" 
-                                        options={optionTypeTask} handleOnChange={handleChangeStatus}/>
-                                    </td>
-                                    <td>
-                                        <div className="bt_style">
-                                            <button className="bt_style-delete" onClick={()=>{handleDeleteRow(number)}}>
-                                            <ImScissors />
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
+                            listRow.map((user:any,index:number)=>(
+                                // listRow.map((number)=> (
+
+                                    <tr key={index}>
+                                        <td>
+                                            <SelectBox id ="userTask" name="userTask" value={user.UserId}
+                                            options={optionUser} handleOnChange={handleChangeStatus}/>
+                                        </td>
+                                        <td>
+                                            <SelectBox id ="typeUserTask" name="typeUserTask" value={user.TypeTaskUserId}
+                                            options={optionTypeTask} handleOnChange={handleChangeStatus}/>
+                                        </td>
+                                        <td>
+                                            <div className="bt_style">
+                                                <button className="bt_style-delete" onClick={()=>{handleDeleteRow(index)}}>
+                                                <ImScissors />  
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                // ))
                             ))
                         }
                             

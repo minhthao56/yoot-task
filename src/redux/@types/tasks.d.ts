@@ -1,5 +1,7 @@
 interface IResGetListTasks 
     extends IResponseResultApi<ResContentListTasks> {}
+interface IResGetDetailTask 
+    extends IResponseResultApi<ResContentDetailTask> {}
 
 interface ResTask {
     Code: string;
@@ -26,4 +28,31 @@ interface ResTask {
 interface ResContentListTasks {
     Tasks: Array<ResTask>;
 }
+interface ResContentDetailTask {
+    Task: Array<IResDetailTask>;
+}
   
+interface IResDetailTask{
+    Id?:number;
+    Code?:string;
+    Title?:string;
+    Description?:string;
+    Projectid?:number;
+    Deadline?:string;
+    Environment?:number;
+    Typedevice?:number;
+    Priorityid?:number;
+    Openedversion?:number;
+    Fixedversion?:number;
+    Status?:number;
+    LogTaskChangeStatuses?:Array<string|number>;
+    TaskCriterias?:any;
+    Message?:any;
+    Statustaskid?: number;
+    TaskComments?: Array;
+    TaskCriterias?: Array<string|number>;
+    TaskMedias?: Array<string|number>;
+    TaskUsers?: Array<string|number>;
+    IsView?: number;
+
+}

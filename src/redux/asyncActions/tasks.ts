@@ -19,6 +19,15 @@ export const doGetDetailTask = createAsyncThunk(
         return result.data;
     }
 );
+export const doCreateTask = createAsyncThunk(
+    "tasks@doCreateTask",
+    async (params: IParamsCreateTask) => {
+        const result = await apiTask.createTask(params);
+        console.log('create task',result);
+
+        return result.data;
+    }
+);
 export const doGetListStatusTask = createAsyncThunk(
     "statusTask@doGetListStatusTask",
     async (params: IParamsGetListStatusTask) => {

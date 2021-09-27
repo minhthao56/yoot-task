@@ -6,6 +6,7 @@ import { IoNotifications } from "react-icons/io5";
 export const Avatar = () => {
 
   const [showMenu, setShowMenu] = useState(false);
+  const [NameUser, setNameUser] = useState<any>();
   const keyPress = useCallback((e)=>{
     if(e.key === 'Escape' && showMenu){
       setShowMenu(true);
@@ -15,6 +16,11 @@ export const Avatar = () => {
     document.addEventListener('keydown', keyPress);
     return ()=> document.removeEventListener('keydown', keyPress);
   });
+  useEffect(() => {
+    const Name:any = window.localStorage.getItem('user');
+    setNameUser(Name);
+
+  },[])
   
   return (
     <div className="avatar">
@@ -27,7 +33,7 @@ export const Avatar = () => {
             className="avatar__img"
           />
         </span>
-        <span className="avatar__name">Minh thao</span>
+        <span className="avatar__name">{NameUser}</span>
       </div>
       <Menu showMenu={showMenu} />
     </div>
