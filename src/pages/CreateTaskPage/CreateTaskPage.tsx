@@ -106,30 +106,6 @@ export const CreateTaskPage = () => {
 		}
 	},[]);
 	// 
-	const handleCreateSubmit = (Code:string,Title:string,Deadline:string,Description:string, Status: number)=>{
-		// console.log("moi click guide",setSubmitFormCreate(submitFormCreate));
-		try {
-			apiTask
-			.createTask({
-				Code:Code,
-				Title:Title,
-				Deadline:Deadline,
-				Description: Description,
-				Status: Status,
-			})
-			.then((res) => res.data)
-			.then((tasks) => {
-				alert("Thêm Thành Công ");
-				window.location.replace("/tasks");
-			});
-			
-		} catch (error) {
-			console.log("error here",error);
-		}
-		console.log('save',Code);
-		
-		
-	}
 	
 	// console.log("moi click guide",submitFormCreate)
 	
