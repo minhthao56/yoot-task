@@ -7,11 +7,12 @@ import { Fragment, useState } from 'react';
 import * as yup from "yup";
 import { Button } from "../../components";
 import { apiProject } from "../../services";
-import "./CreateProjectPage.scss";
+import "./UpdateProjectPage.scss";
 const numberTr =[1,2,3,4];
 
-export const CreateProjectPage = () => {
+export const UpdateProjectPage = () => {
     const [showState, setshowState] = useState(1);
+
     const [listRow,setListRow] = useState(numberTr);
     // handler add row
     const handleAddRow = () => {
@@ -45,7 +46,7 @@ export const CreateProjectPage = () => {
                 [7, "Tất cả Laptop"],
                 [8, "Android APP"],
             ],
-            ProjectUsers:[0,""],
+            UserId:0,
             optionUser:[
                 [0,""],
                 [16,"Duy Thanh"],
@@ -71,18 +72,17 @@ export const CreateProjectPage = () => {
             const Name = values.Name;
             const Status = values.Status;
             const Typedeviceid = values.Typedeviceid;
-            const ProjectUsers = values.ProjectUsers;
+            const ProjectUsers = values.UserId;
             try {
                 apiProject
-                    .createProject({
+                    .updateProject({
                         Name,
                         Typedeviceid,
                         Status,
-                    
                         
                     })
                     .then((project) => {
-                        alert("Thêm Thành Công ");
+                        alert("Update Thành Công ");
                         window.location.replace("/projects");
                     });
             } catch (error) {
@@ -99,7 +99,7 @@ export const CreateProjectPage = () => {
     return (
         <form className="create-project" onSubmit={formik.handleSubmit}>
             <div className="form-header">
-                <h3>Tạo mới dự án</h3>
+                <h3>Cập nhật dự án</h3>
                 <div className="form-header__control">
                     <Button isSave type="submit" />
                     <Link to="/projects">
@@ -154,7 +154,7 @@ export const CreateProjectPage = () => {
                             listRow.map((number)=> (
                                 <tr key={number}>
                                     <td>
-                                        <SelectBox id ="userJoin" name="userJoin"
+                                        <SelectBox id ="UserId" name="UserId"
                                         options={formik.values.optionUser} handleOnChange={handleOnChange}/>
                                     </td>
                                     <td>

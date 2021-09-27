@@ -4,24 +4,24 @@ import { ImScissors } from "react-icons/im";
 import { Input, SelectBox, Table } from '../../components';
 import { Link } from "react-router-dom";
 import { Fragment, useState } from 'react';
-import * as yup from "yup";
 import { Button } from "../../components";
 import { apiProject } from "../../services";
-import "./CreateProjectPage.scss";
-const numberTr =[1,2,3,4];
+import "./NewProjectPage.scss";
+const numberTr = [1, 2, 3, 4];
 
-export const CreateProjectPage = () => {
+export const NewProjectPage = () => {
     const [showState, setshowState] = useState(1);
-    const [listRow,setListRow] = useState(numberTr);
+
+    const [listRow, setListRow] = useState(numberTr);
     // handler add row
     const handleAddRow = () => {
-        setListRow((listRow) => [...listRow,listRow[listRow.length - 1] + 1]);
+        setListRow((listRow) => [...listRow, listRow[listRow.length - 1] + 1]);
     }
-    const handleDeleteRow = (number:any)=>{
+    const handleDeleteRow = (number: any) => {
         const row = Number(number);
         setListRow(listRow.filter(item => item !== row));
     }
-    const showStateTab = (i:number) =>{
+    const showStateTab = (i: number) => {
         setshowState(i)
     }
     const formik = useFormik({
@@ -45,28 +45,26 @@ export const CreateProjectPage = () => {
                 [7, "Tất cả Laptop"],
                 [8, "Android APP"],
             ],
-            ProjectUsers:[0,""],
-            optionUser:[
-                [0,""],
-                [16,"Duy Thanh"],
-                [5,"Gia Huy"],
-                [14,"Hữu"],
-                [15,"Hữu Ý"],
-                [17,"Huỳnh Trọng Nghĩa"],
-                [10,"Kiên Phạm"],
-                [7,"Minh Thảo"],
-                [4,"Nam Quốc"],
-                [18,"Nguyễn Hoài Nam"],
-                [13,"Nguyễn Tấn Đạt"],
-                [9,"San Nguyễn"],
-                [6,"Sơn Lê"],
-                [12,"Trần Anh Kiệt"],
-                [8,"Vũ Lê"],
+            ProjectUsers: [0, ""],
+            optionUser: [
+                [0, ""],
+                [16, "Duy Thanh"],
+                [5, "Gia Huy"],
+                [14, "Hữu"],
+                [15, "Hữu Ý"],
+                [17, "Huỳnh Trọng Nghĩa"],
+                [10, "Kiên Phạm"],
+                [7, "Minh Thảo"],
+                [4, "Nam Quốc"],
+                [18, "Nguyễn Hoài Nam"],
+                [13, "Nguyễn Tấn Đạt"],
+                [9, "San Nguyễn"],
+                [6, "Sơn Lê"],
+                [12, "Trần Anh Kiệt"],
+                [8, "Vũ Lê"],
             ],
         },
-        validationSchema: yup.object({
-            Name: yup.string().required("Vui lòng điền Tên cho dự án."),
-        }),
+        
         onSubmit: (values) => {
             const Name = values.Name;
             const Status = values.Status;
@@ -74,12 +72,11 @@ export const CreateProjectPage = () => {
             const ProjectUsers = values.ProjectUsers;
             try {
                 apiProject
-                    .createProject({
+                    .updateProject({
                         Name,
                         Typedeviceid,
                         Status,
-                    
-                        
+
                     })
                     .then((project) => {
                         alert("Thêm Thành Công ");
@@ -93,15 +90,14 @@ export const CreateProjectPage = () => {
     const handleOnChange = (valueSelect: number) => {
         formik.values.Status = valueSelect;
     };
-    const handleOnChangee =(valueSelect: number)=>{
+    const handleOnChangee = (valueSelect: number) => {
         formik.values.Typedeviceid = valueSelect;
     }
     return (
         <form className="create-project" onSubmit={formik.handleSubmit}>
             <div className="form-header">
-                <h3>Tạo mới dự án</h3>
+                <h3>Thông tin dự án</h3>
                 <div className="form-header__control">
-                    <Button isSave type="submit" />
                     <Link to="/projects">
                         <Button isCancel type="button" />
                     </Link>
@@ -122,58 +118,55 @@ export const CreateProjectPage = () => {
                                     name="Name"
                                     id="Name"
                                     value={formik.values.Name}
-                                    error={formik.touched.Name && formik.errors.Name}
                                     onChange={formik.handleChange}
-                                    
+
                                 />
                             </div>
                             <div className="common-info__form-select">
                                 <SelectBox label="Thiết bị" id="Typedeviceid" name="Typedeviceid"
-                                    options={formik.values.Devices} 
+                                    options={formik.values.Devices}
                                     handleOnChange={handleOnChangee} />
                             </div>
                             <div className="common-info__form-select">
                                 <SelectBox label="Trạng thái" id="status" name="status"
-                                    options={formik.values.Options} 
+                                    options={formik.values.Options}
                                     handleOnChange={handleOnChange} />
                             </div>
                         </form>
                     </div>
                     <div className={showState === 2 ? 'common' : 'tab'}>
-                    <h4 className="person-join__title">Các thành viên</h4>
-            <div className="person-join__wrapper">
-                <div className="person-join__wrapper-header">
-                    <Button className="btn-addRow" handleOnClick={()=> {handleAddRow()}}>Thêm hàng</Button>
-                </div>  
-                <form className="person-join__wrapper-body">
-                    <Table 
-                    thead={["Người tham gia","Tác vụ"]}
-                    tbody={
-                        <Fragment>
-                        {
-                            listRow.map((number)=> (
-                                <tr key={number}>
-                                    <td>
-                                        <SelectBox id ="userJoin" name="userJoin"
-                                        options={formik.values.optionUser} handleOnChange={handleOnChange}/>
-                                    </td>
-                                    <td>
-                                        <div className="bt_style">
-                                            <button className="bt_style-delete" onClick={()=>{handleDeleteRow(number)}}>
-                                            <ImScissors />
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ))
-                        }
-                            
-                        </Fragment>   
-                    }
-                    />
-                    
-                </form>
-            </div>
+                        <h4 className="person-join__title">Các thành viên</h4>
+                        <div className="person-join__wrapper">
+                            <div className="person-join__wrapper-header">
+                                <Button className="btn-addRow" handleOnClick={() => { handleAddRow() }}>Thêm hàng</Button>
+                            </div>
+                            <form className="person-join__wrapper-body">
+                                <Table
+                                    thead={["Người tham gia", "Tác vụ"]}
+                                    tbody={
+                                        <Fragment>
+                                            {
+                                                listRow.map((number) => (
+                                                    <tr key={number}>
+                                                        <td>
+                                                            <SelectBox id="userJoin" name="userJoin"
+                                                                options={formik.values.optionUser} handleOnChange={handleOnChange} />
+                                                        </td>
+                                                        <td>
+                                                            <div className="bt_style">
+                                                                <button className="bt_style-delete" onClick={() => { handleDeleteRow(number) }}>
+                                                                    <ImScissors />
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                ))
+                                            }
+                                        </Fragment>
+                                    }
+                                />
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
