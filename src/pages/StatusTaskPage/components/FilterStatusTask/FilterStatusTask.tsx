@@ -35,22 +35,26 @@ export const FilterStatusTasks: FC<IFilterStatusTask> = ({ handleSubmit }) => {
         <Feature handleOnClick={handleRetype} />
       </div>
       <div className="form-body">
-        <Input
-          label="Tên trạng thái"
-          placeholder="Nhập tên trạng thái"
-          type="text"
-          id="Title"
-          name="Title"
-          value={formik.values.Title}
-          onChange={formik.handleChange}
-        />
-        <SelectBox
-          label="Trạng thái"
-          id="status"
-          name="status"
-          options={formik.values.Options}
-          handleOnChange={handleOnChange}
-        />
+        <div>
+          <Input
+            label="Tên trạng thái"
+            placeholder="Nhập tên trạng thái"
+            type="text"
+            id="Title"
+            name="Title"
+            value={formik.values.Title}
+            onChange={formik.handleChange}
+          />
+        </div>
+        <div>
+          <SelectBox
+            label="Trạng thái"
+            id="status"
+            name="status"
+            options={formik.values.Options}
+            handleOnChange={handleOnChange}
+          />
+        </div>
       </div>
     </form>
   );

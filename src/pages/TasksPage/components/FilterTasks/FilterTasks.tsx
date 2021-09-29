@@ -88,7 +88,6 @@ export const FilterTasks:React.FC<IPropsOptions & IFilterTask> = (
 			OptionUser:optionUser,
 		},
 		onSubmit: (values) => {
-			alert(JSON.stringify(values, null, 2));
 			const searchCode = values.Code;
 			const searchTitle = values.Title;
 			const searchDeadline = values.Deadline;

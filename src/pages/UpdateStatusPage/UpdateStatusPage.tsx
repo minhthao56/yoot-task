@@ -62,35 +62,43 @@ export const UpdateStatusPage = () => {
             </div>
             <div className="form-body">
                 <div className="form-body__row">
-                    <Input
-                        label="Tiêu đề"
-                        placeholder="Nhập tiêu đề"
-                        type="text"
-                        id="Title"
-                        name="Title"
-                        value={formik.values.Title}
-                        onChange={formik.handleChange}
-                        error={formik.touched.Title && formik.errors.Title}
-                    />
-                    <Input
-                        label="Thứ thự ưu tiên"
-                        placeholder="Nhập thứ tự ưu tiên"
-                        type="number"
-                        id="Orderview"
-                        name="Orderview"
-                        value={formik.values.Orderview}
-                        onChange={formik.handleChange}
-                        error={formik.touched.Orderview && formik.errors.Orderview}
-                    />
+                    <div>
+
+                        <Input
+                            label="Tiêu đề"
+                            placeholder="Nhập tiêu đề"
+                            type="text"
+                            id="Title"
+                            name="Title"
+                            value={formik.values.Title}
+                            onChange={formik.handleChange}
+                            error={formik.touched.Title && formik.errors.Title}
+                        />
+                    </div>
+                    <div>
+
+                        <Input
+                            label="Thứ thự ưu tiên"
+                            placeholder="Nhập thứ tự ưu tiên"
+                            type="number"
+                            id="Orderview"
+                            name="Orderview"
+                            value={formik.values.Orderview}
+                            onChange={formik.handleChange}
+                            error={formik.touched.Orderview && formik.errors.Orderview}
+                        />
+                    </div>
                 </div>
                 <div className="form-body__row">
-                    <SelectBox
-                        label="Trạng thái"
-                        id="status"
-                        name="status"
-                        options={formik.values.Options}
-                        handleOnChange={handleOnChange}
-                    />
+                    <div>
+                        <SelectBox
+                            label="Trạng thái"
+                            id="status"
+                            name="status"
+                            options={formik.values.Options}
+                            handleOnChange={handleOnChange}
+                        />
+                    </div>
                 </div>
             </div>
         </form>

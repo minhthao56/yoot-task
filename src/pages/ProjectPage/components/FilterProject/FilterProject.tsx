@@ -53,15 +53,18 @@ export const FilterProjects: FC<IFilterProject> = ({ handleSubmit }) => {
         <Feature handleOnClick={handleRetype} />
       </div>
       <div className="form-body">
-        <Input
-          label="Tên dự án"
-          placeholder="Nhập tên dự án"
-          type="text"
-          id="Name"
-          name="Name"
-          value={formik.values.Name}
-          onChange={formik.handleChange}
-        />
+        <div>
+          <Input
+            label="Tên dự án"
+            placeholder="Nhập tên dự án"
+            type="text"
+            id="Name"
+            name="Name"
+            value={formik.values.Name}
+            onChange={formik.handleChange}
+          />
+        </div>
+        <div>
         <SelectBox
             label="Thiết bị"
             id="Title"
@@ -69,13 +72,16 @@ export const FilterProjects: FC<IFilterProject> = ({ handleSubmit }) => {
             options={formik.values.Devices}
             handleOnChange={handleOnChangee}
           />
-        <SelectBox
-          label="Trạng thái"
-          id="status"
-          name="status"
-          options={formik.values.Options}
-          handleOnChange={handleOnChange}
-        />
+        </div>
+        <div>
+          <SelectBox
+            label="Trạng thái"
+            id="status"
+            name="status"
+            options={formik.values.Options}
+            handleOnChange={handleOnChange}
+          />
+        </div>
       </div>
     </form>
   );

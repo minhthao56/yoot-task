@@ -4,6 +4,7 @@ import  {Search,}  from '../Search/Search';
 import { Avatar } from '../Avatar/Avatar';
 import { Beadcrumb } from '../Beadcrumb/Beadcrumb';
 import { Route } from 'react-router';
+import { FiAlignLeft } from 'react-icons/fi';
 const routesList = [
     {
         path:'/',
@@ -48,9 +49,11 @@ const routesList = [
     },
 ];
 export const Header = () => {
+    
     return (
         <div className="header">
             <div className="header-nav">
+                <FiAlignLeft className="icon-toggle"/>
                 <Search placeholder="Tìm kiếm" type="search"/>
                 <Avatar />
             </div>

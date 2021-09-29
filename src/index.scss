@@ -6,3 +6,70 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-family: 'Open Sans', sans-serif;
 }
+
+@media screen and (max-width: 1024px) {
+    .main-layout {
+        &__content {
+            margin-left: 0px !important;
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
+    .sidebar {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-layout {
+        &__content {
+            margin-left: 0px !important;
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
+    .sidebar {
+        display: none;
+    }
+    .Search {
+        display: none;
+    }
+    .avatar-icon__notify {
+        display: none;
+    }
+    .header {
+        .icon-toggle {
+            display: block;
+        }
+    }
+    table.table {
+        overflow: auto !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .main-layout {
+        &__content {
+            margin-left: 0px !important;
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
+    .header {
+        .icon-toggle {
+            display: block;
+        }
+    }
+    .sidebar {
+        display: none;
+    }
+    .Search {
+        display: none;
+    }
+    .avatar-icon__notify {
+        display: none;
+    }
+    table.table {
+        overflow: auto !important;
+    }
+}
