@@ -2,9 +2,6 @@ import { Switch } from "react-router-dom";
 import { PrivateRouter } from "./PrivateRouter";
 import { PublicRouter } from "./PublicRouter";
 
-
-
-
 import { MainLayout } from "../layouts";
 
 
