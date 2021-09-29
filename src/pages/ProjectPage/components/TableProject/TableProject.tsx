@@ -26,6 +26,43 @@ export const TableProject: FC<ITableProject> = ({ dataProject}) => {
   }
   
   return (
+<<<<<<< HEAD
+    <Table
+      thead={[
+        "TÊN DỰ ÁN",
+        "THIẾT BỊ",
+        "TRẠNG THÁI",
+        "THÔNG TIN TẠO",
+        "THÔNG TIN SỬA",
+      ]}
+      tbody={
+        <Fragment>
+          {dataProject.map((info, idx) => (
+            <tr key={idx}>
+              <td>
+                <b>{info.Name}</b>
+              </td>
+              <td>{info.TypeDeviceText}</td>
+              <td>{info.StatusText}</td>
+              <td>
+                {info.CreateUserName}
+                <br />
+                {info.CreateDate}
+              </td>
+              <td>
+                {info.UpdateUserName}
+                <br />
+                {info.UpdateDate}
+              </td>
+              <td>
+                <Actions />
+              </td>
+            </tr>
+          ))}
+        </Fragment>
+      }
+    />
+=======
       <Table
         thead={[
           "TÊN DỰ ÁN",
@@ -79,6 +116,7 @@ export const TableProject: FC<ITableProject> = ({ dataProject}) => {
           </Fragment>
         }
       />
+>>>>>>> e5a7c35c546b74989b3a4b46414e84d3fc96fa60
   );
 
 };
