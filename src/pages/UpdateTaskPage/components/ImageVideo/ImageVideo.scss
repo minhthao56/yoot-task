@@ -16,6 +16,7 @@
         }
     }
     &__box-show {
+        height: auto;
         padding: 40px;
         margin-top: 20px;
         border: 1px solid #6f727a;
@@ -29,6 +30,18 @@
         }
         button {
             margin-right: 20px;
+        }
+        .list-img {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        img {
+            display: block;
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            margin-bottom: 10px;
         }
     }
 }

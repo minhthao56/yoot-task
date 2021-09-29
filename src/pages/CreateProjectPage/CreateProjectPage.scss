@@ -22,10 +22,18 @@
     width: 95%;
     &_nav{
       span {
+<<<<<<< HEAD
+=======
+        width: 50%;
+>>>>>>> e5a7c35c546b74989b3a4b46414e84d3fc96fa60
         width: 100%;
         font-size: .875rem;
         font-weight: 400;
         line-height: 1.5;
+<<<<<<< HEAD
+=======
+        padding: .625rem 1.25rem;
+>>>>>>> e5a7c35c546b74989b3a4b46414e84d3fc96fa60
         padding: .625rem 4rem;
         user-select: none;
         text-align: center;
@@ -41,9 +49,14 @@
             background-color: #5e72e4;
         }
         span.show {
+<<<<<<< HEAD
             display: block;
         }
     }
+=======
+          display: block;
+      }
+>>>>>>> e5a7c35c546b74989b3a4b46414e84d3fc96fa60
   }
 }
 
@@ -146,4 +159,8 @@
       justify-content: space-between;
       flex-wrap: wrap;
   }
+<<<<<<< HEAD
+=======
+} 
+>>>>>>> e5a7c35c546b74989b3a4b46414e84d3fc96fa60
 }

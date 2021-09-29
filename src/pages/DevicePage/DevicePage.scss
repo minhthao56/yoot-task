@@ -1,21 +1,21 @@
 @import "../../assets/scss/variable";
 .device-page {
-    margin: 30px;
-    margin-top: 200px;
-  .filter-device {
-    border-radius: 10px;
-    background-color:white;
-    margin: 30px auto;
-  }
-  .list-device {
-    border-radius: 10px;
-    background: $color-white;
-    &__header{
-      height: 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding:40px;
+    // margin: 30px;
+    // margin-top: 200px;
+    .filter-device {
+        border-radius: 10px;
+        background-color: white;
+        margin: 30px auto;
     }
-  }
+    .list-device {
+        border-radius: 10px;
+        background: $color-white;
+        &__header {
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px;
+        }
+    }
 }

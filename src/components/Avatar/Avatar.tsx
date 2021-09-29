@@ -2,11 +2,11 @@ import "./Avatar.scss";
 import { Menu } from "../Menu/Menu";
 import { useCallback, useEffect, useState } from "react";
 import { IoNotifications } from "react-icons/io5";
-import { useRef } from "react";
 
 export const Avatar = () => {
-  const modalRef = useRef()
+
   const [showMenu, setShowMenu] = useState(false);
+  const [NameUser, setNameUser] = useState<any>();
   const keyPress = useCallback((e)=>{
     if(e.key === 'Escape' && showMenu){
       setShowMenu(true);
@@ -16,11 +16,12 @@ export const Avatar = () => {
     document.addEventListener('keydown', keyPress);
     return ()=> document.removeEventListener('keydown', keyPress);
   });
-  const closeModal = (e:any)=>{
-    if(modalRef.current === e.target){
-      setShowMenu(false)
-    }
-  }
+  useEffect(() => {
+    const Name:any = window.localStorage.getItem('user');
+    setNameUser(Name);
+
+  },[])
+  
   return (
     <div className="avatar">
       <IoNotifications className="avatar-icon__notify"/>
@@ -32,7 +33,7 @@ export const Avatar = () => {
             className="avatar__img"
           />
         </span>
-        <span className="avatar__name">Minh thao</span>
+        <span className="avatar__name">{NameUser}</span>
       </div>
       <Menu showMenu={showMenu} />
     </div>

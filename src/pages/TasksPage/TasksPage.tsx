@@ -1,53 +1,20 @@
 import { unwrapResult } from "@reduxjs/toolkit";
 import { useEffect, useState } from "react";
-import { doGetListAccounts, useAppDispatch, useAppSelector } from "../../redux";
-import { apiEnvironment, apiPriority, apiProject, apiStatusTask, apiTask } from "../../services";
+import { doGetListAccounts, doGetListTasks, useAppDispatch, useAppSelector } from "../../redux";
+import { apiEnvironment, apiPriority, apiProject, apiStatusTask,  } from "../../services";
 import { apiTypeDevice } from "../../services/api/apiTypeDevice";
 import { apiVersion } from "../../services/api/apiVersion";
 import { FilterTasks, TableTasks } from "./components";
 import "./TasksPage.scss";
 
-// data mau dung thu
-const dataTask = [
-	{
-		Id:1,
-		code:"110022",
-		title:"Khi nhập giờ hẹn lịch phỏng vấn thì click vào vị trí ngày để xoá sẽ k ảnh hưởng đến tháng và năm (UV và NTD)",
-		personJoin:"nam quoc",
-		statusWork:"to do",
-		info:"Dự án: Việc làm NTD (Web)",
-		status:"hoat dong",
-		infoCreated:"nam quoc 20/20/2021",
-		infoUpdate:"nam quoc 20/20/2021 2:12 pm",
-	},
-	{
-		Id:2,
-		code:"110056",
-		title:"Đang bị lỗi k nhập tiêu đề là k lưu lại, cần có dòng đỏ dưới mỗi tiêu đề",
-		personJoin:"nam quoc",
-		statusWork:"to do",
-		info:"Dự án: Việc làm NTD (Web)",
-		status:"hoat dong",
-		infoCreated:"nam quoc 20/20/2021",
-		infoUpdate:"nam quoc 20/20/2021 2:12 pm",
-	},
-	{
-		Id:3,
-		code:"110089",
-		title:"NTD chưa nhận được thông báo ở chuông nên k biết được có ng mới ứng tuyển",
-		personJoin:"nam quoc",
-		statusWork:"to do",
-		info:"Dự án: Việc làm NTD (Web)",
-		status:"hoat dong",
-		infoCreated:"nam quoc 20/20/2021",
-		infoUpdate:"nam quoc 20/20/2021 2:12 pm",
-	},
-]
 export const TasksPage = () => {
-  const dispatch = useAppDispatch();
-	const { error, listAccounts, isLoading } = useAppSelector(
-		(state) => state.account
+  	const dispatch = useAppDispatch();
+	const { error, listAccounts,isLoading} = useAppSelector(
+		(state) => state.account,
+		
 	);
+	const {listTasks} = useAppSelector((state) => state.tasks)
+
 	const [accs, setAccs] = useState<Array<ResAccount>>([]);
 	const [statusTask, setStatusTask] = useState([]);
 	const [version, setVersion] = useState([]);
@@ -55,6 +22,7 @@ export const TasksPage = () => {
 	const [typeDevices,setTypeDevices] = useState([]);
 	const [env,setEnv] = useState([]);
 	const [project,setProject] = useState([]);
+	const [listTask,setListTask] = useState<Array<ResTask>>([]);
 
 	useEffect(() => {
 		dispatch(doGetListAccounts({}))
@@ -66,7 +34,17 @@ export const TasksPage = () => {
 				alert("Đã có lỗi");
 			});
 		
-	}, []);
+	}, [dispatch]);
+	useEffect(() => {
+		dispatch(doGetListTasks({}))
+			.then(unwrapResult)
+			.then((res: IResGetListTasks) => {
+				setListTask(res.Content.Tasks);
+			})
+			.catch((err) => {
+				alert("Đã có lỗi");
+			});
+	}, [dispatch]);	
 	useEffect(() => {
 		try {
 			apiStatusTask
@@ -110,18 +88,32 @@ export const TasksPage = () => {
 				.then((data) => {
 					const listProject = data.Content.Projects;
 					setProject(listProject);
-				})
-
-
-				
+				})				
 		} catch (error) {
 			console.log(error);
 		}
 	},[])
-	// console.log("bala",project);
-	const handleSubmit = () => {
-		//distch 
-	};
+
+	if (error === 0) {
+		alert("Đã có lỗi");
+	}
+	// function filter tasks
+	const handleSearch = (Code:string,Title: string, Deadline:string,Status: number) => {
+		try {
+			dispatch(doGetListTasks({
+				Code: Code,
+				Title: Title,
+				Deadline: Deadline,
+				Status: Status,
+			}))
+			.then(unwrapResult)
+			.then((data: IResGetListTasks) => {
+				setListTask(data.Content.Tasks);
+			});
+		} catch (error) {
+		  	console.log(error);
+		}
+	  };
 
     return(
         <div className="task-page">
@@ -134,11 +126,11 @@ export const TasksPage = () => {
 				listTypeDevices={typeDevices}
 				listEnv={env}
 				listProject={project}
-				handleSubmit={handleSubmit}
+				handleSubmit={handleSearch}
 				/>
 			</div>
 			<div className="task-page__body">
-				<TableTasks dataTask={dataTask}/>
+				<TableTasks dataTask={listTask}/>
 			</div>
         </div>
     ) 

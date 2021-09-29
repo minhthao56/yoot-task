@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Feature } from "../../components";
+import { Button} from "../../components";
 import { apiPriority } from "../../services";
 import { FilterPriority, TablePriority } from "./components";
 import "./PriorityPage.scss";

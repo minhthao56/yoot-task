@@ -10,18 +10,31 @@ import { apiProject } from "../../services";
 import "./CreateProjectPage.scss";
 const numberTr =[1,2,3,4];
 
+<<<<<<< HEAD
 export const CreateProjectPage: React.FC<IPropsTab> = ({ tab}) => {
     const [showState, setshowState] = useState(1);
 
+=======
+export const CreateProjectPage = () => {
+    const [showState, setshowState] = useState(1);
+>>>>>>> e5a7c35c546b74989b3a4b46414e84d3fc96fa60
     const [listRow,setListRow] = useState(numberTr);
     // handler add row
     const handleAddRow = () => {
         setListRow((listRow) => [...listRow,listRow[listRow.length - 1] + 1]);
+<<<<<<< HEAD
     }
     const handleDeleteRow = (number:any)=>{
         const row = Number(number);
         setListRow(listRow.filter(item => item !== row));
     }
+=======
+    }
+    const handleDeleteRow = (number:any)=>{
+        const row = Number(number);
+        setListRow(listRow.filter(item => item !== row));
+    }
+>>>>>>> e5a7c35c546b74989b3a4b46414e84d3fc96fa60
     const showStateTab = (i:number) =>{
         setshowState(i)
     }
