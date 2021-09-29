@@ -39,22 +39,27 @@ export const FilterDevices: FC<IFilterDevice> = ({ handleSubmit }) => {
         <Feature handleOnClick={handleRetype} />
       </div>
       <div className="form-body">
-        <Input
-          label="Tiêu đề"
-          placeholder="Nhập tiêu đề"
-          type="text"
-          id="Device"
-          name="Device"
-          value={formik.values.Device}
-          onChange={formik.handleChange}
-        />
-        <SelectBox
-          label="Trạng thái"
-          id="status"
-          name="status"
-          options={formik.values.Options}
-          handleOnChange={handleOnChange}
-        />
+        <div>
+
+          <Input
+            label="Tiêu đề"
+            placeholder="Nhập tiêu đề"
+            type="text"
+            id="Device"
+            name="Device"
+            value={formik.values.Device}
+            onChange={formik.handleChange}
+          />
+        </div>
+        <div>
+          <SelectBox
+            label="Trạng thái"
+            id="status"
+            name="status"
+            options={formik.values.Options}
+            handleOnChange={handleOnChange}
+          />
+        </div>
       </div>
     </form>
   );

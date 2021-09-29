@@ -55,23 +55,27 @@ export const CreateDevicePage = () => {
       <div className="form-body">
         <h3>THÔNG TIN CHUNG</h3>
         <div className="form-body__row">
-          <Input
-            label="Tiêu đề"
-            placeholder="Nhập tiêu đề"
-            type="text"
-            id="Title"
-            name="Title"
-            value={formik.values.Title}
-            onChange={formik.handleChange}
-            error={formik.touched.Title && formik.errors.Title}
-          />
-          <SelectBox
-            label="Trạng thái"
-            id="status"
-            name="status"
-            options={formik.values.Options}
-            handleOnChange={handleOnChange}
-          />
+          <div>
+            <Input
+              label="Tiêu đề"
+              placeholder="Nhập tiêu đề"
+              type="text"
+              id="Title"
+              name="Title"
+              value={formik.values.Title}
+              onChange={formik.handleChange}
+              error={formik.touched.Title && formik.errors.Title}
+            />
+          </div>
+          <div>
+            <SelectBox
+              label="Trạng thái"
+              id="status"
+              name="status"
+              options={formik.values.Options}
+              handleOnChange={handleOnChange}
+            />
+          </div>
         </div>
       </div>
     </form>

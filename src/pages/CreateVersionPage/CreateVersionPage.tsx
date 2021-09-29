@@ -46,38 +46,43 @@ export const CreateVersionPage = () => {
   return (
       <>
       <Loader loadding = {loadding}/>
-    <form className="create-version" onSubmit={formik.handleSubmit}>
-      <div className="form-header">
-        <h3>Tạo mới version</h3>
-        <div className="form-header__control">
-          <Button isSave type="submit" />
-          <Link to="/version">
-            <Button isCancel type="button" />
-          </Link>
+      <form className="create-version" onSubmit={formik.handleSubmit}>
+        <div className="form-header">
+          <h3>Tạo mới version</h3>
+          <div className="form-header__control">
+            <Button isSave type="submit" />
+            <Link to="/version">
+              <Button isCancel type="button" />
+            </Link>
+          </div>
         </div>
-      </div>
-      <div className="form-body">
-        <div className="form-body__row">
-          <Input
-            label="Tiêu đề"
-            placeholder="Nhập tiêu đề"
-            type="text"
-            id="Title"
-            name="Title"
-            value={formik.values.Title}
-            onChange={formik.handleChange}
-            error={formik.touched.Title && formik.errors.Title}
-          />
-          <SelectBox
-            label="Trạng thái"
-            id="status"
-            name="status"
-            options={formik.values.Options}
-            handleOnChange={handleOnChange}
-          />
+        <div className="form-body">
+          <div className="form-body__row">
+            <div>
+
+              <Input
+                label="Tiêu đề"
+                placeholder="Nhập tiêu đề"
+                type="text"
+                id="Title"
+                name="Title"
+                value={formik.values.Title}
+                onChange={formik.handleChange}
+                error={formik.touched.Title && formik.errors.Title}
+              />
+            </div>
+            <div>
+              <SelectBox
+                label="Trạng thái"
+                id="status"
+                name="status"
+                options={formik.values.Options}
+                handleOnChange={handleOnChange}
+              />
+            </div>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
     </>
   );
 };

@@ -21,7 +21,20 @@
         padding: 30px;
         &__row {
             display: flex;
+            justify-content: flex-start;
             height: 120px;
+            div {
+                width: 35%;
+                margin-right: 15px;
+            }
+            input,
+            select {
+                width: 100%;
+            }
+            select {
+                margin-top: 5px;
+                height: 45px;
+            }
         }
     }
 }
