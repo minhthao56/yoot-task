@@ -16,14 +16,21 @@
     &__body {
         table {
             width: 100%;
-            th:nth-child(3) {
-                white-space: pre-wrap;
-            }
+            // th:nth-child(3) {
+            //     white-space: nowrap;
+            // }
             th:nth-child(4) {
                 white-space: pre-wrap;
             }
             button {
                 padding: 10px 15px;
+            }
+            td {
+                font-size: .8125rem;
+            }
+            p {
+                font-size: .8125rem;
+                margin: 0;
             }
         }
     }

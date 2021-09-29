@@ -10,9 +10,8 @@ import { apiProject } from "../../services";
 import "./CreateProjectPage.scss";
 const numberTr =[1,2,3,4];
 
-export const CreateProjectPage: React.FC<IPropsTab> = ({ tab}) => {
+export const CreateProjectPage = () => {
     const [showState, setshowState] = useState(1);
-
     const [listRow,setListRow] = useState(numberTr);
     // handler add row
     const handleAddRow = () => {

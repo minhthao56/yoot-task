@@ -21,6 +21,7 @@ export const LoginPage = () => {
 
 			if (data.Result) {
 				localStorage.setItem("token", data.Content.Token);
+				localStorage.setItem("user", data.Content.UserInfo.Name);
 				window.location.replace("/");
 			} else {
 				alert(`${data.Message}`);
@@ -34,10 +35,11 @@ export const LoginPage = () => {
 			Password: Yup.string()
 				.min(6,"Must be 6 characters or bigger")
 				.max(32, 'Must be 32 characters or less')
-				.required('Required'),
-			Email: Yup.string().email('Invalid email address').required('Required'),
+				.required('Please input password'),
+			Email: Yup.string().email('Invalid email address').required('Please input email'),
 		  }),
 	});
+
 
 	return (
 		<div className="login-page">

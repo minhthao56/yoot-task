@@ -3,6 +3,50 @@ import './Header.scss';
 import  {Search,}  from '../Search/Search';
 import { Avatar } from '../Avatar/Avatar';
 import { Beadcrumb } from '../Beadcrumb/Beadcrumb';
+import { Route } from 'react-router';
+const routesList = [
+    {
+        path:'/',
+        exact:true,
+        title:"Trang chủ",
+    },
+    {
+        path:'/tasks',
+        title:"Task",
+    },
+    {
+        path:'/plans',
+        title:"kế hoạch",
+    },
+    {
+        path:'/projects',
+        title:"Dự án",
+    },
+    {
+        path:'/status',
+        title:"Trạng thái",
+    },
+    {
+        path:'/criteria',
+        title:"Tiêu chí",
+    },
+    {
+        path:'/version',
+        title:"Version",
+    },
+    {
+        path:'/priority',
+        title:"Mức độ",
+    },
+    {
+        path:'/env',
+        title:"Môi trường",
+    },
+    {
+        path:'/device',
+        title:"Thiết bị",
+    },
+];
 export const Header = () => {
     return (
         <div className="header">
@@ -11,7 +55,17 @@ export const Header = () => {
                 <Avatar />
             </div>
             <div className="header-beadcrumb">
-                <Beadcrumb title="Task"/>
+                {
+                    routesList.map((title:any)=>(
+                        <Route
+                            key={title.path}
+                            path={title.path}
+                            exact={title.exact}
+                        >
+                            <Beadcrumb title={title.title}/>
+                        </Route>
+                    ))
+                }
             </div>
         </div>
     );
