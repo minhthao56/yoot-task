@@ -1,4 +1,5 @@
 @import "../../assets/scss/variable";
+
 .btn {
     font-size: .875rem;
     font-weight: 600;
@@ -11,21 +12,39 @@
     border: 1px solid transparent;
     box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
     cursor: pointer;
+
     &--green {
         background-color: $color-green;
         border: solid 1px $color-green;
     }
+
     &--gray {
         background-color: $color-gray;
         border: solid 1px $color-gray;
     }
+
     &--paleblue {
         background-color: $color-paleblue;
         border: solid 1px $color-paleblue;
     }
+
     &--black {
         background-color: $color-black;
         border: solid 1px $color-black;
+    }
+
+    &--outline--black {
+        background-color: transparent;
+        border: solid 1px $color-black;
+        color: $color-black;
+
+    }
+
+    &--outline--blue {
+        background-color: transparent;
+        border: solid 1px $color-paleblue;
+        color: $color-paleblue;
+
     }
 }
 
