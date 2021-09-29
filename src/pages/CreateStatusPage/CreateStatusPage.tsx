@@ -19,7 +19,7 @@ export const CreateStatusPage = () => {
             ],
         },
         validationSchema: yup.object({
-            Title: yup.string().required("Vui lòng điền tiêu đề cho rủi ro."),
+            Title: yup.string().required("Vui lòng điền tiêu đề cho tình."),
             Orderview: yup.number().required("Vui lòng điền thứ tự ưu tiên."),
         }),
         onSubmit: (values) => {

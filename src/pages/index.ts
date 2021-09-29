@@ -27,3 +27,8 @@ export * from "./VersionPage/VersionPage"
 export * from "./PlanPage/PlanPage"
 export * from "./CriteriaPage/CriteriaPage";
 
+export * from "./EnvPage/EnvPage"
+export * from "./CreateEnvPage/CreateEnvPage"
+export * from "./ProfilePage/ProfilePage"
+
+
