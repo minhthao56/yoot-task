@@ -48,7 +48,7 @@ export const ProfilePage = () => {
                 <h3>Cập nhật thông tin</h3>
                 <div className="form-header__control">
                     <Button isSave type="submit" />
-                    <Link to="/dashboard">
+                    <Link to="/">
                         <Button isCancel type="button" />
                     </Link>
                 </div>

@@ -72,21 +72,69 @@ export const FilterTasks:React.FC<IPropsOptions & IFilterTask> = (
 			Code: "",
 			Title: "",
 			Deadline:"",
-			Status: 0,
+			Environment:0,
+			TypeDevice:0,
+			FixedVersion:0,
+			OpenedVersion:0,
+			Status:0,
+			Project:0,
+			Priority:0,
+			StatusTask:0,
+			Page:0,
+			LoginSuccess:0,
+			User:0,
 			OptionStatus: status,
 			OptionProject:optionProject,
 			OptionUser:optionUser,
 		},
 		onSubmit: (values) => {
-		  const searchCode = values.Code;
-		  const searchTitle = values.Title;
-		  const searchDeadline = values.Deadline;
-		  const searchStatus = values.Status;
-		  handleSubmit(searchCode, searchTitle, searchDeadline,searchStatus);
+			alert(JSON.stringify(values, null, 2));
+			const searchCode = values.Code;
+			const searchTitle = values.Title;
+			const searchDeadline = values.Deadline;
+			const searchStatus = values.Status;
+			const searchEnvironment = values.Environment;
+			const searchTypeDevice = values.TypeDevice;
+			const searchFixedVersion = values.FixedVersion;
+			const searchOpenedVersion = values.OpenedVersion;
+			const searchProject = values.Project;
+			const searchPriority = values.Priority;
+			const searchStatusTask = values.StatusTask;
+			const searchUser = values.User;
+			handleSubmit(
+				searchCode, searchTitle, searchDeadline,
+				searchStatus,searchEnvironment,searchTypeDevice,
+				searchFixedVersion,searchOpenedVersion,searchProject,
+				searchPriority,searchStatusTask,searchUser
+			);
 		},
 	});
 	const handleOnChange = (valueSelect: number) => {
 		formik.values.Status = valueSelect;
+	};
+	const handleOnChangeEnv = (valueSelect: number) => {
+		formik.values.Environment = valueSelect;
+	};
+	const handleOnChangeTypeDevice = (valueSelect: number) => {
+		formik.values.TypeDevice = valueSelect;
+	};
+	const handleOnChangeFixVersion = (valueSelect: number) => {
+		formik.values.FixedVersion = valueSelect;
+	};
+	const handleOnChangeOpenVersion = (valueSelect: number) => {
+		formik.values.OpenedVersion = valueSelect;
+	};
+	const handleOnChangeProject = (valueSelect: number) => {
+		formik.values.Project = valueSelect;
+	};
+	const handleOnChangePriority = (valueSelect: number) => {
+		formik.values.Priority = valueSelect;
+	};
+	const handleOnChangeStatusTask = (valueSelect: number) => {
+		formik.values.StatusTask = valueSelect;
+	};
+	const handleOnChangeUser = (valueSelect: number) => {
+		formik.values.User = valueSelect;
 	};
 	const handleRetype = () => {
 		window.location.replace("/tasks");
@@ -121,8 +169,8 @@ export const FilterTasks:React.FC<IPropsOptions & IFilterTask> = (
 					</div>
 					<div className="input-group-task">
 						<SelectBox label="Dự án" 
-						id ="project" name="project"
-						options={optionProject} handleOnChange={handleOnChange}
+						id ="Project" name="Project"
+						options={optionProject} handleOnChange={handleOnChangeProject}
 						/>
 					</div>
 					<div className="input-group-task">
@@ -132,33 +180,33 @@ export const FilterTasks:React.FC<IPropsOptions & IFilterTask> = (
 						/>
 					</div>
 					<div className="input-group-task">
-						<SelectBox label="Môi trường" id ="env" name="env" 
-						 options={optionEnv} handleOnChange={handleOnChange}
+						<SelectBox label="Môi trường" id ="Environment" name="Environment" 
+						 options={optionEnv} handleOnChange={handleOnChangeEnv}
 						/>
 					</div>
 					<div className="input-group-task">
-						<SelectBox label="Thiết bị" id ="typeDevice" name="typeDevice" 
-						 options={optionTypeDevices} handleOnChange={handleOnChange}
+						<SelectBox label="Thiết bị" id ="TypeDevice" name="TypeDevice" 
+						 options={optionTypeDevices} handleOnChange={handleOnChangeTypeDevice}
 						/>
 					</div>
 					<div className="input-group-task">
-						<SelectBox label="Ưu tiên" id ="priority" name="priority"
-						 options={optionPriority} handleOnChange={handleOnChange}
+						<SelectBox label="Ưu tiên" id ="Priority" name="Priority"
+						 options={optionPriority} handleOnChange={handleOnChangePriority}
 						/>
 					</div>
 					<div className="input-group-task">
-						<SelectBox label="Phiên bản đã mở" id ="version" name="version" 
-						 options={optionVersion} handleOnChange={handleOnChange}
+						<SelectBox label="Phiên bản đã mở" id ="OpenedVersion" name="OpenedVersion" 
+						 options={optionVersion} handleOnChange={handleOnChangeOpenVersion}
 						/>
 					</div>
 					<div className="input-group-task">
-						<SelectBox label="Phiên bản đã sửa" id ="versionUpdate" name="versionUpdate" 
-						options={optionVersion} handleOnChange={handleOnChange}
+						<SelectBox label="Phiên bản đã sửa" id ="FixedVersion" name="FixedVersion" 
+						options={optionVersion} handleOnChange={handleOnChangeFixVersion}
 						/>
 					</div>
 					<div className="input-group-task">
-						<SelectBox label="Trạng thái công việc" id ="statusTaskText" name="statusTaskText" 
-						 options={optionStatusTask} handleOnChange={handleOnChange}/>
+						<SelectBox label="Trạng thái công việc" id ="StatusTask" name="StatusTask" 
+						 options={optionStatusTask} handleOnChange={handleOnChangeStatusTask}/>
 					</div>
 					<div className="input-group-task">
 						<SelectBox label="Trạng thái" id ="status" name="status"
@@ -166,8 +214,8 @@ export const FilterTasks:React.FC<IPropsOptions & IFilterTask> = (
 					</div>
 
 					<div className="input-group-task">
-						<SelectBox label="Người tham gia" id ="user" name="user" 
-						 options={optionUser} handleOnChange={handleOnChange}/>
+						<SelectBox label="Người tham gia" id ="User" name="User" 
+						 options={optionUser} handleOnChange={handleOnChangeUser}/>
 					</div>
 				</div>
 			</div>

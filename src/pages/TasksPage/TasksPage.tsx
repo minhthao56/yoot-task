@@ -98,13 +98,27 @@ export const TasksPage = () => {
 		alert("Đã có lỗi");
 	}
 	// function filter tasks
-	const handleSearch = (Code:string,Title: string, Deadline:string,Status: number) => {
+	const handleSearch = (Code:string,Title: string, 
+		Deadline:string,Status: number,Environment:number,
+		TypeDevice:number,FixedVersion:number,
+		OpenedVersion:number,
+		Project:number,Priority:number,
+		StatusTask:number,User:number,
+	) => {
 		try {
 			dispatch(doGetListTasks({
 				Code: Code,
 				Title: Title,
 				Deadline: Deadline,
 				Status: Status,
+				Environment: Environment,
+				TypeDevice: TypeDevice,
+				FixedVersion: FixedVersion,
+				OpenedVersion: OpenedVersion,
+				Project: Project,
+				Priority: Priority,
+				StatusTask: StatusTask,
+				User: User,
 			}))
 			.then(unwrapResult)
 			.then((data: IResGetListTasks) => {

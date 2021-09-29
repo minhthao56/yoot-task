@@ -46,8 +46,8 @@ interface IResDetailTask{
     Fixedversion?:number;
     Status?:number;
     LogTaskChangeStatuses?:Array<string|number>;
-    TaskCriterias?:any;
-    Message?:any;
+    TaskCriterias?:string;
+    Message?:string;
     Statustaskid?: number;
     TaskComments?: Array;
     TaskCriterias?: Array<string|number>;

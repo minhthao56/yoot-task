@@ -87,7 +87,7 @@ interface IParamsCreateTask{
     LogTaskChangeStatuses?:Array<ILogTaskChangeStatus>;
     TaskComments?:Array<ITaskComment>;
 }
-interface IParamsUpdateTask extends IParamsCreateTask<ITask> {
+interface IParamsUpdateTask extends IParamsCreateTask {
     Id?: number | string;
 }
 interface IParamsMessageTask{
