@@ -149,7 +149,7 @@ export const CreateTaskPage = () => {
 			TaskUsers:[{
 				Id: 10,
 				UserId: 2,
-				TypeTaskUserId: 0
+				TypeTaskUserId: 50
 			}],
 			LogTaskChangeStatuses:[{
 				Id: 0,

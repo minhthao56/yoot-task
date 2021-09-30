@@ -4,7 +4,7 @@ import "./Input.scss";
 interface IInput {
   label?: string;
   placeholder?: string;
-  value?: string | number;
+  value?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   id?: string;
   name?: string;

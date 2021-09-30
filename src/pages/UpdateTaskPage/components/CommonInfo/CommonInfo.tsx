@@ -37,8 +37,9 @@ export const CommonInfo: React.FC<IPropsTab & IPropDataDetailTask & IPropsOption
 
     const formik = useFormik({
         initialValues:{
-            Code:Code,
+            Code:'valadfsdfs',
             Status:10,
+            ProjectId:0,
             OptionStatus: [
                 //[value-option, content-option]
                 [10, "Hoạt Động"],
@@ -55,6 +56,9 @@ export const CommonInfo: React.FC<IPropsTab & IPropDataDetailTask & IPropsOption
     const handleOnChange = (valueSelect: number) => {
 		formik.values.Status = valueSelect;
 	};
+    const handleOnChangeProjectId = (valueSelect: number) => {
+		formik.values.ProjectId = valueSelect;
+	};
     return (
         <div className="common-info show">
             <h4 className="common-info__title">Thông tin chung </h4>
@@ -69,10 +73,10 @@ export const CommonInfo: React.FC<IPropsTab & IPropDataDetailTask & IPropsOption
                     </div>
                     <div className="common-info__form-input">
                         <SelectBox label="Dự án" 
-                        id ="project" name="project" 
+                        id ="project" name="ProjectId" 
                         value={dataDetailTask.Projectid} 
                         options={optionProject} 
-                        handleOnChange={value => formik.setFieldValue('project',value)}
+                        handleOnChange={handleOnChangeProjectId}
                         />
                     </div>
                     <div className="common-info__form-input">
