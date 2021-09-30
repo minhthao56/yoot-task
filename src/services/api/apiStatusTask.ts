@@ -17,11 +17,11 @@ export const apiStatusTask = {
     },
     updateStatusTask:(params:IParamsUpdateStatusTask)=>{
         const url = bashUrl + "UpdateStatusTask";
-        return axiosClient.put(url,params);
+        return axiosClient.post(url,params);
     },
     deleteStatusTask:(params:IParamsStatusTaskId)=>{
         const url = bashUrl + "DeleteStatusTask?"+ queryString.stringify(params);
-        return axiosClient.delete(url);
+        return axiosClient.get(url);
     }
 
 }

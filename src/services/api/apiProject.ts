@@ -21,11 +21,11 @@ export const apiProject = {
 
   updateProject: (params: IParamsUpdataProject) => {
     const url = bashUrl + "UpdateProject";
-    return axiosClient.put(url, params);
+    return axiosClient.post(url, params);
   },
 
   deleteProject: (params: IParamsProjectId) => {
     const url = bashUrl + "DeleteProject?" + queryString.stringify(params);
-    return axiosClient.delete(url);
+    return axiosClient.get(url);
   },
 };
