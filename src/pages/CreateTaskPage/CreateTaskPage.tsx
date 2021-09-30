@@ -168,7 +168,6 @@ export const CreateTaskPage = () => {
 		},
 		onSubmit: values => {
 			setLoadding(true);
-			// alert(JSON.stringify(values, null, 2));
 			const Code = values.Code;
 			const Title = values.Title;
 			const Deadline = values.Deadline;
