@@ -1,9 +1,8 @@
 import { useFormik } from "formik";
-import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
-import { Button, Input, SelectBox } from "../../components";
-import { apiEnvironment, apiProflie, apiStatusTask } from "../../services";
+import { Button, Input } from "../../components";
+import { apiProflie } from "../../services";
 import "./ProfilePage.scss";
 
 export const ProfilePage = () => {
@@ -34,7 +33,6 @@ export const ProfilePage = () => {
                     })
                     .then((status) => {
                         alert("Cập nhật thành công ");
-                        window.location.replace("/dashboard");
                     });
             } catch (error) {
                 console.log(error);
