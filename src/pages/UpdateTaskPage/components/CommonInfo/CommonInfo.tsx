@@ -4,7 +4,7 @@ import './CommonInfo.scss';
 import { useState } from 'react';
 
 export const CommonInfo: React.FC<IPropsTab & IPropDataDetailTask & IPropsOptions> = (
-    {tab,dataDetailTask,
+    {dataDetailTask,
     listProject,
     listEnv,
     listTypeDevices,
@@ -13,7 +13,7 @@ export const CommonInfo: React.FC<IPropsTab & IPropDataDetailTask & IPropsOption
     listStatusTask,
     
 }) => {
-    var co = dataDetailTask.Code
+    var co = dataDetailTask.Title
     const [Code,setCode] = useState(co);
     console.log('code nay',Code);
     const optionProject:Array<string|number>[] = listProject.map((item:any)=>{
@@ -38,6 +38,7 @@ export const CommonInfo: React.FC<IPropsTab & IPropDataDetailTask & IPropsOption
     const formik = useFormik({
         initialValues:{
             Code:'valadfsdfs',
+            Title:'',
             Status:10,
             ProjectId:0,
             OptionStatus: [
@@ -69,6 +70,7 @@ export const CommonInfo: React.FC<IPropsTab & IPropDataDetailTask & IPropsOption
                         value={dataDetailTask.Code} 
                         placeholder="Nhập mã code" id ="code" name="Code"
                         onChange={formik.handleChange}
+                        readonly={true}
                         />
                     </div>
                     <div className="common-info__form-input">
@@ -85,8 +87,8 @@ export const CommonInfo: React.FC<IPropsTab & IPropDataDetailTask & IPropsOption
                         options={optionStatusTask} handleOnChange={handleOnChange}/>
                     </div>
                 </div>
-                <Input label="Tiêu đề" type="text" value={dataDetailTask.Title} 
-                placeholder="Nhập tiêu đề" error={''}/>
+                <Input label="Tiêu đề" type="text" value={dataDetailTask.Title}  name="Title"
+                placeholder="Nhập tiêu đề" error={''} onChange={formik.handleChange}/>
                 <Textarea label="Mô tả" value={dataDetailTask.Description} placeholder="Nhập mô tả" id="textarea"/>
             </form>
             <h4 className="common-info__title">Thông tin bổ sung</h4>
@@ -97,7 +99,7 @@ export const CommonInfo: React.FC<IPropsTab & IPropDataDetailTask & IPropsOption
                 <div className="common-info__form-input">
                     <SelectBox label="Ưu tiên" 
                     id ="" name=""  value={dataDetailTask.Priorityid} 
-                    options={optionPriority} handleOnChange={handleOnChange}/>
+                    options={optionPriority} handleOnChange={handleOnChange}/>  
                 </div>
                 <div className="common-info__form-input">
                     <SelectBox label="Môi Trường" 

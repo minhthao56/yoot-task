@@ -21,7 +21,7 @@ export const apiTask = {
     },
     deleteTask:(params:IParamsTaskId)=>{
         const url = bashUrl + "DeleteTask?"+ queryString.stringify(params);
-        return axiosClient.delete(url);
+        return axiosClient.get(url);
     },
     addMessageTask:(params:IParamsMessageTask)=>{
         const url = bashUrl + "AddMessageTask?" + queryString.stringify(params);
