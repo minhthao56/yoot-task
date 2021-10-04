@@ -298,7 +298,6 @@ export const CreateTaskPage = () => {
 										error={formik.touched.Code && formik.errors.Code}
 										/>
 									</div>
-									{formik.values.Code}
 									<div className="common-info__form-input">
 										<SelectBox label="Dự án" id ="Projectid" name="Projectid"  
 										options={optionProject}
