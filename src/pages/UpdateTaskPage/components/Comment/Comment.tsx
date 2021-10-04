@@ -1,36 +1,7 @@
 import React, { Fragment } from 'react'
 import { Button, Input, Table } from '../../../../components';
 import './Comment.scss';
-interface IPropComments{
-    data:[]
-}
-interface data {
-    Id?:number;
-    CreateUserName?:string;
-    CreateDate?:string;
-    Message?:string;
 
-}
-const data =[
-    {
-        Id:0,
-        CreateDate:"2021-07-29T16:20:22",
-        CreateUserName:"admin",
-        Message:"Thêm nhiều chức năng mới",
-    },
-    {
-        Id:1,
-        CreateDate:"2021-07-29T16:20:22",
-        CreateUserName:"admin",
-        Message:"Thêm nhiều chức năng mới",
-    },
-    {
-        Id:2,
-        CreateDate:"2021-07-29T16:20:22",
-        CreateUserName:"admin",
-        Message:"Thêm nhiều chức năng mới",
-    },
-]
 
 export const Comment:React.FC<IPropDataDetailTaskComments> = ({dataComment}) => {
     // const dataC = dataComment.map((item:any) => item.Id);
@@ -48,7 +19,7 @@ export const Comment:React.FC<IPropDataDetailTaskComments> = ({dataComment}) => 
                     <Fragment>
                         {
                             dataComment.TaskComments.map((item:any,index:number) =>(
-                                    <tr key={item.Id} className="">
+                                    <tr key={index} className="">
                                         <td>
                                             <b>
                                                 {item.CreateUserName}

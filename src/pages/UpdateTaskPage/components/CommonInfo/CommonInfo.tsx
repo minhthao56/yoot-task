@@ -13,9 +13,8 @@ export const CommonInfo: React.FC<IPropsTab & IPropDataDetailTask & IPropsOption
     listStatusTask,
     
 }) => {
-    var co = dataDetailTask.Title
-    const [Code,setCode] = useState(co);
-    console.log('code nay',Code);
+    const [data,setData] = useState(dataDetailTask);
+    console.log('code nay',dataDetailTask);
     const optionProject:Array<string|number>[] = listProject.map((item:any)=>{
 		return [item.Id, item.Name]
 	})
@@ -37,10 +36,18 @@ export const CommonInfo: React.FC<IPropsTab & IPropDataDetailTask & IPropsOption
 
     const formik = useFormik({
         initialValues:{
-            Code:'valadfsdfs',
-            Title:'',
-            Status:10,
-            ProjectId:0,
+            Code:data.Code,
+            Title:data.Title,
+            Status:data.Status,
+            Description:data.Description,
+            Deadline:data.Deadline,
+            ProjectId:data.Projectid,
+            Statustaskid:data.Statustaskid,
+            Priorityid:data.Priorityid,
+            Environment:data.Environment,
+            Openedversion:data.Openedversion,
+            Fixedversion:data.Fixedversion,
+            Typedevice:data.Typedevice,
             OptionStatus: [
                 //[value-option, content-option]
                 [10, "Hoạt Động"],
@@ -55,10 +62,36 @@ export const CommonInfo: React.FC<IPropsTab & IPropDataDetailTask & IPropsOption
     //     setCode({Code:e.target.value});
     // };
     const handleOnChange = (valueSelect: number) => {
-		formik.values.Status = valueSelect;
+		setData(formik.values.Status = valueSelect);
+        console.log('status',formik.values.Status)
 	};
     const handleOnChangeProjectId = (valueSelect: number) => {
-		formik.values.ProjectId = valueSelect;
+		setData(formik.values.ProjectId = valueSelect);
+        console.log('project',formik.values.ProjectId);
+	};
+    const handleOnChangeStatustaskid = (valueSelect: number) => {
+		setData(formik.values.Statustaskid = valueSelect);
+        console.log('statutask',formik.values.Statustaskid);
+	};
+    const handleOnChangePriorityid = (valueSelect: number) => {
+		setData(formik.values.Priorityid = valueSelect);
+        console.log('Priorityid',formik.values.Priorityid);
+	};
+    const handleOnChangeEnvironment = (valueSelect: number) => {
+		setData(formik.values.Environment = valueSelect);
+        console.log('env',formik.values.Environment);
+	};
+    const handleOnChangeOpenedversion = (valueSelect: number) => {
+		setData(formik.values.Openedversion = valueSelect);
+        console.log('open',formik.values.Openedversion);
+	};
+    const handleOnChangeFixedversion = (valueSelect: number) => {
+		setData(formik.values.Fixedversion = valueSelect);
+        console.log('fix',formik.values.Fixedversion);
+	};
+    const handleOnChangeTypedevice = (valueSelect: number) => {
+		setData(formik.values.Typedevice = valueSelect);
+        console.log('type',formik.values.Typedevice);
 	};
     return (
         <div className="common-info show">
@@ -67,7 +100,7 @@ export const CommonInfo: React.FC<IPropsTab & IPropDataDetailTask & IPropsOption
                 <div className="common-info__form-row">
                     <div className="common-info__form-input">
                         <Input label="Mã code" type="text" 
-                        value={dataDetailTask.Code} 
+                        value={formik.values.Code} 
                         placeholder="Nhập mã code" id ="code" name="Code"
                         onChange={formik.handleChange}
                         readonly={true}
@@ -76,54 +109,70 @@ export const CommonInfo: React.FC<IPropsTab & IPropDataDetailTask & IPropsOption
                     <div className="common-info__form-input">
                         <SelectBox label="Dự án" 
                         id ="project" name="ProjectId" 
-                        value={dataDetailTask.Projectid} 
+                        value={formik.values.ProjectId} 
                         options={optionProject} 
                         handleOnChange={handleOnChangeProjectId}
                         />
                     </div>
                     <div className="common-info__form-input">
                         <SelectBox label="Trạng thái công việc" 
-                        id ="priority" name="priority"  value={dataDetailTask.Statustaskid}
-                        options={optionStatusTask} handleOnChange={handleOnChange}/>
+                        id ="priority" name="priority"  value={formik.values.Statustaskid}
+                        options={optionStatusTask} handleOnChange={handleOnChangeStatustaskid}/>
                     </div>
                 </div>
-                <Input label="Tiêu đề" type="text" value={dataDetailTask.Title}  name="Title"
-                placeholder="Nhập tiêu đề" error={''} onChange={formik.handleChange}/>
-                <Textarea label="Mô tả" value={dataDetailTask.Description} placeholder="Nhập mô tả" id="textarea"/>
+                <Input label="Tiêu đề" 
+                    type="text" 
+                    value={formik.values.Title}  
+                    name="Title"
+                    placeholder="Nhập tiêu đề" 
+                    error={''} onChange={formik.handleChange}
+                />
+                <Textarea label="Mô tả" 
+                    value={formik.values.Description} 
+                    name="Description" 
+                    placeholder="Nhập mô tả" 
+                    id="textarea"
+                    onChange={formik.handleChange}
+                />
             </form>
             <h4 className="common-info__title">Thông tin bổ sung</h4>
             <form action="" className="common-info__form-additional">
                 <div className="common-info__form-input">
-                    <Input label="Hạn chót" type="datetime-local" placeholder=""/>
+                    <Input label="Hạn chót" type="datetime-local" 
+                    placeholder=""
+                    name="Deadline"
+                    value={formik.values.Deadline}
+                    onChange={formik.handleChange}
+                    />
                 </div>
                 <div className="common-info__form-input">
                     <SelectBox label="Ưu tiên" 
-                    id ="" name=""  value={dataDetailTask.Priorityid} 
-                    options={optionPriority} handleOnChange={handleOnChange}/>  
+                    id ="" name=""  value={formik.values.Priorityid} 
+                    options={optionPriority} handleOnChange={handleOnChangePriorityid}/>  
                 </div>
                 <div className="common-info__form-input">
                     <SelectBox label="Môi Trường" 
-                    id ="" name="" value={dataDetailTask.Environment} 
-                    options={optionEnv} handleOnChange={handleOnChange}/>
+                    id ="" name="" value={formik.values.Environment} 
+                    options={optionEnv} handleOnChange={handleOnChangeEnvironment}/>
                 </div>
                 <div className="common-info__form-input">
                     <SelectBox label="Phiên bản đã mở" 
-                    id ="" name=""  value={dataDetailTask.Openedversion} 
-                    options={optionVersion} handleOnChange={handleOnChange}/>
+                    id ="" name=""  value={formik.values.Openedversion} 
+                    options={optionVersion} handleOnChange={handleOnChangeOpenedversion}/>
                 </div>
                 <div className="common-info__form-input">
                     <SelectBox label="Phiên bản sửa" 
-                    id ="" name="" value={dataDetailTask.Fixedversion} 
-                    options={optionVersion} handleOnChange={handleOnChange}/>
+                    id ="" name="" value={formik.values.Fixedversion} 
+                    options={optionVersion} handleOnChange={handleOnChangeFixedversion}/>
                 </div>
                 <div className="common-info__form-input">
                     <SelectBox label="Thiết bị" 
-                    id ="" name=""  value={dataDetailTask.Typedevice} 
-                    options={optionTypeDevices} handleOnChange={handleOnChange}/>
+                    id ="" name=""  value={formik.values.Typedevice} 
+                    options={optionTypeDevices} handleOnChange={handleOnChangeTypedevice}/>
                 </div>
                 <div className="common-info__form-input">
                     <SelectBox label="Trạng thái" 
-                    id ="" name="status" value={dataDetailTask.Status} 
+                    id ="" name="status" value={formik.values.Status} 
                     options={formik.values.OptionStatus} handleOnChange={handleOnChange}/>
                 </div>
             </form>
