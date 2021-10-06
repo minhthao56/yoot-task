@@ -17,18 +17,20 @@ export const LoginPage = () => {
 		apiLogin
 			.login(values)
 			.then((res) => {
-			const data = res.data as IResLogin;
+				const data = res.data as IResLogin;
 
-			if (data.Result) {
-				localStorage.setItem("token", data.Content.Token);
-				localStorage.setItem("user", data.Content.UserInfo.Name);
-				window.location.replace("/");
-			} else {
-				alert(`${data.Message}`);
-			}
+				if (data.Result) {
+					localStorage.setItem("token", data.Content.Token);
+					localStorage.setItem("user", data.Content.UserInfo.Name);
+					localStorage.setItem("email", data.Content.UserInfo.Email);
+					window.location.replace("/");
+				} else {
+					alert(`${data.Message}`);
+				}
 			})
 			.catch((err) => {
-			alert(`${JSON.stringify(err)}`);
+				// alert(`${JSON.stringify(err)}`);
+				alert('Email hoặc mật khẩu không đúng. vui lòng nhập lại!!!');
 			});
 		},
 		validationSchema: Yup.object({

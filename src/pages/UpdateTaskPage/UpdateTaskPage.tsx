@@ -23,6 +23,7 @@ export const UpdateTaskPage = () => {
 	const [typeDevices,setTypeDevices] = useState([]);
 	const [env,setEnv] = useState([]);
 	const [project,setProject] = useState([]);
+	const [onSubmitForm,setOnSubmitForm] = useState(false);
 	const { error, listAccounts, isLoading } = useAppSelector(
 		(state) => state.account
 	);
@@ -113,12 +114,15 @@ export const UpdateTaskPage = () => {
 	const setSelected = (tab:any) =>{
 		setShowSelected(tab);
 	}
+	const handlerSubmitUpdate =()=>{
+		setOnSubmitForm(true);
+	}
     return (
-        <form className="update-task" onSubmit={(e)=> e.preventDefault()}>
+        <div className="update-task">
 			<div className="update-task__header">
 				<h3 className="update-task__header-title">Chỉnh sửa công việc</h3>
 				<div className="update-task__header-right">
-					<Button type="submit" isSave className="">Lưu</Button>
+					<Button type="submit" isSave className="" handleOnClick={handlerSubmitUpdate}>Lưu</Button>
 					<Button type="submit" isCancel className="">Hủy</Button>
 				</div>
 			</div>
@@ -136,6 +140,7 @@ export const UpdateTaskPage = () => {
 								listTypeDevices={typeDevices}
 								listEnv={env}
 								listProject={project}
+								submitUpdate={onSubmitForm}
 								
 								/>
 							</Tab>
@@ -159,6 +164,6 @@ export const UpdateTaskPage = () => {
 				</div>
 			</div>
             
-        </form>
+        </div>
     )
 }

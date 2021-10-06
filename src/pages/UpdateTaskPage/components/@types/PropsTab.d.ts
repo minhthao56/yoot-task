@@ -1,5 +1,5 @@
-interface IPropsTab{
-    tab?:boolean | string;
+interface IPropsForm{
+    submitUpdate?:boolean | string;
 }
 interface IPropDataDetailTask{
     dataDetailTask:any;
