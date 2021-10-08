@@ -4,12 +4,13 @@ import "./Input.scss";
 interface IInput {
   label?: string;
   placeholder?: string;
-  value?: string | number;
+  value?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   id?: string;
   name?: string;
   error?: string | boolean;
   type?: string;
+  readonly?: boolean;
 }
 export const Input: FC<IInput> = ({
   label,
@@ -20,6 +21,7 @@ export const Input: FC<IInput> = ({
   name,
   error,
   type,
+  readonly
 }) => {
   return (
     
@@ -31,6 +33,7 @@ export const Input: FC<IInput> = ({
       {/* <br></br> dong nay khong can thiet*/} 
 
       <input
+        
         className="Input"
         placeholder={placeholder}
         value={value}
@@ -38,6 +41,7 @@ export const Input: FC<IInput> = ({
         id={id}
         name={name}
         type={type}
+        readOnly={readonly}
       />
       <div className="Err" style={{ opacity: error ? 1 : 0 }}>
         {error}

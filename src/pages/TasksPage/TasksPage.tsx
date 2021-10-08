@@ -144,7 +144,7 @@ export const TasksPage = () => {
 				/>
 			</div>
 			<div className="task-page__body">
-				<TableTasks dataTask={listTask}/>
+				<TableTasks dataTask={listTasks}/>
 			</div>
         </div>
     ) 

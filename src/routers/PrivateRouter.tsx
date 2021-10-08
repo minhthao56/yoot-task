@@ -20,7 +20,6 @@ export const PrivateRouter: React.FC<IPrivateRouter> = ({
           localStorage.clear();
           window.location.replace("/login");
         }
-
         return (
           <Layout>
             <Component {...props} />

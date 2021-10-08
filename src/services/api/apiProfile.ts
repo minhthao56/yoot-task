@@ -5,7 +5,7 @@ const bashUrl = "Profile/";
 export const apiProflie = {
   updateProfile: (params: IParamsUpdateProfile) => {
     const url = bashUrl + "UpdateProfile";
-    return axiosAuth.put(url, params);
+    return axiosAuth.post(url, params);
   },
   getProfile: () => {
     const url = bashUrl + "GetProfile";

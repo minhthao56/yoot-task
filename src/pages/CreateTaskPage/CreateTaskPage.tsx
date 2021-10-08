@@ -149,7 +149,7 @@ export const CreateTaskPage = () => {
 			TaskUsers:[{
 				Id: 10,
 				UserId: 2,
-				TypeTaskUserId: 0
+				TypeTaskUserId: 50
 			}],
 			LogTaskChangeStatuses:[{
 				Id: 0,
@@ -168,7 +168,6 @@ export const CreateTaskPage = () => {
 		},
 		onSubmit: values => {
 			setLoadding(true);
-			// alert(JSON.stringify(values, null, 2));
 			const Code = values.Code;
 			const Title = values.Title;
 			const Deadline = values.Deadline;
@@ -299,7 +298,6 @@ export const CreateTaskPage = () => {
 										error={formik.touched.Code && formik.errors.Code}
 										/>
 									</div>
-									{formik.values.Code}
 									<div className="common-info__form-input">
 										<SelectBox label="Dự án" id ="Projectid" name="Projectid"  
 										options={optionProject}

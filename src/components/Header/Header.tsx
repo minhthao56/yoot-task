@@ -25,7 +25,7 @@ const routesList = [
     },
     {
         path:'/status',
-        title:"Trạng thái",
+        title:"Quy trình",
     },
     {
         path:'/criteria',
