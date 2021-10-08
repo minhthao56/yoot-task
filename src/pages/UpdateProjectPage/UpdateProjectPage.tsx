@@ -7,26 +7,28 @@ import { Fragment, useState } from 'react';
 import * as yup from "yup";
 import { Button } from "../../components";
 import { apiProject } from "../../services";
+import { useParams } from 'react-router';
 import "./UpdateProjectPage.scss";
-const numberTr =[1,2,3,4];
+const numberTr = [1, 2, 3, 4];
 
 export const UpdateProjectPage = () => {
     const [showState, setshowState] = useState(1);
-
-    const [listRow,setListRow] = useState(numberTr);
+    const { Id }: any = useParams();
+    const [listRow, setListRow] = useState(numberTr);
     // handler add row
     const handleAddRow = () => {
-        setListRow((listRow) => [...listRow,listRow[listRow.length - 1] + 1]);
+        setListRow((listRow) => [...listRow, listRow[listRow.length - 1] + 1]);
     }
-    const handleDeleteRow = (number:any)=>{
+    const handleDeleteRow = (number: any) => {
         const row = Number(number);
         setListRow(listRow.filter(item => item !== row));
     }
-    const showStateTab = (i:number) =>{
+    const showStateTab = (i: number) => {
         setshowState(i)
     }
     const formik = useFormik({
         initialValues: {
+            Id,
             Name: "",
             Status: 10,
             Options: [
@@ -46,23 +48,23 @@ export const UpdateProjectPage = () => {
                 [7, "Tất cả Laptop"],
                 [8, "Android APP"],
             ],
-            UserId:0,
-            optionUser:[
-                [0,""],
-                [16,"Duy Thanh"],
-                [5,"Gia Huy"],
-                [14,"Hữu"],
-                [15,"Hữu Ý"],
-                [17,"Huỳnh Trọng Nghĩa"],
-                [10,"Kiên Phạm"],
-                [7,"Minh Thảo"],
-                [4,"Nam Quốc"],
-                [18,"Nguyễn Hoài Nam"],
-                [13,"Nguyễn Tấn Đạt"],
-                [9,"San Nguyễn"],
-                [6,"Sơn Lê"],
-                [12,"Trần Anh Kiệt"],
-                [8,"Vũ Lê"],
+            UserId: 0,
+            optionUser: [
+                [0, ""],
+                [16, "Duy Thanh"],
+                [5, "Gia Huy"],
+                [14, "Hữu"],
+                [15, "Hữu Ý"],
+                [17, "Huỳnh Trọng Nghĩa"],
+                [10, "Kiên Phạm"],
+                [7, "Minh Thảo"],
+                [4, "Nam Quốc"],
+                [18, "Nguyễn Hoài Nam"],
+                [13, "Nguyễn Tấn Đạt"],
+                [9, "San Nguyễn"],
+                [6, "Sơn Lê"],
+                [12, "Trần Anh Kiệt"],
+                [8, "Vũ Lê"],
             ],
         },
         validationSchema: yup.object({
@@ -76,10 +78,11 @@ export const UpdateProjectPage = () => {
             try {
                 apiProject
                     .updateProject({
+                        Id,
                         Name,
                         Typedeviceid,
                         Status,
-                        
+
                     })
                     .then((project) => {
                         alert("Update Thành Công ");
@@ -93,7 +96,7 @@ export const UpdateProjectPage = () => {
     const handleOnChange = (valueSelect: number) => {
         formik.values.Status = valueSelect;
     };
-    const handleOnChangee =(valueSelect: number)=>{
+    const handleOnChangee = (valueSelect: number) => {
         formik.values.Typedeviceid = valueSelect;
     }
     return (
@@ -124,56 +127,56 @@ export const UpdateProjectPage = () => {
                                     value={formik.values.Name}
                                     error={formik.touched.Name && formik.errors.Name}
                                     onChange={formik.handleChange}
-                                    
+
                                 />
                             </div>
                             <div className="common-info__form-select">
                                 <SelectBox label="Thiết bị" id="Typedeviceid" name="Typedeviceid"
-                                    options={formik.values.Devices} 
+                                    options={formik.values.Devices}
                                     handleOnChange={handleOnChangee} />
                             </div>
                             <div className="common-info__form-select">
                                 <SelectBox label="Trạng thái" id="status" name="status"
-                                    options={formik.values.Options} 
+                                    options={formik.values.Options}
                                     handleOnChange={handleOnChange} />
                             </div>
                         </form>
                     </div>
                     <div className={showState === 2 ? 'common' : 'tab'}>
-                    <h4 className="person-join__title">Các thành viên</h4>
-            <div className="person-join__wrapper">
-                <div className="person-join__wrapper-header">
-                    <Button className="btn-addRow" handleOnClick={()=> {handleAddRow()}}>Thêm hàng</Button>
-                </div>  
-                <form className="person-join__wrapper-body">
-                    <Table 
-                    thead={["Người tham gia","Tác vụ"]}
-                    tbody={
-                        <Fragment>
-                        {
-                            listRow.map((number)=> (
-                                <tr key={number}>
-                                    <td>
-                                        <SelectBox id ="UserId" name="UserId"
-                                        options={formik.values.optionUser} handleOnChange={handleOnChange}/>
-                                    </td>
-                                    <td>
-                                        <div className="bt_style">
-                                            <button className="bt_style-delete" onClick={()=>{handleDeleteRow(number)}}>
-                                            <ImScissors />
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ))
-                        }
-                            
-                        </Fragment>   
-                    }
-                    />
-                    
-                </form>
-            </div>
+                        <h4 className="person-join__title">Các thành viên</h4>
+                        <div className="person-join__wrapper">
+                            <div className="person-join__wrapper-header">
+                                <Button className="btn-addRow" handleOnClick={() => { handleAddRow() }}>Thêm hàng</Button>
+                            </div>
+                            <form className="person-join__wrapper-body">
+                                <Table
+                                    thead={["Người tham gia", "Tác vụ"]}
+                                    tbody={
+                                        <Fragment>
+                                            {
+                                                listRow.map((number) => (
+                                                    <tr key={number}>
+                                                        <td>
+                                                            <SelectBox id="UserId" name="UserId"
+                                                                options={formik.values.optionUser} handleOnChange={handleOnChange} />
+                                                        </td>
+                                                        <td>
+                                                            <div className="bt_style">
+                                                                <button className="bt_style-delete" onClick={() => { handleDeleteRow(number) }}>
+                                                                    <ImScissors />
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                ))
+                                            }
+
+                                        </Fragment>
+                                    }
+                                />
+
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

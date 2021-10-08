@@ -1,16 +1,19 @@
 import { useFormik } from "formik";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useParams } from 'react-router';
 import * as yup from "yup";
 import { Button, Input, SelectBox } from "../../components";
 import { apiStatusTask } from "../../services";
 import "./UpdateStatusPage.scss";
 
 export const UpdateStatusPage = () => {
+    const { Id }: any = useParams();
     const formik = useFormik({
         initialValues: {
-            Title: "",
-            Orderview: "",
+            Id,
+            Title:"",
+            Orderview: 0,
             Status: 10,
             Options: [
                 //[value-option, content-option]
@@ -19,7 +22,7 @@ export const UpdateStatusPage = () => {
             ],
         },
         validationSchema: yup.object({
-            Title: yup.string().required("Vui lòng điền tiêu đề cho rủi ro."),
+            Title: yup.string().required("Vui lòng điền tiêu đề cho trạng thái."),
             Orderview: yup.number().required("Vui lòng điền thứ tự ưu tiên."),
         }),
         onSubmit: (values) => {
@@ -29,6 +32,7 @@ export const UpdateStatusPage = () => {
             try {
                 apiStatusTask
                     .updateStatusTask({
+                        Id,
                         Title,
                         Orderview,
                         Status,
@@ -66,7 +70,6 @@ export const UpdateStatusPage = () => {
 
                         <Input
                             label="Tiêu đề"
-                            placeholder="Nhập tiêu đề"
                             type="text"
                             id="Title"
                             name="Title"
@@ -79,7 +82,6 @@ export const UpdateStatusPage = () => {
 
                         <Input
                             label="Thứ thự ưu tiên"
-                            placeholder="Nhập thứ tự ưu tiên"
                             type="number"
                             id="Orderview"
                             name="Orderview"

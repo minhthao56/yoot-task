@@ -1,5 +1,5 @@
 import { FC, Fragment } from "react";
-import { Actions, Table } from "../../../../components";
+import { Actions, Table,Loader } from "../../../../components";
 import { Link } from "react-router-dom";
 import { GiLaptop } from "react-icons/gi";
 import { RiPencilRulerFill } from "react-icons/ri";
@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { apiStatusTask } from "../../../../services";
 export const TableStatusTask: FC<ITableStatusTask> = ({ dataStatusTask }) => {
   const [,setDataStatusTask] = useState<Array<IReStatusTask>>([]);
+  const [loadding, setLoadding] = useState(false)
   const handleDele = (id:number) => {
     try{
       apiStatusTask
@@ -16,6 +17,8 @@ export const TableStatusTask: FC<ITableStatusTask> = ({ dataStatusTask }) => {
       .then((data: IResGetListStatusTasks) => {
         const listStatusTask = data.Content.StatusTasks;
         setDataStatusTask(listStatusTask);
+        setLoadding(true)
+          window.location.replace("/status");
       });
   }
   catch (error) {
@@ -33,6 +36,7 @@ export const TableStatusTask: FC<ITableStatusTask> = ({ dataStatusTask }) => {
       ]}
       tbody={
         <Fragment>
+          <Loader loadding = {loadding}/>
           {dataStatusTask.map((info, idx) => (
             <tr key={idx}>
               <td>
