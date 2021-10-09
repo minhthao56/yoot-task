@@ -1,15 +1,19 @@
 import { useFormik } from "formik";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
-import { Button, Input } from "../../components";
+import { Button, Input,  } from "../../components";
 import { apiProflie } from "../../services";
 import "./ProfilePage.scss";
 
 export const ProfilePage = () => {
+   
+    const infoEmail:any = localStorage.getItem("email");
+    const infoUser:any = localStorage.getItem("user");
+    
     const formik = useFormik({
         initialValues: {
-            Name: "",
-            Email: "",
+            Name: infoUser,
+            Email: infoEmail,
             Phone: "",
             Password: "",
             RePassword: "",
@@ -33,6 +37,7 @@ export const ProfilePage = () => {
                     })
                     .then((status) => {
                         alert("Cập nhật thành công ");
+                        window.location.replace("/");
                     });
             } catch (error) {
                 console.log(error);
@@ -65,7 +70,7 @@ export const ProfilePage = () => {
                             name="Name"
                             value={formik.values.Name}
                             onChange={formik.handleChange}
-                            error={formik.touched.Name && formik.errors.Name}
+                            // error={formik.touched.Name && formik.errors.Name}
                         />
                     </div>
                     <div className="form-body__row__wrapper">
@@ -77,7 +82,7 @@ export const ProfilePage = () => {
                             name="Email"
                             value={formik.values.Email}
                             onChange={formik.handleChange}
-                            error={formik.touched.Email && formik.errors.Email}
+                            // error={formik.touched.Email && formik.errors.Email}
                         />
                     </div>
                 </div>

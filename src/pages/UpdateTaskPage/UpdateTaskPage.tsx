@@ -12,10 +12,10 @@ import './UpdateTaskPage.scss';
 
 export const UpdateTaskPage = () => {
 	const {Id}:any = useParams();
-	const [updateDetailTask,setDetailTask] = useState<Array<IResDetailTask>>([]);;
 	const [selected,setShowSelected] = useState('Thông tin chung');
 	const dispatch = useAppDispatch();
 	const {detailTask} = useAppSelector((state) => state.tasks);
+	const [updateDetailTask,setDetailTask] = useState<Array<IResDetailTask>>(detailTask);
 	// get api 
 	const [statusTask, setStatusTask] = useState([]);
 	const [version, setVersion] = useState([]);
@@ -23,6 +23,7 @@ export const UpdateTaskPage = () => {
 	const [typeDevices,setTypeDevices] = useState([]);
 	const [env,setEnv] = useState([]);
 	const [project,setProject] = useState([]);
+	const [onSubmitForm,setOnSubmitForm] = useState(false);
 	const { error, listAccounts, isLoading } = useAppSelector(
 		(state) => state.account
 	);
@@ -113,12 +114,15 @@ export const UpdateTaskPage = () => {
 	const setSelected = (tab:any) =>{
 		setShowSelected(tab);
 	}
+	const handlerSubmitUpdate =()=>{
+		setOnSubmitForm(true);
+	}
     return (
         <div className="update-task">
 			<div className="update-task__header">
 				<h3 className="update-task__header-title">Chỉnh sửa công việc</h3>
 				<div className="update-task__header-right">
-					<Button type="submit" isSave className="">Lưu</Button>
+					<Button type="submit" isSave className="" handleOnClick={handlerSubmitUpdate}>Lưu</Button>
 					<Button type="submit" isCancel className="">Hủy</Button>
 				</div>
 			</div>
@@ -129,13 +133,14 @@ export const UpdateTaskPage = () => {
 					>
 						<div className="nav-tab__content">
 							<Tab isSelected={selected === 'Thông tin chung' }>
-								<CommonInfo dataDetailTask={updateDetailTask}
+								<CommonInfo dataDetailTask={detailTask}
 								listStatusTask={statusTask}
 								listVersion={version}
 								ListPriority={priority}
 								listTypeDevices={typeDevices}
 								listEnv={env}
 								listProject={project}
+								submitUpdate={onSubmitForm}
 								
 								/>
 							</Tab>

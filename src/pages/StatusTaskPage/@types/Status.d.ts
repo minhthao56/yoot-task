@@ -1,5 +1,7 @@
 interface IResGetListStatusTasks
   extends IResponseResultApi<IResConntentStatusTask> {}
+interface IResGetListUpdateStatusTasks
+  extends IResponseResultApi<IPropDataStatus> {}
 
 interface IReStatusTask {
   CreateDate: string;

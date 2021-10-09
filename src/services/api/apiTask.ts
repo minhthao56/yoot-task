@@ -17,11 +17,11 @@ export const apiTask = {
     },
     updateTask:(params:IParamsUpdateTask)=>{
         const url = bashUrl + "UpdateTask";
-        return axiosClient.put(url,params);
+        return axiosClient.post(url,params);
     },
     deleteTask:(params:IParamsTaskId)=>{
         const url = bashUrl + "DeleteTask?"+ queryString.stringify(params);
-        return axiosClient.delete(url);
+        return axiosClient.get(url);
     },
     addMessageTask:(params:IParamsMessageTask)=>{
         const url = bashUrl + "AddMessageTask?" + queryString.stringify(params);
