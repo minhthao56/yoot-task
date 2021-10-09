@@ -1,5 +1,4 @@
 import { unwrapResult } from '@reduxjs/toolkit';
-import { error } from 'console';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Button } from '../../components';
