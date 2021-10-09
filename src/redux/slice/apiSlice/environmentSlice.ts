@@ -6,13 +6,15 @@ type TypeinitialState = {
     listEnvironments: Array<ResEnvironment>;
     error: any;
     success: boolean;
+    rebound: boolean;
 };
 
 const initialState = {
     error: {},
     isLoading: false,
     listEnvironments: [],
-    success: false
+    success: false,
+    rebound: false
 
 } as TypeinitialState;
 
@@ -37,6 +39,7 @@ const slice = createSlice({
                     state.error = action.payload.Result;
                 }
                 state.isLoading = false;
+                state.rebound = false;
             }
         );
         builder.addCase(
@@ -49,6 +52,7 @@ const slice = createSlice({
                     state.error = action.payload.Result;
                 }
                 state.isLoading = false;
+                state.rebound = true
             }
         );
         builder.addCase(doGetListEnvironments.rejected, (state, action) => {

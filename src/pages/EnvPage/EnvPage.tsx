@@ -12,7 +12,7 @@ export const EnvPage: React.FC = () => {
     const dispatch = useAppDispatch();
     const [search, setSearch] = useState('');
     const [status, setStatus] = useState(0);
-    const { listEnvironments } = useAppSelector(
+    const { listEnvironments, rebound } = useAppSelector(
         (state) => state.environment
     );
     useEffect(() => {
@@ -26,7 +26,7 @@ export const EnvPage: React.FC = () => {
             });
 
         // eslint-disable-next-line
-    }, [search, status]);
+    }, [search, status, rebound]);
     const handleSearch = (keyword: string, status: number) => {
         setSearch(keyword);
         setStatus(status);
@@ -35,7 +35,11 @@ export const EnvPage: React.FC = () => {
         dispatch(doDeleteEnvironment({
             Id: id
         }))
-            .then(unwrapResult)
+            .then(
+                () => {
+                    alert("Xóa thành công");
+                }
+            )
             .catch((err) => {
                 alert("Đã có lỗi");
             });
