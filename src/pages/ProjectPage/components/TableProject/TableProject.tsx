@@ -1,6 +1,6 @@
 import { FC, Fragment } from "react";
 import { useFormik } from "formik";
-import { Table } from "../../../../components";
+import { Table,Loader } from "../../../../components";
 import { Link } from "react-router-dom";
 import { GiLaptop } from "react-icons/gi";
 import { RiPencilRulerFill } from "react-icons/ri";
@@ -10,6 +10,7 @@ import { apiProject } from "../../../../services";
 
 export const TableProject: FC<ITableProject> = ({ dataProject}) => {
   const [,setDataProject] = useState<Array<IResProject>>([]);
+  const [loadding, setLoadding] = useState(false)
   const handleDele = (id:number) => {
       try{
         apiProject
@@ -18,6 +19,8 @@ export const TableProject: FC<ITableProject> = ({ dataProject}) => {
         .then((data: IResGetListProjects) => {
           const listProjects = data.Content.Projects;
           setDataProject(listProjects);
+          setLoadding(true)
+          window.location.replace("/projects");
         });
     }
     catch (error) {
@@ -36,6 +39,7 @@ export const TableProject: FC<ITableProject> = ({ dataProject}) => {
         ]}
         tbody={
           <Fragment >
+            <Loader loadding = {loadding}/>
             {dataProject.map((info, idx) => (
               <tr key={idx} >
                 <td>
