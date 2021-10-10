@@ -1,3 +1,4 @@
 interface ITableVersion {
-    dataVersions: Array<IResVersion>
+    dataVersions: Array<IResVersion>;
+    handleDelete: (id: number)=> void;
 }
