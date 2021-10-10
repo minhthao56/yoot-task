@@ -7,24 +7,15 @@ import './PersonJoin.scss';
 
 const numberTr =[1,2,3,4];
 
-export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
-    const optionUser = [
-        [0,""],
-        [16,"Duy Thanh"],
-        [5,"Gia Huy"],
-        [14,"Hữu"],
-        [15,"Hữu Ý"],
-        [17,"Huỳnh Trọng Nghĩa"],
-        [10,"Kiên Phạm"],
-        [7,"Minh Thảo"],
-        [4,"Nam Quốc"],
-        [18,"Nguyễn Hoài Nam"],
-        [13,"Nguyễn Tấn Đạt"],
-        [9,"San Nguyễn"],
-        [6,"Sơn Lê"],
-        [12,"Trần Anh Kiệt"],
-        [8,"Vũ Lê"],
-    ]
+export const PersonJoin: React.FC<IPropsTab & IProps> = ({tab,listAccounts}) => {
+    const all = [{Id:0,Name:""}]
+
+	
+	// get api for select option
+	const concatUser =  [...all,...listAccounts];
+    const optionUser = concatUser.map((item:any)=>{
+		return [item.Id, item.Name]
+	})
     const optionTypeTask = [
         [0,""],
         [10,"Requirer"],
@@ -33,15 +24,10 @@ export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
         
     ]
     const [listRow,setListRow] = useState(numberTr);
-    const [statusTypeTask,setStatusTypeTask] = useState(10);
-    const [statusUser, setStatusUser] = useState(7);
-   
-    const handleChangeStatus = (valueSelect: number) => {
-        setStatusUser(valueSelect);
-        setStatusTypeTask(valueSelect);
-    }   
+
     // handler add row
-    const handleAddRow = () => {
+    const handleAddRow = (e:any) => {
+        e.preventDefault();
         setListRow((listRow) => [...listRow,listRow[listRow.length - 1] + 1]);
     }
     const handleDeleteRow = (number:any)=>{
@@ -52,7 +38,6 @@ export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
     const formik = useFormik({
 		initialValues: {
 			Status: 0,
-			OptionUser: optionUser,
 			OptionTypeTask: optionTypeTask,
 		},
 		onSubmit: (values) => {
@@ -66,7 +51,7 @@ export const PersonJoin: React.FC<IPropsTab> = ({tab}) => {
             <h4 className="person-join__title">Các thành viên</h4>
             <div className="person-join__wrapper">
                 <div className="person-join__wrapper-header">
-                    <Button className="btn-addRow" handleOnClick={()=> {handleAddRow()}}>Thêm hàng</Button>
+                    <Button type="button" className="btn-addRow" handleOnClick={() => handleAddRow}>Thêm hàng</Button>
                 </div>  
                 <div className="person-join__wrapper-body">
                     <Table 

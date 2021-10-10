@@ -8,16 +8,19 @@ import { PersonJoin } from './components';
 import * as Yup from 'yup';
 import './CreateTaskPage.scss';
 import { unwrapResult } from '@reduxjs/toolkit';
-import { doGetListTasks, useAppDispatch, useAppSelector } from '../../redux';
+import { doGetListAccounts, doGetListTasks, useAppDispatch, useAppSelector } from '../../redux';
 
 export const CreateTaskPage = () => {
 	const dispatch = useAppDispatch();
 	const {listTasks} = useAppSelector((state) => state.tasks)
 	const [listTask,setListTask] = useState<any>(listTasks);
     const [loadding, setLoadding] = useState(false)
+	const { error, listAccounts,isLoading} = useAppSelector(
+		(state) => state.account,
+		
+	);
 
-
-
+	const [accs, setAccs] = useState<Array<ResAccount>>([]);
 	const [showPersonJoin,setShowPersonJoin] = useState(true);
 	const [showCommonInfo,setShowCommonInfo] = useState(false);
 	const [statusTask, setStatusTask] = useState([]);
@@ -42,7 +45,18 @@ export const CreateTaskPage = () => {
 			setShowPersonJoin(false);
 			setShowCommonInfo(true);
 		}
-	}
+	};
+	useEffect(() => {
+		dispatch(doGetListAccounts({}))
+			.then(unwrapResult)
+			.then((res: IResGetListAccount) => {
+				setAccs(res.Content.Accounts);
+			})
+			.catch((err) => {
+				alert("Đã có lỗi");
+			});
+		
+	}, [dispatch]);
 	useEffect(() => {
 		dispatch(doGetListTasks({}))
 			.then(unwrapResult)
@@ -105,9 +119,6 @@ export const CreateTaskPage = () => {
 			console.log(error);
 		}
 	},[]);
-	// 
-	
-	// console.log("moi click guide",submitFormCreate)
 	
 	const optionProject:Array<string|number>[] = project.map((item:any)=>{
 		return [item.Id, item.Name]
@@ -216,7 +227,7 @@ export const CreateTaskPage = () => {
 
 					})
 					.then((tasks) => {
-						alert("Thêm Thành Công ");
+						// alert("Thêm Thành Công ");
 						setLoadding(true);
 
 						window.location.replace("/tasks");
@@ -264,7 +275,7 @@ export const CreateTaskPage = () => {
 				<div className="create-task__header-right">
 					<Button type="submit" isUpdate className="">Cập nhập</Button>
 					<Button type="submit" isSave className="">Lưu</Button>
-					<Button type="submit" isCancel handleOnClick={()=> {window.location.replace('/tasks')}}>Hủy</Button>
+					<Button type="reset" isCancel handleOnClick={()=> {window.location.replace('/tasks')}}>Hủy</Button>
 				</div>
 			</div>
 			<div className="create-task__body">
@@ -274,18 +285,8 @@ export const CreateTaskPage = () => {
 						<span  className={showCommonInfo === true ? 'active':''} onClick={() =>{handleShowTabJoin()}}>Người tham gia</span>
 					</div>
 					<div className="nav-tab__content">
-						{/* <CommonInfo tab={showPersonJoin}
-						listStatusTask={statusTask}
-						listVersion={version}
-						ListPriority={priority}
-						listTypeDevices={typeDevices}
-						listEnv={env}
-						listProject={project}
-						onSubmitForm={handleCreateSubmit}
-						
-						/> */}
+
 						<div className={showPersonJoin ? "common-info show":"common-info"}>
-							{/* <Button type="submit" isSave className="">Lưu</Button> */}
 							<h4 className="common-info__title">Thông tin chung </h4>
 							<div className="common-info__form">
 								<div className="common-info__form-row">
@@ -365,7 +366,7 @@ export const CreateTaskPage = () => {
 						</div>
 						
 						<PersonJoin tab={showCommonInfo}
-
+							listAccounts={listAccounts}
 						/>
 
 					</div>

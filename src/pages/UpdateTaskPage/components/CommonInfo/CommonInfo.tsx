@@ -19,7 +19,6 @@ export const CommonInfo: React.FC<IPropsForm & IPropDataDetailTask & IPropsOptio
     const {Id}:any = useParams();
     const [loadding, setLoadding] = useState(false)
     const [data,setData] = useState(dataDetailTask);
-    console.log('code nay',dataDetailTask);
     const optionProject:Array<string|number>[] = listProject.map((item:any)=>{
 		return [item.Id, item.Name]
 	})
@@ -54,14 +53,12 @@ export const CommonInfo: React.FC<IPropsForm & IPropDataDetailTask & IPropsOptio
             Fixedversion:data.Fixedversion,
             Typedevice:data.Typedevice,
             OptionStatus: [
-                //[value-option, content-option]
                 [10, "Hoạt Động"],
                 [90, "Ngưng Hoạt Động"],
             ],
         },
         onSubmit: (values) => {
 			setLoadding(true);
-            // alert(JSON.stringify(values, null, 2));
             const Code = values.Code;
 			const Title = values.Title;
 			const Deadline = values.Deadline;

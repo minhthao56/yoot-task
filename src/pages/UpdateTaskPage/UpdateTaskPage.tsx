@@ -106,9 +106,6 @@ export const UpdateTaskPage = () => {
 			});
 	},[dispatch,Id])
 	
-	console.log('chi tiet task',detailTask);
-
-
 	// function handler tab
 	const setSelected = (tab:any) =>{
 		setShowSelected(tab);

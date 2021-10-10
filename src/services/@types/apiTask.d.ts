@@ -91,6 +91,6 @@ interface IParamsUpdateTask extends IParamsCreateTask {
     Id?: number | string;
 }
 interface IParamsMessageTask{
-    TaskId:number | string;
-    Message:string;
+    TaskId?:number | string;
+    Message?:string;
 }
