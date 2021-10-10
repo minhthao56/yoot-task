@@ -9,4 +9,6 @@ interface IButton {
   className?: className;
   type?: "button" | "submit" | "reset";
   handleOnClick?: () => void;
+  onDelete?: () => void;
+
 }

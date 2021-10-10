@@ -26,6 +26,6 @@ export const apiPriority = {
   
     deletePriority: (params: IParamsPriorityId) => {
       const url = bashUrl + "DeletePriority?" + queryString.stringify(params);
-      return axiosClient.delete(url);
+      return axiosClient.get(url);
     },
   };
