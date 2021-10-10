@@ -56,7 +56,7 @@ export const VersionPage = () => {
             <Button isCreate type="submit" handleOnClick={handleCreate} />
           </Link>
         </div>
-        <TableVersions dataVersions={dataVersions} handleDelete = {handleDelete} handleUpdate = {handleUpdate} />
+        <TableVersions dataVersions={dataVersions} handleDelete = {handleDelete}/>
       </div>
     </div>
   );
