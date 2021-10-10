@@ -1,5 +1,5 @@
-interface IResponseResultApi<Type> {
-  Content: Type;
+interface IResponseResultApi<T> {
+  Content: T;
   Message: string;
   Result: number;
 }

@@ -1,0 +1,47 @@
+.image-video {
+    &__title {
+        color: #949cb0;
+    }
+    &__body {
+        padding: 5px 24px;
+    }
+    &__text {
+        color: #6f727a;
+        font-size: 13px;
+    }
+    &__content {
+        #file-image {
+            padding: 5px;
+            width: 30%;
+        }
+    }
+    &__box-show {
+        height: auto;
+        padding: 40px;
+        margin-top: 20px;
+        border: 1px solid #6f727a;
+        .btn-seem {
+            color: #fff;
+            background: #5e72e4;
+        }
+        .btn-remove {
+            color: #fff;
+            background: #f5365c;
+        }
+        button {
+            margin-right: 20px;
+        }
+        .list-img {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        img {
+            display: block;
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+    }
+}

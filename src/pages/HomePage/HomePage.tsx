@@ -1,19 +1,38 @@
-import { useEffect } from "react";
-import { apiLogin } from "../../services";
-import "./HomePage.scss";
-export const HomePage = () => {
-  useEffect(() => {
-    apiLogin
-      .login({ Email: "thao.nguyen@yoot.vn", Password: "123456789" })
-      .then((res) => {
-        const data: IResLogin = res.data;
-        localStorage.setItem("token", data.Content.Token);
-      });
-  }, []);
+import { unwrapResult } from "@reduxjs/toolkit";
+import { useEffect, useState } from "react";
+import { doGetListAccounts, useAppDispatch, useAppSelector } from "../../redux";
 
-  return (
-    <div className="home-page">
-      <h1>TEST AUTO DEPLOY</h1>
-    </div>
-  );
+
+
+import "./HomePage.scss";
+
+export const HomePage = () => {
+	const dispatch = useAppDispatch();
+	const { error, listAccounts, isLoading } = useAppSelector(
+		(state) => state.account
+	);
+	const [accs, setAccs] = useState<Array<ResAccount>>([]);
+
+	useEffect(() => {
+		dispatch(doGetListAccounts({}))
+			.then(unwrapResult)
+			.then((res: IResGetListAccount) => {
+				setAccs(res.Content.Accounts);
+			})
+			.catch((err) => {
+				alert("Đã có lỗi");
+			});
+	}, []);	
+	if (error === 0) {
+		alert("Đã có lỗi");
+	}
+
+
+
+	return (
+		<div className="home-page"></div>
+	);
+
+
+
 };

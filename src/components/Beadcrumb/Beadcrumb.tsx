@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { NavLink } from "react-router-dom";
-import { AiFillHome } from "react-icons/ai";
+import { FaHome } from "react-icons/fa";
 
 import "./Beadcrumb.scss";
 
@@ -11,7 +11,7 @@ export const Beadcrumb: FC<IBeadcrumb> = ({ title }) => {
       <ul className="links">
         <li className="links__home">
           <NavLink className="links__home--icon" to="/">
-            <AiFillHome />
+            <FaHome />
           </NavLink>
         </li>
         <li className="links__item">{title}</li>

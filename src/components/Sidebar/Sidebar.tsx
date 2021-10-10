@@ -19,12 +19,12 @@ const sidebarItem = [
   },
   {
     display_name: "task",
-    route: "/task",
+    route: "/tasks",
     icon: RiBookMarkFill,
   },
   {
     display_name: "kế hoạch",
-    route: "/plan",
+    route: "/plans",
     icon: RiPencilRulerFill,
   },
 ];
@@ -41,7 +41,7 @@ const sidebarItemNav = [
   },
   {
     display_name: "tiêu chí",
-    route: "/plan",
+    route: "/criteria",
     icon: FaTelegramPlane,
   },
   {
@@ -51,7 +51,7 @@ const sidebarItemNav = [
   },
   {
     display_name: "mức độ",
-    route: "/plan",
+    route: "/priority",
     icon: FiActivity,
   },
   {
@@ -61,7 +61,7 @@ const sidebarItemNav = [
   },
   {
     display_name: "thiết bị",
-    route: "/devices",
+    route: "/device",
     icon: RiBriefcase4Fill,
   },
 ];

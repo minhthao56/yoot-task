@@ -1,0 +1,14 @@
+.Text {
+    width: 200px;
+    padding: 10px -30px 10px 10px;
+    resize: none;
+    outline: none;
+    border: solid 1px #d9dbdd;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.Text:focus {
+    outline: none;
+    border-color: #5e72e4;
+}

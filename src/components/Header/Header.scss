@@ -1,0 +1,19 @@
+.header {
+    &-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ccc;
+        border-color: rgba(255, 255, 255, .08) !important;
+        padding: 16px 0px;
+    }
+    .icon-toggle {
+        font-size: 25px;
+        color: #fff;
+        display: none;
+        cursor: pointer;
+    }
+    &-beadcrumb {
+        margin-bottom: 35px;
+    }
+}

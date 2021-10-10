@@ -1,33 +1,54 @@
 @import "../../assets/scss/variable";
-.btn{
-            font-size: .875rem;
-            font-weight: 600;
-            line-height: 1.5;
-            padding: .625rem 1.25rem;
-            user-select: none;
-            text-align: center;
-            border-radius: .25rem;
-            color: #fff;
-            border: 1px solid transparent;
-            box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
-            &--green{
-                background-color: $color-green;
-                border: solid 1px $color-green;
-            }
-            &--gray{
-                background-color: $color-gray;
-                border: solid 1px $color-gray;
-            }
-            &--paleblue{
-                background-color: $color-paleblue;
-                border: solid 1px $color-paleblue;
-            }
-            &--black{
-                background-color: $color-black;
-                border: solid 1px $color-black;
-            }
+
+.btn {
+    font-size: .875rem;
+    font-weight: 600;
+    line-height: 1.5;
+    padding: .625rem 1.25rem;
+    user-select: none;
+    text-align: center;
+    border-radius: .25rem;
+    color: #fff;
+    border: 1px solid transparent;
+    box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
+    cursor: pointer;
+
+    &--green {
+        background-color: $color-green;
+        border: solid 1px $color-green;
+    }
+
+    &--gray {
+        background-color: $color-gray;
+        border: solid 1px $color-gray;
+    }
+
+    &--paleblue {
+        background-color: $color-paleblue;
+        border: solid 1px $color-paleblue;
+    }
+
+    &--black {
+        background-color: $color-black;
+        border: solid 1px $color-black;
+    }
+
+    &--outline--black {
+        background-color: transparent;
+        border: solid 1px $color-black;
+        color: $color-black;
+
+    }
+
+    &--outline--blue {
+        background-color: transparent;
+        border: solid 1px $color-paleblue;
+        color: $color-paleblue;
+
+    }
 }
-.btn:hover{
-    transform: translateY(-1px); 
+
+.btn:hover {
+    transform: translateY(-1px);
     box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08);
 }

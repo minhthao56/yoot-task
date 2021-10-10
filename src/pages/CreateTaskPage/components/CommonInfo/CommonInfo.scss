@@ -1,0 +1,53 @@
+textarea {
+    width: 100% !important;
+    height: 100px;
+}
+
+.common-info.show {
+    display: block;
+}
+
+.common-info {
+    display: none;
+    &__title {
+        color: #949cb0;
+    }
+    &__form {
+        margin: 20px 0px;
+        padding-left: 24px;
+        &-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        input,
+        textarea,
+        select {
+            margin-bottom: 10px;
+            width: 100% !important;
+        }
+        &-input {
+            width: 350px;
+            max-width: 100%;
+            margin-bottom: 10px;
+            input {
+                width: 100% !important;
+                margin-bottom: 10px;
+                padding: 2px 2px 2px 10px;
+            }
+            select {
+                width: 100%;
+                margin-top: 5px;
+                height: 45px;
+                padding: 0 6px;
+            }
+        }
+    }
+    &__form-additional {
+        margin: 20px 0px;
+        padding-left: 24px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,62 @@
+.createEnvPage {
+    background: white;
+    margin: 0px auto;
+    width: 70%;
+    border-radius: 5px;
+
+    .form-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 30px 20px;
+
+        &__control {
+            min-width: 20%;
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+
+    .form-title {
+        padding-left: 30px;
+        color: gray;
+        font-size: 15px;
+    }
+
+    .form-body {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+
+        &__row {
+            display: flex;
+            justify-content: space-between;
+            height: 100px;
+            width: 100%;
+            gap: 48px;
+
+            &__wrapper {
+                width: 100%;
+            }
+        }
+
+
+
+        input {
+            margin-bottom: 10px;
+            padding: 2px 2px 2px 10px;
+            width: 100%;
+
+        }
+
+        select {
+            width: 100%;
+            margin-top: 5px;
+            height: 45px;
+            padding: 0 6px;
+        }
+
+
+    }
+}

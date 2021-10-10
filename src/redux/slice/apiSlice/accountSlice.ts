@@ -3,7 +3,7 @@ import { doGetListAccounts } from "../../asyncActions";
 
 type TypeinitialState = {
   isLoading: boolean;
-  listAccounts: Array<any>;
+  listAccounts: Array<ResAccount>;
   error: any;
 };
 
@@ -19,11 +19,26 @@ const slice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     //doGetListAccounts
-    builder.addCase(doGetListAccounts.pending, (state) => {});
+    builder.addCase(doGetListAccounts.pending, (state) => {
+      state.isLoading = true;
+    });
     builder.addCase(
       doGetListAccounts.fulfilled,
-      (state, payload: PayloadAction<IResGetListAccount>) => {}
+      (state, action: PayloadAction<IResGetListAccount>) => {
+        // console.log(action.payload);
+        if (action.payload.Result) {
+          state.listAccounts = action.payload.Content.Accounts;
+        } else {
+          state.error = action.payload.Result;
+        }
+        state.isLoading = false;
+      }
     );
+    builder.addCase(doGetListAccounts.rejected, (state, action) => {
+      const error = action.error;
+      state.error = error;
+      state.isLoading = false;
+    });
   },
 });
 
