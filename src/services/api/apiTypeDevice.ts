@@ -1,4 +1,4 @@
-import queryString from "query-string";
+
 import axiosClient from "./axiosClient";
 const bashUrl = "TypeDevice/";
 

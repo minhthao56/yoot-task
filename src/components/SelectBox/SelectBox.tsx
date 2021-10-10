@@ -5,7 +5,7 @@ interface ISelectBox {
 
     label?: string,
     placeholder?: string,
-    value?: string,
+    value?: number|string,
     onChange?: React.ChangeEventHandler<HTMLInputElement | HTMLSelectElement>
     id?: string,
     name?: string,
@@ -14,6 +14,9 @@ interface ISelectBox {
     handleOnChange: (valueSelect: number) => void;
 }
 export const SelectBox: FC<ISelectBox> = ({options, label, placeholder, value, id, name,handleOnChange, error }) => {
+    const defaultValue:any = (options:any,value:any)=>{
+        return options ? options.find((option:any) => option.value === value):'';
+    }
     return (
         <>
             <label className="Label" htmlFor={id}>{label}</label><br></br>

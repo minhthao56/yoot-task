@@ -10,9 +10,8 @@ import { apiProject } from "../../services";
 import "./CreateProjectPage.scss";
 const numberTr =[1,2,3,4];
 
-export const CreateProjectPage: React.FC<IPropsTab> = ({ tab}) => {
+export const CreateProjectPage = () => {
     const [showState, setshowState] = useState(1);
-
     const [listRow,setListRow] = useState(numberTr);
     // handler add row
     const handleAddRow = () => {
@@ -142,39 +141,39 @@ export const CreateProjectPage: React.FC<IPropsTab> = ({ tab}) => {
                     </div>
                     <div className={showState === 2 ? 'common' : 'tab'}>
                     <h4 className="person-join__title">Các thành viên</h4>
-            <div className="person-join__wrapper">
-                <div className="person-join__wrapper-header">
-                    <Button className="btn-addRow" handleOnClick={()=> {handleAddRow()}}>Thêm hàng</Button>
-                </div>  
-                <form className="person-join__wrapper-body">
-                    <Table 
-                    thead={["Người tham gia","Tác vụ"]}
-                    tbody={
-                        <Fragment>
-                        {
-                            listRow.map((number)=> (
-                                <tr key={number}>
-                                    <td>
-                                        <SelectBox id ="userJoin" name="userJoin"
-                                        options={formik.values.optionUser} handleOnChange={handleOnChange}/>
-                                    </td>
-                                    <td>
-                                        <div className="bt_style">
-                                            <button className="bt_style-delete" onClick={()=>{handleDeleteRow(number)}}>
-                                            <ImScissors />
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ))
-                        }
-                            
-                        </Fragment>   
-                    }
-                    />
-                    
-                </form>
-            </div>
+                        <div className="person-join__wrapper">
+                            <div className="person-join__wrapper-header">
+                                <Button className="btn-addRow" handleOnClick={()=> {handleAddRow()}}>Thêm hàng</Button>
+                            </div>  
+                            <form className="person-join__wrapper-body">
+                                <Table 
+                                thead={["Người tham gia","Tác vụ"]}
+                                tbody={
+                                    <Fragment>
+                                    {
+                                        listRow.map((number)=> (
+                                            <tr key={number}>
+                                                <td>
+                                                    <SelectBox id ="userJoin" name="userJoin"
+                                                    options={formik.values.optionUser} handleOnChange={handleOnChange}/>
+                                                </td>
+                                                <td>
+                                                    <div className="bt_style">
+                                                        <button className="bt_style-delete" onClick={()=>{handleDeleteRow(number)}}>
+                                                        <ImScissors />
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ))
+                                    }
+                                        
+                                    </Fragment>   
+                                }
+                                />
+                                
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

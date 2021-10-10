@@ -1,0 +1,65 @@
+@import "../../../assets/scss/variable";
+.bt{
+    display: flex;
+    justify-content: flex-end;
+    &_style{
+            margin-left: 10px;
+            &-info{
+                color: #fff;
+                background-color: $color-sky;
+                box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+                font-size: .999rem;
+                font-weight: 600;
+                line-height: 1.5;
+                padding: .600rem 1rem;
+                user-select: none;
+                text-align: center;
+                border-radius: .25rem;
+                border: 1px solid transparent;
+                box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
+            }
+            &-info:hover{
+                transform: translateY(-1px); 
+                box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08);
+            }
+            &-edit{
+                color: #fff;
+                background-color: $color-paleblue;
+                box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+                font-size: .999rem;
+                font-weight: 600;
+                line-height: 1.5;
+                padding: .600rem 1rem;
+                user-select: none;
+                text-align: center;
+                border-radius: .25rem;
+                border: 1px solid transparent;
+                box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
+            }
+            &-edit:hover{
+                transform: translateY(-1px); 
+                box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08);
+            }
+            &-delete{
+                color: #fff;
+                background-color: $color-red;
+                box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+                font-size: .999rem;
+                font-weight: 600;
+                line-height: 1.5;
+                padding: .600rem 1rem;
+                user-select: none;
+                text-align: center;
+                border-radius: .25rem;
+                border: 1px solid transparent;
+                box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);
+            }
+            &-delete:hover{
+                transform: translateY(-1px); 
+                box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08);
+            }
+
+    }
+    
+}
+

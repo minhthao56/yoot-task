@@ -35,22 +35,28 @@ export const FilterVersions: FC<IFilterVersion> = ({ handleSubmit }) => {
         <Feature handleOnClick={handleRetype} />
       </div>
       <div className="form-body">
-        <Input
-          label="Phiên bản"
-          placeholder="Nhập tên phiên bản"
-          type="text"
-          id="Version"
-          name="Version"
-          value={formik.values.Version}
-          onChange={formik.handleChange}
-        />
-        <SelectBox
-          label="Trạng thái"
-          id="status"
-          name="status"
-          options={formik.values.Options}
-          handleOnChange={handleOnChange}
-        />
+        <div>
+
+          <Input
+            label="Phiên bản"
+            placeholder="Nhập tên phiên bản"
+            type="text"
+            id="Version"
+            name="Version"
+            value={formik.values.Version}
+            onChange={formik.handleChange}
+          />
+        </div>
+        <div>
+
+          <SelectBox
+            label="Trạng thái"
+            id="status"
+            name="status"
+            options={formik.values.Options}
+            handleOnChange={handleOnChange}
+          />
+        </div>
       </div>
     </form>
   );

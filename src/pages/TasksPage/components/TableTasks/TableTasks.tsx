@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { RiPencilRulerFill } from "react-icons/ri";
-import { Actions, Button, Table } from "../../../../components";
+import { Button, Table } from "../../../../components";
 import './TableTasks.scss';
 const theadTask = [
 	"mã code","tiêu đề",
@@ -11,7 +11,7 @@ const theadTask = [
 ]
 
 interface IPropsData{
-	dataTask:any
+	dataTask:Array<ResTask>
 }
 
 export const TableTasks: React.FC<IPropsData> = ({dataTask}) => {
@@ -34,36 +34,48 @@ export const TableTasks: React.FC<IPropsData> = ({dataTask}) => {
 									<tr key={index} className="">
 										<td>
 											<b>
-												{task.code}
+												{task.Code}
 											</b>
 										</td>
 										<td>
-											{task.title}
+											{task.Title}
 										</td>
 										<td>
-											{task.personJoin}
+											{task.JoinUserNames}
 										</td>
 										<td>
 											<b>
-												{task.statusWork}
+												{task.StatusTaskText}
 											</b>
 										</td>
 										<td>
-											<span>Du an <b>{task.info}</b> </span>
-											<br />
-											<span>Du an <b>{task.info}</b> </span>
+											<p>Dự án: <b>{task.ProjectText}</b> </p>
+											<p>Hạn chót: <b>{task.Deadline}</b> </p>
+											<p>Môi trường: <b>{task.EnvironmentText}</b> </p>
+											<p>Thiết bị: <b>{task.TypeDeviceText}</b> </p>
+											<p>Ưu tiên :<b>{task.PriorityText}</b> </p>
 										</td>
 										<td>
-											{task.status}
+											{task.StatusText}
 										</td>
 										<td>
-											{task.infoCreated}
+											<p>
+												{task.CreateUserName}
+											</p>
+											<p>
+												{task.CreateDate}
+											</p>
 										</td>
 										<td>
-											{task.infoUpdate}
+											<p>
+												{task.UpdateUserName}
+											</p>
+											<p>
+												{task.UpdateDate}
+											</p>
 										</td>
 										<td>
-											<Link to={`/tasks/update/${task.Id}`} className="bt_style" target="_blank">
+											<Link to={`/tasks/update/${task.Id}`} className="bt_style" >
 												<button className="bt_style-edit" onClick={() =>{console.log(task.Id)}}>
 													<RiPencilRulerFill />
 												</button>

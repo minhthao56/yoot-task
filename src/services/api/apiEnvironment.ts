@@ -22,11 +22,11 @@ export const apiEnvironment = {
     // updateEnvironment
     updateEnvironment: (params: IParamsUpdateEnvironment) => {
         const url = bashUrl + "UpdateAlbum";
-        return axiosClient.put(url, params);
+        return axiosClient.post(url, params);
     },
     //deleteEnvironment
     deleteEnvironment: (params: IParamsEnvironmentId) => {
         const url = bashUrl + "DeleteEnvironment?" + queryString.stringify(params);
-        return axiosClient.delete(url);
+        return axiosClient.get(url);
     }
 };
