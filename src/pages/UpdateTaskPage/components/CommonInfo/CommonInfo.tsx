@@ -108,45 +108,36 @@ export const CommonInfo: React.FC<IPropsForm & IPropDataDetailTask & IPropsOptio
             
         },
     });
-    console.log('form',submitUpdate)
     const handleOnChange = (valueSelect: number) => {
 		setData(formik.values.Status = valueSelect);
-        console.log('status',formik.values.Status)
 	};
     const handleOnChangeProjectId = (valueSelect: number) => {
 		setData(formik.values.ProjectId = valueSelect);
-        console.log('project',formik.values.ProjectId);
 	};
     const handleOnChangeStatustaskid = (valueSelect: number) => {
 		setData(formik.values.Statustaskid = valueSelect);
-        console.log('statutask',formik.values.Statustaskid);
 	};
     const handleOnChangePriorityid = (valueSelect: number) => {
 		setData(formik.values.Priorityid = valueSelect);
-        console.log('Priorityid',formik.values.Priorityid);
 	};
     const handleOnChangeEnvironment = (valueSelect: number) => {
 		setData(formik.values.Environment = valueSelect);
-        console.log('env',formik.values.Environment);
 	};
     const handleOnChangeOpenedversion = (valueSelect: number) => {
 		setData(formik.values.Openedversion = valueSelect);
-        console.log('open',formik.values.Openedversion);
 	};
     const handleOnChangeFixedversion = (valueSelect: number) => {
 		setData(formik.values.Fixedversion = valueSelect);
-        console.log('fix',formik.values.Fixedversion);
 	};
     const handleOnChangeTypedevice = (valueSelect: number) => {
 		setData(formik.values.Typedevice = valueSelect);
-        console.log('type',formik.values.Typedevice);
 	};
     return (
         <>
 		    <Loader loadding = {loadding}/>
             <form action="" className="common-info show" onSubmit={formik.handleSubmit}>
                 <h4 className="common-info__title">Thông tin chung </h4>
-                <button type="submit">luu</button>
+                <Button isSave type="submit">luu</Button>
                 <div  className="common-info__form" >
                     <div className="common-info__form-row">
                         <div className="common-info__form-input">

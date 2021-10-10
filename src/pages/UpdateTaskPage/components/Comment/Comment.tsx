@@ -4,8 +4,7 @@ import './Comment.scss';
 
 
 export const Comment:React.FC<IPropDataDetailTaskComments> = ({dataComment}) => {
-    // const dataC = dataComment.map((item:any) => item.Id);
-    console.log('binh luan',dataComment.TaskComments);
+
     return (
         <div className="comment">
             <h4 className="image-video__title">Các bình luận </h4>

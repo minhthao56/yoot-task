@@ -115,6 +115,7 @@ export const UpdateTaskPage = () => {
 	}
 	const handlerSubmitUpdate =()=>{
 		setOnSubmitForm(true);
+		
 	}
     return (
         <div className="update-task">
@@ -122,7 +123,7 @@ export const UpdateTaskPage = () => {
 				<h3 className="update-task__header-title">Chỉnh sửa công việc</h3>
 				<div className="update-task__header-right">
 					<Button type="submit" isSave className="" handleOnClick={handlerSubmitUpdate}>Lưu</Button>
-					<Button type="submit" isCancel className="">Hủy</Button>
+					<Button type="submit" isCancel className="" handleOnClick={() => {window.location.replace('/tasks')}}>Hủy</Button>
 				</div>
 			</div>
 			<div className="update-task__body">
@@ -132,7 +133,7 @@ export const UpdateTaskPage = () => {
 					>
 						<div className="nav-tab__content">
 							<Tab isSelected={selected === 'Thông tin chung' }>
-								<CommonInfo dataDetailTask={detailTask}
+								<CommonInfo dataDetailTask={updateDetailTask}
 								listStatusTask={statusTask}
 								listVersion={version}
 								ListPriority={priority}

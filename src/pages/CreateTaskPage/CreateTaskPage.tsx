@@ -264,7 +264,7 @@ export const CreateTaskPage = () => {
 				<div className="create-task__header-right">
 					<Button type="submit" isUpdate className="">Cập nhập</Button>
 					<Button type="submit" isSave className="">Lưu</Button>
-					<Button type="submit" isCancel className="">Hủy</Button>
+					<Button type="submit" isCancel handleOnClick={()=> {window.location.replace('/tasks')}}>Hủy</Button>
 				</div>
 			</div>
 			<div className="create-task__body">
