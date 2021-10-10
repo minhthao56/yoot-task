@@ -4,7 +4,7 @@ import { GiLaptop } from "react-icons/gi";
 import { RiPencilRulerFill } from "react-icons/ri";
 import { ImScissors } from "react-icons/im";
 
-export const Actions: FC<IButton> = ({onDelete, onUpdate}) => {
+export const Actions: FC<IButton> = ({onDelete}) => {
   return (
     <div className="bt">
       <div className="bt_style">
@@ -13,7 +13,7 @@ export const Actions: FC<IButton> = ({onDelete, onUpdate}) => {
         </button>
       </div>
       <div className="bt_style">
-        <button className="bt_style-edit" onClick={()=>onUpdate}>
+        <button className="bt_style-edit">
           <RiPencilRulerFill />
         </button>
       </div>

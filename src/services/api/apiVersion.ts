@@ -26,6 +26,6 @@ export const apiVersion = {
   
     deleteVersion: (params: IParamsVersionId) => {
       const url = bashUrl + "DeleteVersion?" + queryString.stringify(params);
-      return axiosClient.delete(url);
+      return axiosClient.get(url);
     },
   };

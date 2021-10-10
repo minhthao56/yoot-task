@@ -1,7 +1,7 @@
 import { FC, Fragment } from "react";
 import { Actions, Table } from "../../../../components";
 
-export const TablePriority: FC<ITablePriority> = ({ dataPriorities }) => {
+export const TablePriority: FC<ITablePriority> = ({ dataPriorities,  handleDelete}) => {
   return (
     <Table
       thead={[
@@ -31,7 +31,7 @@ export const TablePriority: FC<ITablePriority> = ({ dataPriorities }) => {
                 {info.UpdateDate}
               </td>
               <td>
-                <Actions />
+              <Actions  onDelete = {()=>handleDelete(info.Id)}/>
               </td>
             </tr>
           ))}

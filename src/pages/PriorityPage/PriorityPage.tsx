@@ -36,6 +36,12 @@ export const PriorityPage = () => {
       console.log(error);
     }
   };
+  const handleDelete = (id: number) => {
+    apiPriority.deletePriority({Id: id})
+      .then(() =>{
+          window.location.replace("/priority");
+      })
+}
   const handleCreate = () => {};
   return (
     <div className="priority-page">
@@ -49,7 +55,7 @@ export const PriorityPage = () => {
             <Button isCreate type="submit" handleOnClick={handleCreate} />
           </Link>
         </div>
-        <TablePriority dataPriorities={dataPriorities} />
+        <TablePriority dataPriorities={dataPriorities} handleDelete = {handleDelete}/>
       </div>
     </div>
   );

@@ -38,14 +38,11 @@ export const VersionPage = () => {
   const handleCreate = () => {};
   const handleUpdate = () => {};
   const handleDelete = (id: number) => {
-      alert("Id"+id);
-      apiVersion.updateVersion({
-          Id: id,
-          Title: "Delete",
-          Status: 100,
-      }).then(() => {alert("Success")})
-  };
-
+      apiVersion.deleteVersion({Id: id})
+        .then(() =>{
+            window.location.replace("/version");
+        })
+  }
 
   return (
     <div className="version-page">

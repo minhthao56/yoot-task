@@ -26,7 +26,7 @@ export const TableVersions: FC<ITableVersion> = ({ dataVersions, handleUpdate, h
                 {info.UpdateDate}
               </td>
               <td>
-                <Actions onUpdate = {()=>handleUpdate()} onDelete = {()=>handleDelete(info.Id)}/>
+                <Actions  onDelete = {()=>handleDelete(info.Id)}/>
               </td>
             </tr>
           ))}
